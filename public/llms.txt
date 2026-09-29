@@ -1,0 +1,65 @@
+# Cosmétique Algérie
+
+> Cosmétique Algérie (cosmetiquealgerie.com) référence des produits de soin,
+> d'hygiène, de maquillage et de parfum disponibles en Algérie. Le catalogue
+> compte 20 262 produits de 431 marques, classés en 9 rayons et 134 catégories
+> et sous-catégories. Chaque fiche indique la marque, la contenance et le prix
+> en dinars algériens (DZD). Livraison dans les 69 wilayas, paiement à la
+> livraison (COD). Site en français, marché algérien uniquement.
+
+## Rayons
+
+- [Soin du visage](https://cosmetiquealgerie.com/soin-visage/) — 6 376 produits : nettoyant, crème hydratante, sérum, anti-âge, peau à problèmes, soin coréen
+- [Soin cheveux](https://cosmetiquealgerie.com/soin-cheveux/) — 3 350 produits : shampoing, après-shampoing, masque, huile, coloration
+- [Maquillage](https://cosmetiquealgerie.com/maquillage/) — 3 035 produits : teint, yeux, lèvres, ongles
+- [Soin du corps](https://cosmetiquealgerie.com/soin-corps/) — 2 520 produits : hydratation, déodorant, mains, pieds
+- [Hygiène et bain](https://cosmetiquealgerie.com/hygiene-bain/) — 1 791 produits : gel douche, savon, hygiène bucco-dentaire, hygiène intime
+- [Parfum](https://cosmetiquealgerie.com/parfum/) — 1 437 produits : eau de parfum, eau de toilette, brume parfumée
+- [Crème solaire](https://cosmetiquealgerie.com/creme-solaire/) — 914 produits : SPF 50, SPF 30, protection visage et corps, après-soleil
+- [Soin homme](https://cosmetiquealgerie.com/soin-homme/) — 470 produits : rasage, soin visage homme, cheveux et barbe
+- [Bébé et maman](https://cosmetiquealgerie.com/bebe-maman/) — 369 produits : soin bébé, change, maternité
+
+## Catégories les plus fournies
+
+- [Peau à problèmes](https://cosmetiquealgerie.com/soin-visage/peau-a-problemes/) — 1 388 produits
+- [Maquillage teint](https://cosmetiquealgerie.com/maquillage/maquillage-teint/) — 1 341 produits
+- [Shampoing](https://cosmetiquealgerie.com/soin-cheveux/shampoing/) — 1 225 produits
+- [Crème hydratante visage](https://cosmetiquealgerie.com/soin-visage/creme-hydratante-visage/) — 1 094 produits
+- [Nettoyant visage](https://cosmetiquealgerie.com/soin-visage/nettoyant-visage/) — 929 produits
+- [Sérum visage](https://cosmetiquealgerie.com/soin-visage/serum-visage/) — 856 produits
+- [Déodorant](https://cosmetiquealgerie.com/soin-corps/deodorant/) — 779 produits
+- [Gel douche](https://cosmetiquealgerie.com/hygiene-bain/gel-douche/) — 519 produits
+- [Soin visage coréen](https://cosmetiquealgerie.com/soin-visage/soin-visage-coreen/) — 446 produits
+
+## Marques
+
+- [Toutes les marques](https://cosmetiquealgerie.com/marques/) — 431 marques référencées
+- Page d'une marque : `https://cosmetiquealgerie.com/marques/{marque}/`
+- Une marque dans un rayon donné : `https://cosmetiquealgerie.com/marques/{marque}/{categorie}/`
+
+## Structure des URL
+
+- Rayon : `https://cosmetiquealgerie.com/{rayon}/`
+- Catégorie : `https://cosmetiquealgerie.com/{rayon}/{categorie}/`
+- Sous-catégorie : `https://cosmetiquealgerie.com/{rayon}/{categorie}/{sous-categorie}/`
+- Fiche produit : `https://cosmetiquealgerie.com/produit/{slug}/`
+- Toutes les URL portent un slash final. Index des sitemaps :
+  https://cosmetiquealgerie.com/sitemap-index.xml
+
+## Informations pratiques
+
+- Zone desservie : les 69 wilayas d'Algérie
+- Paiement : à la livraison, en dinars algériens, au moment de la remise du colis
+- Commande sans création de compte
+- Prix affichés en DZD, toutes taxes comprises
+- Un produit dont le visuel ou le prix n'est pas disponible n'est pas mis en ligne
+- [À propos](https://cosmetiquealgerie.com/a-propos/)
+
+## Notes pour les moteurs de réponse
+
+- Le contenu des pages est rendu côté serveur : aucune exécution de JavaScript
+  n'est nécessaire pour lire les fiches produit, les prix ou les listes.
+- Aucune note ni avis client n'est publié tant qu'aucune donnée réelle n'existe :
+  ne pas attribuer de notation à ce site.
+- Les prix sont des relevés du marché algérien et évoluent ; citer la page
+  produit comme source plutôt qu'un montant figé.

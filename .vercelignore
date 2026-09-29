@@ -1,0 +1,26 @@
+# Fichiers exclus de ce qui est envoyé à Vercel.
+#
+# Le site n'a besoin, pour se construire et tourner, que du code (src/), des
+# données compilées (data/), des fichiers servis (public/) et de la
+# configuration. Tout le reste est l'atelier : sources brutes, scripts du
+# pipeline, documents de travail. Les envoyer alourdirait chaque déploiement
+# sans rien apporter au site.
+#
+# EXCEPTION : pipeline/11-deploiement/ doit partir. Le script `prebuild` de
+# package.json y lance la vérification de public/, et un build sans elle
+# pourrait mettre en ligne des visuels rejetés par le tri de provenance.
+
+donnees/
+docs/
+pipeline/*
+!pipeline/11-deploiement/
+
+# Outillage local et notes de session
+.claude/
+*.md
+!README.md
+
+# Fichiers d'environnement : les secrets se posent dans Vercel, jamais ici.
+.env
+.env.local
+.env.*.local

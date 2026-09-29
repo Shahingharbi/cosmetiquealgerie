@@ -1,0 +1,67 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+build/
+dist/
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# Local settings (not project config)
+.claude/settings.local.json
+
+# User-specific skills (not part of the template)
+.claude/skills/customize/
+.claude/skills/release/
+
+# Local temp files
+temp/
+
+# ─── Visuels ─────────────────────────────────────────────────────────────────
+#
+# public/produits-web/ est VERSIONNE, et c'est volontaire : Vercel deploie ce
+# que contient le depot, et un dossier ignore ici part en ligne vide. Le site
+# se deploierait alors sans une seule image produit.
+#
+# Il ne contient QUE les visuels references par data/produits.json, retenus par
+# le tri de provenance. Les visuels rejetes et les telechargements bruts ont
+# ete sortis du depot par pipeline/11-deploiement/isoler_images.py, vers
+# ../images-hors-ligne/, hors de toute portee de git.
+#
+# Les deux regles ci-dessous sont une ceinture de securite : si le pipeline
+# d'images est relance, il recree ces dossiers dans public/. Ils contiennent
+# les photos des marchands concurrents avant tout tri, et ne doivent jamais
+# etre ni versionnes ni servis.
+public/produits/
+public/produits-obf/
