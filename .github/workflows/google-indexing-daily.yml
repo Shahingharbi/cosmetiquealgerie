@@ -1,11 +1,24 @@
 name: Google Indexing API — Daily Submit
 
 on:
-  schedule:
-    # Every day at 09:00 UTC = 10:00 Algiers time
-    # Google Indexing API quota resets at midnight Pacific Time = 07:00-08:00 UTC
-    # Running at 09:00 UTC ensures the quota is always fresh
-    - cron: "0 9 * * *"
+  # ⏸ PASSAGE AUTOMATIQUE DÉSACTIVÉ — en attente d'un projet Google Cloud dédié.
+  #
+  # Les 200 soumissions quotidiennes de l'Indexing API sont un quota du PROJET Google
+  # Cloud, pas du site. Le compte indexing-bot (projet seo-indexing-495516) sert aussi
+  # le site de parfum, dont le robot tourne chaque jour à 09:00 UTC et consomme ses 200.
+  # Constaté le 29/09/2026 : le premier appel de ce robot-ci a reçu un 429. Laisser les
+  # deux passages automatiques actifs, c'est les faire se disputer le même quota chaque
+  # matin — et le second à tourner échoue.
+  #
+  # Décision du propriétaire : le site de parfum garde ses 200, celui-ci attend son
+  # propre projet Google Cloud. Pour réactiver, une fois ce projet créé :
+  #   1. remplacer le secret GOOGLE_INDEXING_CREDENTIALS_JSON par la clé du NOUVEAU
+  #      compte de service, ajouté propriétaire de sc-domain:cosmetiquealgerie.com ;
+  #   2. décommenter les trois lignes ci-dessous.
+  #
+  # schedule:
+  #   # Every day at 10:00 UTC = 11:00 Algiers time
+  #   - cron: "0 10 * * *"
   workflow_dispatch:
     # Manual trigger from GitHub UI
     inputs:
@@ -41,7 +54,7 @@ jobs:
         env:
           GOOGLE_INDEXING_CREDENTIALS_JSON: ${{ secrets.GOOGLE_INDEXING_CREDENTIALS_JSON }}
         run: |
-          LIMIT="${{ github.event.inputs.limit || '200' }}"
+          LIMIT="${{ github.event.inputs.limit || '100' }}"
           node scripts/google-indexing-api.mjs --limit=$LIMIT
 
       - name: Commit updated log

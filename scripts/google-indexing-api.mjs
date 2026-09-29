@@ -30,6 +30,12 @@ const LOG_PATH = "./data/indexing-log.json";
 // Sur ce site, /sitemap.xml est un INDEX de sitemaps (un fichier par type de page
 // et par département), pas une liste de pages : voir fetchSitemap().
 const SITEMAP_URL = "https://cosmetiquealgerie.com/sitemap.xml";
+// ⚠ 200 suppose un projet Google Cloud DÉDIÉ à ce site. Les 200 soumissions par jour
+// de l'Indexing API sont un quota du PROJET, pas du site. Le compte indexing-bot
+// actuel (projet seo-indexing-495516) sert aussi le site de parfum, qui consomme ses
+// 200 chaque matin : le 29/09/2026, le premier appel d'ici a reçu un 429. Le passage
+// automatique est donc coupé (voir le workflow) jusqu'à ce que ce site ait son propre
+// projet et son propre compte de service.
 const DAILY_QUOTA = 200;
 const RATE_LIMIT_MS = 150;
 const INSPECT_URL = "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect";
@@ -197,11 +203,28 @@ function isIndexed(state) {
 // moindre erreur visible. On suit donc l'index, fichier par fichier, dans son ordre :
 // il place les pages les plus travaillées (rayons, marques) avant les fiches produit.
 async function fetchSitemap() {
+  // Suivre l'index multiplie les téléchargements : 17 ici au lieu d'un seul. Sans
+  // nouvelle tentative, un unique raté réseau passager sur l'un d'eux faisait échouer
+  // tout le passage du jour (vu en test le 29/09/2026, alors que 48 téléchargements
+  // suivants ont tous réussi). Trois essais, espacés de 2 puis 4 s. Un 404 n'est pas
+  // réessayé : c'est un fichier absent, pas un incident.
   const lire = async (url) => {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`Sitemap fetch failed: ${res.status} (${url})`);
-    const xml = await res.text();
-    return { xml, locs: [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim()) };
+    let derniere;
+    for (let essai = 1; essai <= 3; essai++) {
+      try {
+        const res = await fetch(url);
+        if (res.status === 404) throw Object.assign(new Error(`Sitemap introuvable : 404 (${url})`), { definitif: true });
+        if (!res.ok) throw new Error(`Sitemap fetch failed: ${res.status} (${url})`);
+        const xml = await res.text();
+        return { xml, locs: [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim()) };
+      } catch (e) {
+        derniere = e;
+        if (e.definitif || essai === 3) break;
+        console.log(`  (sitemap : essai ${essai} échoué, nouvelle tentative — ${url})`);
+        await new Promise((r) => setTimeout(r, 2000 * essai));
+      }
+    }
+    throw derniere;
   };
 
   const racine = await lire(SITEMAP_URL);
@@ -507,13 +530,21 @@ async function main() {
   // plusieurs jours. Avec 2 227 URLs et 200 pings par jour, un tour complet prend
   // onze jours — c'est précisément la page neuve qui ne peut pas attendre, puisque
   // c'est la seule que Google ne connaît pas encore.
+  // UNE seule heure pour tout le passage. Appeler Date.now() à chaque tour de boucle
+  // datait les URLs à quelques millisecondes d'écart : celles de la fin du sitemap
+  // paraissaient « plus récentes » et passaient en tête de file. Sur un site neuf,
+  // dont tout le sitemap apparaît le même jour, la file démarrait donc sur des fiches
+  // produit prises au hasard (vu le 29/09/2026 : des gels douche) au lieu de l'accueil,
+  // des rayons et des marques. À heure égale, le tri stable garde l'ordre du sitemap,
+  // qui place volontairement les pages les plus fortes en premier.
+  const maintenant = Date.now();
   if (!log.firstSeen) {
     // Amorçage : une URL déjà soumise est connue depuis ce jour-là ; les autres
     // apparaissent aujourd'hui pour ce qu'en sait le journal.
     log.firstSeen = {};
-    for (const u of allUrls) log.firstSeen[u] = log.submitted[u] || Date.now();
+    for (const u of allUrls) log.firstSeen[u] = log.submitted[u] || maintenant;
   } else {
-    for (const u of allUrls) if (!log.firstSeen[u]) log.firstSeen[u] = Date.now();
+    for (const u of allUrls) if (!log.firstSeen[u]) log.firstSeen[u] = maintenant;
   }
 
   // ── File de ping : non indexées d'abord (plus anciennement pingées), puis inconnues ──
