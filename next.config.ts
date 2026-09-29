@@ -5,6 +5,29 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
 
   /**
+   * `/sitemap.xml` sert l'index des sitemaps, par réécriture.
+   *
+   * C'est l'adresse conventionnelle, et celle que lit le robot Google Indexing
+   * API. Une route `app/sitemap.xml/route.ts` était la voie évidente, et elle
+   * casse le build : Next réserve `/sitemap.xml` au fichier `app/sitemap.ts`
+   * (« Conflicting route and metadata at /sitemap.xml »), même quand celui-ci
+   * découpe en plusieurs fichiers via `generateSitemaps` et ne sert donc rien à
+   * cette adresse. Une réécriture n'est pas une route : pas de conflit.
+   *
+   * `beforeFiles` : la réécriture passe avant la résolution des fichiers, pour
+   * que l'adresse réservée par Next ne l'emporte jamais. Réponse 200 avec le
+   * contenu de l'index — pas une redirection, que certains outils ne suivent
+   * pas sur un sitemap.
+   */
+  async rewrites() {
+    return {
+      beforeFiles: [{ source: "/sitemap.xml", destination: "/sitemap-index.xml" }],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
+
+  /**
    * Chaque worker de build charge tout le catalogue en memoire. Windows Defender scanne chaque fichier ecrit : au-dela de 2 workers la
    * contention verrouille des fichiers (errno -4094). 2 workers passent
    * de maniere fiable, et le build reste tres en dessous des 45 minutes
