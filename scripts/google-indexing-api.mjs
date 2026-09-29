@@ -1,0 +1,613 @@
+#!/usr/bin/env node
+// Google Indexing API — auto-submit URLs to Google for re-indexing.
+// Usage:
+//   node scripts/google-indexing-api.mjs --url=https://cosmetiquealgerie.com/   (test 1 URL)
+//   node scripts/google-indexing-api.mjs                                       (daily batch up to 200 URLs)
+//   node scripts/google-indexing-api.mjs --dry-run                             (no API call, preview only)
+//
+// Credentials path: .credentials/google-indexing.json (gitignored)
+//   or env var GOOGLE_INDEXING_CREDENTIALS_JSON (full JSON string, for Vercel/CI)
+
+import fs from "fs";
+import path from "path";
+import crypto from "crypto";
+
+const CREDENTIALS_PATH = process.env.GOOGLE_INDEXING_CREDENTIALS_FILE
+  || "./.credentials/google-indexing.json";
+const CREDENTIALS_JSON = process.env.GOOGLE_INDEXING_CREDENTIALS_JSON;
+// Deux scopes séparés, DEUX tokens distincts (voir getAccessToken) — Indexing API
+// est capricieuse sur un token multi-scope (panne 401 du 09/06/2026 après ajout de
+// webmasters.readonly au scope unique ; corrigé le 14/09/2026). Ne jamais refusionner.
+const INDEXING_SCOPE = "https://www.googleapis.com/auth/indexing";
+const GSC_SCOPE = "https://www.googleapis.com/auth/siteverification https://www.googleapis.com/auth/webmasters.readonly";
+const TOKEN_URL = "https://oauth2.googleapis.com/token";
+const PUBLISH_URL = "https://indexing.googleapis.com/v3/urlNotifications:publish";
+const VERIFY_TOKEN_URL = "https://www.googleapis.com/siteVerification/v1/token";
+const VERIFY_INSERT_URL = "https://www.googleapis.com/siteVerification/v1/webResource";
+const VERIFY_LIST_URL = "https://www.googleapis.com/siteVerification/v1/webResource";
+const SITE = "https://cosmetiquealgerie.com/";
+const LOG_PATH = "./data/indexing-log.json";
+// Sur ce site, /sitemap.xml est un INDEX de sitemaps (un fichier par type de page
+// et par département), pas une liste de pages : voir fetchSitemap().
+const SITEMAP_URL = "https://cosmetiquealgerie.com/sitemap.xml";
+const DAILY_QUOTA = 200;
+const RATE_LIMIT_MS = 150;
+const INSPECT_URL = "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect";
+const SITES_URL = "https://searchconsole.googleapis.com/webmasters/v3/sites";
+const INDEX_STALE_DAYS = 7;   // re-vérifier le statut d'indexation au-delà de X jours
+const INSPECT_BUDGET = 1500;  // quota URL Inspection = 2000/jour, marge de sécurité
+
+function base64url(input) {
+  return Buffer.from(input)
+    .toString("base64")
+    .replace(/=/g, "")
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_");
+}
+
+async function getAccessToken(creds, scope) {
+  const now = Math.floor(Date.now() / 1000);
+  const claim = {
+    iss: creds.client_email,
+    scope,
+    aud: TOKEN_URL,
+    exp: now + 3600,
+    iat: now,
+  };
+  const header = { alg: "RS256", typ: "JWT" };
+  const signingInput = `${base64url(JSON.stringify(header))}.${base64url(JSON.stringify(claim))}`;
+  const signature = crypto.createSign("RSA-SHA256").update(signingInput).sign(creds.private_key);
+  const encodedSig = signature
+    .toString("base64")
+    .replace(/=/g, "")
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_");
+  const jwt = `${signingInput}.${encodedSig}`;
+
+  const res = await fetch(TOKEN_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      assertion: jwt,
+    }),
+  });
+  if (!res.ok) {
+    throw new Error(`Token exchange failed: ${res.status} ${await res.text()}`);
+  }
+  const data = await res.json();
+  return data.access_token;
+}
+
+async function getVerificationToken(accessToken, method = "FILE") {
+  const res = await fetch(VERIFY_TOKEN_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      verificationMethod: method,
+      site: { identifier: SITE, type: "SITE" },
+    }),
+  });
+  const text = await res.text();
+  if (!res.ok) {
+    throw new Error(`Verification token request failed: ${res.status} ${text}`);
+  }
+  return JSON.parse(text);
+}
+
+async function insertVerification(accessToken, method = "FILE") {
+  const res = await fetch(`${VERIFY_INSERT_URL}?verificationMethod=${method}`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      site: { identifier: SITE, type: "SITE" },
+    }),
+  });
+  const text = await res.text();
+  return { status: res.status, body: text };
+}
+
+async function listVerifications(accessToken) {
+  const res = await fetch(VERIFY_LIST_URL, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+  const text = await res.text();
+  return { status: res.status, body: text };
+}
+
+async function publishUrl(accessToken, url) {
+  const res = await fetch(PUBLISH_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ url, type: "URL_UPDATED" }),
+  });
+  const text = await res.text();
+  return { status: res.status, body: text };
+}
+
+async function getUrlMetadata(accessToken, url) {
+  const endpoint = `https://indexing.googleapis.com/v3/urlNotifications/metadata?url=${encodeURIComponent(url)}`;
+  const res = await fetch(endpoint, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${accessToken}` },
+  });
+  const text = await res.text();
+  return { status: res.status, body: text };
+}
+
+async function listSites(accessToken) {
+  const res = await fetch(SITES_URL, { headers: { Authorization: `Bearer ${accessToken}` } });
+  if (!res.ok) return [];
+  const data = await res.json().catch(() => ({}));
+  return data.siteEntry || [];
+}
+
+// Trouve la propriété Search Console du site (préfère la propriété domaine).
+//
+// ⚠ Le motif doit désigner CE site. Laissé sur le nom du site d'origine du script,
+// il ne trouvait aucune propriété et le script basculait EN SILENCE sur l'ancienne
+// logique, sans phase d'inspection ni ciblage des pages non indexées.
+async function resolveProperty(accessToken) {
+  try {
+    const sites = await listSites(accessToken);
+    const mn = sites.map((s) => s.siteUrl).filter((u) => /cosmetiquealgerie/.test(u));
+    return mn.find((u) => u.startsWith("sc-domain:")) || mn[0] || null;
+  } catch {
+    return null;
+  }
+}
+
+// Statut d'indexation réel d'une URL via l'API URL Inspection de GSC.
+// Résilient : une panne réseau passagère renvoie {ok:false} au lieu de crasher le run.
+async function inspectIndexStatus(accessToken, siteUrl, url) {
+  try {
+    const res = await fetch(INSPECT_URL, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ inspectionUrl: url, siteUrl }),
+    });
+    if (!res.ok) return { ok: false, status: res.status, state: null };
+    const data = await res.json().catch(() => ({}));
+    const r = (data.inspectionResult && data.inspectionResult.indexStatusResult) || {};
+    return { ok: true, status: 200, state: r.coverageState || "unknown" };
+  } catch {
+    return { ok: false, status: 0, state: null };
+  }
+}
+
+// "indexée" = coverageState contient "indexed" sans "not indexed".
+function isIndexed(state) {
+  return typeof state === "string" && /indexed/i.test(state) && !/not indexed/i.test(state);
+}
+
+// Adaptation propre à ce site : /sitemap.xml est un INDEX (<sitemapindex>) qui pointe
+// vers un fichier par type de page et par département. Le script d'origine lisait les
+// <loc> d'un seul fichier : pointé sur un index, il aurait renvoyé les adresses des
+// SOUS-SITEMAPS et les aurait soumises à l'Indexing API comme des pages — sans la
+// moindre erreur visible. On suit donc l'index, fichier par fichier, dans son ordre :
+// il place les pages les plus travaillées (rayons, marques) avant les fiches produit.
+async function fetchSitemap() {
+  const lire = async (url) => {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Sitemap fetch failed: ${res.status} (${url})`);
+    const xml = await res.text();
+    return { xml, locs: [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1].trim()) };
+  };
+
+  const racine = await lire(SITEMAP_URL);
+  if (!/<sitemapindex[\s>]/.test(racine.xml)) return racine.locs;
+
+  const urls = [];
+  for (const enfant of racine.locs) {
+    const { locs } = await lire(enfant);
+    urls.push(...locs);
+  }
+  // Une URL présente dans deux segments ne doit être comptée qu'une fois.
+  return [...new Set(urls)];
+}
+
+function loadCredentials() {
+  if (CREDENTIALS_JSON) {
+    return JSON.parse(CREDENTIALS_JSON);
+  }
+  if (!fs.existsSync(CREDENTIALS_PATH)) {
+    throw new Error(
+      `Credentials file not found at ${CREDENTIALS_PATH}. Set GOOGLE_INDEXING_CREDENTIALS_JSON env var or place the JSON at this path.`
+    );
+  }
+  return JSON.parse(fs.readFileSync(CREDENTIALS_PATH, "utf8"));
+}
+
+function loadLog() {
+  if (!fs.existsSync(LOG_PATH)) {
+    return { submitted: {}, runs: [], lastRun: null };
+  }
+  try {
+    const data = JSON.parse(fs.readFileSync(LOG_PATH, "utf8"));
+    // On repart de l'objet ENTIER. Cette fonction ne recopiait que submitted, runs et
+    // lastRun : indexStatus et firstSeen étaient jetés à chaque lancement, puis
+    // réécrits à la fin avec seulement ce que le run avait vu. Résultat, de juin au
+    // 29/09/2026 : le robot ré-inspectait chaque jour les mêmes ~480 premières URLs
+    // du sitemap et oubliait tout le lendemain — le ciblage des pages non indexées
+    // n'a jamais porté au-delà — et le tri par firstSeen était ré-amorcé à chaque run.
+    return {
+      ...data,
+      submitted: data.submitted || {},
+      runs: data.runs || [],
+      lastRun: data.lastRun || null,
+      indexStatus: data.indexStatus || {},
+    };
+  } catch {
+    return { submitted: {}, runs: [], lastRun: null };
+  }
+}
+
+function saveLog(log) {
+  const dir = path.dirname(LOG_PATH);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(LOG_PATH, JSON.stringify(log, null, 2));
+}
+
+// ── Verrou : une seule instance à la fois ──────────────────────────────────
+// Chaque instance charge le journal au démarrage et le réécrit en entier à la fin :
+// la dernière à finir écrase les soumissions de l'autre. C'est arrivé le 26/09/2026
+// sur le site de parfum — un test à blanc oublié en arrière-plan a effacé la trace de
+// 198 soumissions réussies et 557 statuts d'indexation. Ce n'était qu'une règle
+// écrite ; ici elle est imposée.
+//
+// Le verrou couvre AUSSI --dry-run : la phase d'inspection y sauvegarde le journal.
+// Au-delà de 3 h, un verrou est tenu pour celui d'une instance plantée et repris :
+// un run normal dure moins de 30 min (inspection plafonnée à 20).
+const LOCK_PATH = `${LOG_PATH}.lock`;
+const LOCK_MAX_AGE_MS = 3 * 3600 * 1000;
+
+function prendreVerrou() {
+  const trace = JSON.stringify({ pid: process.pid, depuis: new Date().toISOString() });
+  if (!fs.existsSync(path.dirname(LOCK_PATH))) fs.mkdirSync(path.dirname(LOCK_PATH), { recursive: true });
+  try {
+    fs.writeFileSync(LOCK_PATH, trace, { flag: "wx" });
+  } catch (e) {
+    if (e.code !== "EEXIST") throw e;
+    const age = Date.now() - fs.statSync(LOCK_PATH).mtimeMs;
+    if (age < LOCK_MAX_AGE_MS) {
+      throw new Error(
+        `Une autre instance tourne déjà (verrou ${LOCK_PATH}, posé il y a ${Math.round(age / 60000)} min). ` +
+          "Deux instances simultanées s'écrasent mutuellement le journal. Attendre sa fin, " +
+          "ou supprimer le verrou si l'on est CERTAIN qu'aucune ne tourne."
+      );
+    }
+    console.log(`Verrou périmé (${Math.round(age / 60000)} min), repris.`);
+    fs.writeFileSync(LOCK_PATH, trace);
+  }
+  const liberer = () => {
+    try { fs.unlinkSync(LOCK_PATH); } catch { /* déjà libéré */ }
+  };
+  process.on("exit", liberer);
+  // Un Ctrl+C ne déclenche pas l'événement « exit » : sans cela le verrou resterait.
+  for (const signal of ["SIGINT", "SIGTERM"]) {
+    process.on(signal, () => { liberer(); process.exit(130); });
+  }
+}
+
+const args = process.argv.slice(2);
+const TEST_URL = args.find((a) => a.startsWith("--url="))?.slice(6);
+const DRY_RUN = args.includes("--dry-run");
+const LIMIT_ARG = args.find((a) => a.startsWith("--limit="));
+const LIMIT = LIMIT_ARG ? parseInt(LIMIT_ARG.slice(8), 10) : DAILY_QUOTA;
+const VERIFY_INIT = args.includes("--verify-init");
+const VERIFY_DO = args.includes("--verify");
+const VERIFY_LIST = args.includes("--verify-list");
+const VERIFY_METHOD = args.find((a) => a.startsWith("--method="))?.slice(9) || "FILE";
+const CHECK_STATUS = args.find((a) => a.startsWith("--check="))?.slice(8);
+const INSPECT_LIMIT_ARG = args.find((a) => a.startsWith("--inspect-limit="));
+const INSPECT_LIMIT = INSPECT_LIMIT_ARG ? parseInt(INSPECT_LIMIT_ARG.slice(16), 10) : INSPECT_BUDGET;
+// Liste explicite (un chemin vers un fichier, une URL par ligne) : passe devant la file
+// calculée. Sert le lendemain d'un gros ajout, quand on sait exactement quelles pages
+// Google ne connaît pas encore et qu'on ne veut pas attendre le tour du sitemap.
+const URLS_FILE = args.find((a) => a.startsWith("--urls-file="))?.slice(12);
+
+async function main() {
+  const creds = loadCredentials();
+  console.log(`Service Account: ${creds.client_email}`);
+  console.log(`Project: ${creds.project_id}`);
+
+  // ── Tokens : un par scope, et RENOUVELÉS avant expiration ──────────────
+  // Un token Google vit une heure. Or la phase URL Inspection coûte ~7,5 s par URL
+  // (mesuré le 29/09/2026 : 197 s pour 25) : une heure n'en couvre que ~480. Le job
+  // CI dépassait donc l'heure AVANT de commencer à soumettre, avec un token mort
+  // depuis plusieurs minutes — 401 sur 100 % des pings, tous les jours du 09/06 au
+  // 28/09/2026. La panne a commencé le lendemain de l'ajout de cette phase (3c4d326,
+  // 08/06). Séparer les scopes le 14/09 n'y changeait rien, et un test local lancé
+  // avec --inspect-limit=0 ou --url= soumettait à la seconde : il ne pouvait pas
+  // reproduire le problème. Le mail de GitHub, lui, disait « Failed in 1 hour, 4
+  // minutes » : la durée était l'indice.
+  const TOKEN_MAX_AGE_MS = Number(process.env.TOKEN_MAX_AGE_MS) || 45 * 60 * 1000;
+  const cache = new Map();
+  const jeton = async (scope) => {
+    const c = cache.get(scope);
+    if (c && Date.now() - c.at < TOKEN_MAX_AGE_MS) return c.value;
+    const value = await getAccessToken(creds, scope);
+    if (c) console.log(`  (token ${scope === INDEXING_SCOPE ? "Indexing" : "Search Console"} renouvelé)`);
+    cache.set(scope, { value, at: Date.now() });
+    return value;
+  };
+
+  console.log("Requesting access tokens...");
+  // Token dédié Indexing API (publishUrl / getUrlMetadata) — scope pur, jamais mélangé.
+  // Demandés d'emblée pour qu'une vraie panne d'authentification échoue tout de suite.
+  const token = await jeton(INDEXING_SCOPE);
+  // Token dédié Search Console (Site Verification + URL Inspection).
+  const gscToken = await jeton(GSC_SCOPE);
+  console.log("Access tokens: OK\n");
+
+  // ---------- Site Verification: list current ownerships ----------
+  if (VERIFY_LIST) {
+    console.log("Listing current Site Verification ownerships for this SA...");
+    const result = await listVerifications(gscToken);
+    console.log(`HTTP ${result.status}`);
+    console.log(result.body);
+    return;
+  }
+
+  // ---------- Site Verification: get token (FILE or META) ----------
+  if (VERIFY_INIT) {
+    console.log(`Requesting Site Verification token (method: ${VERIFY_METHOD})...`);
+    const data = await getVerificationToken(gscToken, VERIFY_METHOD);
+    console.log("\n=== VERIFICATION TOKEN RECEIVED ===");
+    console.log(JSON.stringify(data, null, 2));
+    if (VERIFY_METHOD === "FILE") {
+      console.log(`\nNext step: place a file at /public/${data.token} with content:`);
+      console.log(`  google-site-verification: ${data.token}`);
+      console.log("Then run: node scripts/google-indexing-api.mjs --verify --method=FILE");
+    } else if (VERIFY_METHOD === "META") {
+      console.log(`\nNext step: add this meta tag to the <head> of the homepage:`);
+      console.log(`  <meta name="google-site-verification" content="${data.token.replace(/^.*content="?([^"]+)".*$/s, "$1")}" />`);
+      console.log("Then run: node scripts/google-indexing-api.mjs --verify --method=META");
+    }
+    return;
+  }
+
+  // ---------- Site Verification: insert (validate ownership) ----------
+  if (VERIFY_DO) {
+    console.log(`Requesting Google to verify ownership via ${VERIFY_METHOD}...`);
+    const result = await insertVerification(gscToken, VERIFY_METHOD);
+    console.log(`HTTP ${result.status}`);
+    console.log(result.body);
+    if (result.status === 200) {
+      console.log("\n✓ SUCCESS — Service Account is now a verified owner.");
+      console.log("  Try the indexing API now: node scripts/google-indexing-api.mjs --url=https://cosmetiquealgerie.com/");
+    } else {
+      console.log("\n✗ Verification failed. Common causes:");
+      console.log("  - File not yet deployed (wait for Vercel build, ~1-2 min)");
+      console.log("  - File path wrong (must be /public/{token}, accessible at https://cosmetiquealgerie.com/{token})");
+      console.log("  - Site Verification API not enabled on GCP project");
+    }
+    return;
+  }
+
+  // ---------- Check status of a previously submitted URL ----------
+  if (CHECK_STATUS) {
+    console.log(`Checking metadata for: ${CHECK_STATUS}`);
+    const result = await getUrlMetadata(token, CHECK_STATUS);
+    console.log(`HTTP ${result.status}`);
+    console.log(result.body);
+    return;
+  }
+
+  // ---------- Single URL test mode ----------
+  if (TEST_URL) {
+    console.log(`Test mode — submitting: ${TEST_URL}`);
+    if (DRY_RUN) {
+      console.log("DRY RUN — no API call");
+      return;
+    }
+    const result = await publishUrl(token, TEST_URL);
+    console.log(`HTTP ${result.status}`);
+    console.log(result.body);
+    if (result.status === 200) {
+      console.log("\n✓ SUCCESS — Google has accepted the URL for re-indexing.");
+    } else if (result.status === 403) {
+      console.log("\n✗ 403 — Service Account is not recognized as Owner of the site.");
+      console.log("  Solution: add SA email to GSC as Owner, OR use Site Verification API.");
+    } else {
+      console.log("\n✗ Unexpected response.");
+    }
+    return;
+  }
+
+  // ---------- Daily batch mode ----------
+  // Seul ce mode lit et réécrit le journal : c'est lui qui prend le verrou.
+  prendreVerrou();
+  console.log(`Fetching sitemap from ${SITEMAP_URL}...`);
+  const allUrls = await fetchSitemap();
+  console.log(`Found ${allUrls.length} URLs in sitemap\n`);
+
+  const log = loadLog();
+  const today = new Date().toISOString().split("T")[0];
+  let runEntry = log.runs.find((r) => r.date === today);
+  if (!runEntry) {
+    runEntry = { date: today, urls: [], errors: [] };
+    log.runs.push(runEntry);
+  }
+  const todaySubmitted = runEntry.urls.length;
+  const remaining = Math.max(0, Math.min(LIMIT, DAILY_QUOTA - todaySubmitted));
+  console.log(`Aujourd'hui (${today}): ${todaySubmitted}/${DAILY_QUOTA} pings utilisés — reste ${remaining}\n`);
+
+  // ── Statut d'indexation via GSC (URL Inspection) ─────────────────────────
+  // On concentre les pings sur les pages NON indexées, au lieu de re-pinger
+  // en boucle des pages déjà indexées (inutile pour l'indexation).
+  if (!log.indexStatus) log.indexStatus = {};
+  const property = await resolveProperty(gscToken);
+
+  if (property) {
+    console.log(`Propriété GSC: ${property}`);
+    const staleMs = INDEX_STALE_DAYS * 86400 * 1000;
+    const toInspect = allUrls
+      .filter((u) => {
+        const s = log.indexStatus[u];
+        return !s || !s.checkedAt || Date.now() - s.checkedAt > staleMs;
+      })
+      .slice(0, INSPECT_LIMIT);
+    // Plafond de DURÉE, pas seulement de nombre : à ~7,5 s l'appel, 1 500 inspections
+    // prendraient trois heures. Ce qui n'est pas inspecté aujourd'hui l'est demain —
+    // la file reprend sur les statuts manquants ou périmés.
+    const INSPECT_MAX_MS = (Number(process.env.INSPECT_MAX_MIN) || 20) * 60 * 1000;
+    const debutInspection = Date.now();
+    console.log(`Inspection de ${toInspect.length} URLs au plus, ${INSPECT_MAX_MS / 60000} min max (statut manquant ou > ${INDEX_STALE_DAYS}j)...`);
+    let insp = 0, echecsDeSuite = 0, arret = null;
+    for (const u of toInspect) {
+      if (Date.now() - debutInspection > INSPECT_MAX_MS) { arret = "durée"; break; }
+      const r = await inspectIndexStatus(await jeton(GSC_SCOPE), property, u);
+      if (r.ok) {
+        log.indexStatus[u] = { state: r.state, indexed: isIndexed(r.state), checkedAt: Date.now() };
+        echecsDeSuite = 0;
+      } else if (r.status === 429) {
+        arret = "quota URL Inspection";
+        break;
+      } else if (++echecsDeSuite >= 20) {
+        // Vingt échecs d'affilée hors quota : quelque chose est cassé. On ne continue pas
+        // à moudre en silence pendant une heure — c'est exactement ce qui a masqué la panne.
+        arret = `20 échecs d'affilée (dernier : HTTP ${r.status})`;
+        break;
+      }
+      if (++insp % 50 === 0) { console.log(`  inspecté ${insp}/${toInspect.length}`); saveLog(log); }
+      await new Promise((res) => setTimeout(res, 120));
+    }
+    const reste = toInspect.length - insp;
+    console.log(`Inspection : ${insp} faites en ${Math.round((Date.now() - debutInspection) / 1000)} s` +
+      (arret ? ` — arrêt (${arret}), ${reste} reportées au prochain passage` : ""));
+    saveLog(log);
+    const known = allUrls.filter((u) => log.indexStatus[u]);
+    const idx = known.filter((u) => log.indexStatus[u].indexed).length;
+    console.log(`Bilan indexation connu: ${idx}/${known.length} indexées (${known.length - idx} à pousser)\n`);
+  } else {
+    console.log("Pas d'accès propriété GSC — repli sur l'ancienne logique.\n");
+  }
+
+  if (remaining === 0 && !DRY_RUN) {
+    console.log("Quota de ping du jour épuisé. Statut d'indexation rafraîchi, pings demain.");
+    log.lastRun = new Date().toISOString();
+    saveLog(log);
+    return;
+  }
+
+  // ── Date de première apparition au sitemap ──────────────────────────────
+  // Sans elle, toutes les URLs jamais pingées se valent, et la file suit l'ordre du
+  // sitemap : le blog part en premier, les fiches ajoutées le matin même attendent
+  // plusieurs jours. Avec 2 227 URLs et 200 pings par jour, un tour complet prend
+  // onze jours — c'est précisément la page neuve qui ne peut pas attendre, puisque
+  // c'est la seule que Google ne connaît pas encore.
+  if (!log.firstSeen) {
+    // Amorçage : une URL déjà soumise est connue depuis ce jour-là ; les autres
+    // apparaissent aujourd'hui pour ce qu'en sait le journal.
+    log.firstSeen = {};
+    for (const u of allUrls) log.firstSeen[u] = log.submitted[u] || Date.now();
+  } else {
+    for (const u of allUrls) if (!log.firstSeen[u]) log.firstSeen[u] = Date.now();
+  }
+
+  // ── File de ping : non indexées d'abord (plus anciennement pingées), puis inconnues ──
+  const lastPing = (u) => log.submitted[u] || 0;
+  const vueLe = (u) => log.firstSeen[u] || 0;
+  const pingBudget = DRY_RUN ? (remaining > 0 ? remaining : DAILY_QUOTA) : remaining;
+  let queue;
+  if (property) {
+    const notIndexed = allUrls
+      .filter((u) => log.indexStatus[u] && !log.indexStatus[u].indexed)
+      .sort((a, b) => lastPing(a) - lastPing(b));
+    // Jamais pingée : la plus récemment apparue passe devant. À égalité, celle qui
+    // attend depuis le plus longtemps.
+    const unknown = allUrls
+      .filter((u) => !log.indexStatus[u])
+      .sort((a, b) => vueLe(b) - vueLe(a) || lastPing(a) - lastPing(b));
+    queue = [...notIndexed, ...unknown].slice(0, pingBudget);
+    console.log(`File: ${notIndexed.length} non indexées + ${unknown.length} inconnues → ping ${queue.length}`);
+  } else {
+    const submittedKeys = new Set(Object.keys(log.submitted));
+    const neverSubmitted = allUrls.filter((u) => !submittedKeys.has(u));
+    const oldest = allUrls
+      .filter((u) => submittedKeys.has(u))
+      .sort((a, b) => lastPing(a) - lastPing(b));
+    queue = [...neverSubmitted, ...oldest].slice(0, pingBudget);
+  }
+  // La liste explicite écrase la file calculée : c'est son intérêt.
+  if (URLS_FILE) {
+    const demandees = fs.readFileSync(URLS_FILE, "utf8").split("\n").map((l) => l.trim()).filter(Boolean);
+    const absentes = demandees.filter((u) => !allUrls.includes(u));
+    if (absentes.length) console.log(`⚠ ${absentes.length} URLs de la liste sont absentes du sitemap — elles seront soumises quand même`);
+    queue = demandees.slice(0, pingBudget);
+    console.log(`Liste explicite (${URLS_FILE}) : ${demandees.length} URLs → ping ${queue.length}`);
+  }
+  console.log(`A soumettre: ${queue.length} URLs (espacées de ${RATE_LIMIT_MS}ms)\n`);
+
+  if (DRY_RUN) {
+    console.log("DRY RUN — 10 premières URLs qui seraient pingées:");
+    queue.slice(0, 10).forEach((u) => console.log("  -", u, log.indexStatus[u] ? `[${log.indexStatus[u].state}]` : "[inconnu]"));
+    return;
+  }
+
+  let okCount = 0;
+  let errCount = 0;
+  for (let i = 0; i < queue.length; i++) {
+    const url = queue[i];
+    try {
+      const result = await publishUrl(await jeton(INDEXING_SCOPE), url);
+      if (result.status === 200) {
+        log.submitted[url] = Date.now();
+        runEntry.urls.push(url);
+        okCount++;
+      } else {
+        runEntry.errors.push({ url, status: result.status, body: result.body.slice(0, 300) });
+        errCount++;
+        if (result.status === 429) {
+          console.log("Rate limit hit (429), stopping.");
+          break;
+        }
+        if (result.status === 403 && errCount > 3) {
+          console.log("Multiple 403 responses, stopping. Check Service Account permissions.");
+          break;
+        }
+      }
+    } catch (e) {
+      runEntry.errors.push({ url, error: e.message });
+      errCount++;
+    }
+    if ((i + 1) % 10 === 0 || i === queue.length - 1) {
+      console.log(`  ${i + 1}/${queue.length} (ok=${okCount} err=${errCount})`);
+      log.lastRun = new Date().toISOString();
+      saveLog(log);
+    }
+    if (i < queue.length - 1) {
+      await new Promise((r) => setTimeout(r, RATE_LIMIT_MS));
+    }
+  }
+
+  log.lastRun = new Date().toISOString();
+  saveLog(log);
+  console.log(`\nDone: ${okCount} OK, ${errCount} errors`);
+  console.log(`Total submitted ever: ${Object.keys(log.submitted).length} URLs`);
+  console.log(`Log saved: ${LOG_PATH}`);
+
+  // Panne totale et silencieuse (ex: 200 erreurs 401 tous les jours pendant 3 mois,
+  // masquée car ce script réussissait toujours à committer le log). On fait échouer
+  // le job CI pour que la panne apparaisse dans l'onglet GitHub Actions.
+  if (queue.length > 0 && okCount === 0) {
+    console.error(`ALERTE: ${errCount}/${queue.length} echecs, 0 succes — probable panne auth/permissions.`);
+    process.exitCode = 1;
+  }
+}
+
+main().catch((e) => {
+  console.error("FATAL:", e.message);
+  process.exit(1);
+});

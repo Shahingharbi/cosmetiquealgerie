@@ -52,7 +52,9 @@ export default function robots(): MetadataRoute.Robots {
     ],
     // Seul l'index est déclaré : les fichiers enfants s'activent ou se retirent
     // sans jamais toucher au robots.txt ni re-soumettre quoi que ce soit.
-    sitemap: urlAbsolue("/sitemap-index.xml"),
+    // `/sitemap.xml` plutôt que `/sitemap-index.xml` : c'est l'adresse
+    // conventionnelle, les deux servent le même index.
+    sitemap: urlAbsolue("/sitemap.xml"),
     host: SITE_URL,
   };
 }

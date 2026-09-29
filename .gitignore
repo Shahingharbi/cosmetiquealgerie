@@ -65,3 +65,11 @@ temp/
 # etre ni versionnes ni servis.
 public/produits/
 public/produits-obf/
+# Cles de comptes de service (Google Indexing API, etc.).
+# Ne jamais versionner : une cle privee commitee dans un depot public est
+# compromise des la seconde du push, meme supprimee ensuite de l historique.
+.credentials/
+
+# Verrou du robot d'indexation : il n'existe que pendant un run et empeche
+# deux instances de s'ecraser mutuellement le journal.
+data/*.lock

@@ -32,6 +32,15 @@ if (-not (Test-Path -LiteralPath $publication)) {
   New-Item -ItemType Directory -Path $publication | Out-Null
 }
 
+# Le robot d'indexation pousse son journal sur GitHub chaque jour. On recupere
+# ces commits AVANT de mettre a jour les fichiers : sans cela, le push suivant
+# serait refuse, et un « git push --force » pour passer outre effacerait le
+# journal. --autostash protege une preparation precedente non encore commitee.
+if (Test-Path -LiteralPath (Join-Path $publication '.git')) {
+  git -C $publication pull --rebase --autostash --quiet
+  if ($LASTEXITCODE -ne 0) { throw 'git pull a echoue dans le depot de publication : resoudre avant de publier.' }
+}
+
 # Controle prealable : jamais de publication si public/ contient des visuels
 # rejetes ou des dossiers bruts.
 & node (Join-Path $atelier 'pipeline\11-deploiement\verifier_public.mjs')
@@ -42,7 +51,13 @@ foreach ($d in $dossiers) {
   $dst = Join-Path $publication $d
   # /MIR : miroir exact, les fichiers retires de l'atelier le sont aussi ici.
   # /XD  : jamais de dossiers bruts, meme s'ils reapparaissaient.
-  robocopy $src $dst /MIR /NFL /NDL /NJH /NJS /NP /XD 'produits' 'produits-obf' | Out-Null
+  # /XF  : le journal du robot d'indexation et son verrou ne vivent QUE dans le
+  #        depot de publication, ou la CI les ecrit chaque jour. Sans cette
+  #        exclusion, /MIR les supprimerait a chaque publication (ils n'existent
+  #        pas dans l'atelier) : l'historique d'indexation serait perdu, et le
+  #        robot re-soumettrait tout depuis zero. C'est la panne du 26/09 sur
+  #        le site de parfum, par un autre chemin.
+  robocopy $src $dst /MIR /NFL /NDL /NJH /NJS /NP /XD 'produits' 'produits-obf' /XF 'indexing-log.json' '*.lock' | Out-Null
   # robocopy : 0 a 7 = succes, 8 et plus = echec.
   if ($LASTEXITCODE -ge 8) { throw ("robocopy a echoue sur " + $d) }
 }
