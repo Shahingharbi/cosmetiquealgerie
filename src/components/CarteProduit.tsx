@@ -81,14 +81,22 @@ export default function CarteProduit({ produit, prioritaire = false }: Props) {
           <h3 className="mt-1 line-clamp-2 text-[14px] leading-[1.35] text-[#141414] group-hover:underline">
             {produit.nom}
           </h3>
+          {/* Point médian entre prix et contenance : sans lui, Google lisait
+              « 2 400 DA100ml » dans ses extraits, et pouvait prendre la
+              contenance pour le prix. */}
           <p className="mt-1.5 flex items-baseline gap-2">
             <span className="text-[14px] font-medium text-[#141414]">
               {formatPrix(produit.prix)}
             </span>
             {produit.contenance && (
-              <span className="font-mono text-[11px] text-[#909090]">
-                {produit.contenance}
-              </span>
+              <>
+                <span aria-hidden="true" className="text-[11px] text-[#909090]">
+                  ·
+                </span>
+                <span className="font-mono text-[11px] text-[#909090]">
+                  {produit.contenance}
+                </span>
+              </>
             )}
           </p>
         </div>

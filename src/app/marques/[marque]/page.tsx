@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import CarteProduit from "@/components/CarteProduit";
 import FilAriane from "@/components/FilAriane";
-import TexteEditorial from "@/components/TexteEditorial";
+import TexteEditorial, { enrichir } from "@/components/TexteEditorial";
 import BlocFaq from "@/components/BlocFaq";
 import { contenuMarque } from "@/lib/contenu-marque";
 import { marqueRedigee } from "@/lib/redige";
@@ -24,7 +24,7 @@ import {
 } from "@/lib/catalogue";
 import type { Produit } from "@/types/catalogue";
 
-/** Nombre de produits affichÃ©s dans la grille. Le reste est atteint par les croisements. */
+/** Nombre de produits affichés dans la grille. Le reste est atteint par les croisements. */
 const MAX_GRILLE = 48;
 
 interface Props {
@@ -32,8 +32,8 @@ interface Props {
 }
 
 /**
- * Une marque sans aucun produit publiable ne gÃ©nÃ¨re pas de page : 7 marques sur
- * 431 n'ont que des rÃ©fÃ©rences sans visuel ou sans prix, une page vide serait
+ * Une marque sans aucun produit publiable ne génère pas de page : 7 marques sur
+ * 431 n'ont que des références sans visuel ou sans prix, une page vide serait
  * du thin content pur.
  */
 export function generateStaticParams() {
@@ -43,20 +43,20 @@ export function generateStaticParams() {
 }
 
 /**
- * Title <= 60 caractÃ¨res. On retire d'abord le suffixe du site, puis les
- * qualifiants, plutÃ´t que de couper le nom de la marque au milieu.
+ * Title <= 60 caractères. On retire d'abord le suffixe du site, puis les
+ * qualifiants, plutôt que de couper le nom de la marque au milieu.
  */
 function titreMarque(nom: string): string {
-  const base = `${nom} AlgÃ©rie - Prix et livraison`;
+  const base = `${nom} Algérie - Prix et livraison`;
   const complet = `${base} | ${SITE_NOM}`;
   if (complet.length <= 60) return complet;
   if (base.length <= 60) return base;
-  const court = `${nom} AlgÃ©rie - Prix`;
+  const court = `${nom} Algérie - Prix`;
   if (court.length <= 60) return court;
-  return `${nom} AlgÃ©rie`.slice(0, 60);
+  return `${nom} Algérie`.slice(0, 60);
 }
 
-/** DÃ©partements rÃ©ellement couverts par les produits publiÃ©s, du plus fourni au moins fourni. */
+/** Départements réellement couverts par les produits publiés, du plus fourni au moins fourni. */
 function departementsCouverts(liste: Produit[]): Array<{ slug: string; nom: string; url: string; nb: number }> {
   const compte = new Map<string, number>();
   for (const p of liste) {
@@ -73,10 +73,10 @@ function departementsCouverts(liste: Produit[]): Array<{ slug: string; nom: stri
 }
 
 /**
- * Croisements marque Ã— catÃ©gorie publiables.
+ * Croisements marque × catégorie publiables.
  * Le segment d'URL est le dernier segment de l'URL de taxonomie ; en cas de
- * collision entre deux catÃ©gories partageant ce segment pour une mÃªme marque,
- * seule la premiÃ¨re est conservÃ©e (aucune collision dans les donnÃ©es actuelles).
+ * collision entre deux catégories partageant ce segment pour une même marque,
+ * seule la première est conservée (aucune collision dans les données actuelles).
  */
 function croisements(marqueSlug: string) {
   const vus = new Set<string>();
@@ -94,22 +94,33 @@ function croisements(marqueSlug: string) {
   return sortie.sort((a, b) => b.nb - a.nb);
 }
 
-/** Intro rÃ©digÃ©e Ã  partir des seules donnÃ©es du catalogue : volume et rayons rÃ©els. */
-function phraseIntro(nom: string, nb: number, deps: Array<{ nom: string }>): string {
-  const rayons = deps.map((d) => d.nom.toLowerCase()).join(", ");
-  const volume =
-    nb >= 100
-      ? `${nb} rÃ©fÃ©rences ${nom} sont disponibles`
-      : nb > 1
-        ? `${nb} produits ${nom} sont rÃ©fÃ©rencÃ©s`
-        : `Un produit ${nom} est rÃ©fÃ©rencÃ©`;
-  const couverture =
-    deps.length === 0
-      ? ""
-      : deps.length === 1
-        ? `, dans le rayon ${rayons}`
-        : `, dans ${deps.length} rayons : ${rayons}`;
-  return `${volume} en AlgÃ©rie sur ${SITE_NOM}${couverture}. Les prix sont indiquÃ©s en dinars et la livraison couvre les 69 wilayas.`;
+/**
+ * Première phrase d'un paragraphe rédigé, sans ses marqueurs de lien, bornée
+ * à la longueur qu'affiche un extrait Google.
+ *
+ * La description de la page marque vient du chapeau écrit à la main pour
+ * cette maison. L'ancienne l'assemblait à partir d'un comptage (« 23 produits
+ * Awane originaux en Algérie ») : un chiffre de catalogue, que le propriétaire
+ * refuse dans tout texte visible, et Google affiche la description.
+ */
+function extrait(paragraphe: string, max = 160): string {
+  const texte = paragraphe
+    .replace(/\[\[([^|\]]+)\|[^\]]+\]\]/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+  const phrase = texte.match(/^.+?[.!?](?=\s|$)/)?.[0] ?? texte;
+  if (phrase.length <= max) return phrase;
+  const coupe = phrase.slice(0, max - 1);
+  return `${coupe.slice(0, coupe.lastIndexOf(" ")).replace(/[\s,;:]+$/, "")}…`;
+}
+
+/** Repli sans chiffre, pour une marque qui n'aurait pas encore de texte rédigé. */
+function introSansTexte(nom: string, deps: Array<{ nom: string }>): string {
+  const rayons = deps
+    .slice(0, 3)
+    .map((d) => d.nom.toLowerCase())
+    .join(", ");
+  return `Produits ${nom} originaux en Algérie${rayons ? ` : ${rayons}` : ""}. Livraison dans les 69 wilayas, paiement à la livraison.`;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -117,16 +128,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const marque = getMarque(slug);
   if (!marque) return {};
 
-  const liste = produitsDeLaMarque(slug);
-  const deps = departementsCouverts(liste);
   const title = titreMarque(marque.nom);
-  const rayons = deps
-    .slice(0, 3)
-    .map((d) => d.nom.toLowerCase())
-    .join(", ");
-  const description = `${liste.length} produits ${marque.nom} originaux en AlgÃ©rie${
-    rayons ? ` : ${rayons}` : ""
-  }. Prix en dinars, livraison dans les 69 wilayas, paiement Ã  la rÃ©ception.`;
+  const chapeau = marqueRedigee(marque.slug)?.chapeau[0];
+  const description = chapeau
+    ? extrait(chapeau)
+    : introSansTexte(marque.nom, departementsCouverts(produitsDeLaMarque(slug)));
 
   return {
     title: { absolute: title },
@@ -161,8 +167,8 @@ export default async function PageMarque({ params }: Props) {
         "@type": "CollectionPage",
         "@id": `${urlAbsolue(chemin)}#page`,
         url: urlAbsolue(chemin),
-        name: `${marque.nom} en AlgÃ©rie`,
-        description: `Produits ${marque.nom} originaux disponibles en AlgÃ©rie.`,
+        name: `${marque.nom} en Algérie`,
+        description: `Produits ${marque.nom} originaux disponibles en Algérie.`,
         inLanguage: "fr",
         isPartOf: { "@type": "WebSite", name: SITE_NOM, url: SITE_URL },
         about: { "@id": `${urlAbsolue(chemin)}#marque` },
@@ -216,17 +222,17 @@ export default async function PageMarque({ params }: Props) {
             Marque
           </p>
           <h1 className="mt-2 text-[32px] font-[400] leading-[1.1] text-[#141414] md:text-[44px]">
-            {marque.nom} en AlgÃ©rie
+            {marque.nom} en Algérie
           </h1>
+          {/* Sous le H1, le premier paragraphe du chapeau rédigé pour cette
+              maison. Il remplace une phrase de gabarit qui comptait les
+              références (« 23 produits Awane sont référencés… avec 21
+              références ») : le propriétaire refuse tout chiffre de catalogue
+              dans un texte visible. */}
           <p className="mt-4 max-w-[62ch] text-[15px] leading-[1.6] text-[#4f4f4f]">
-            {phraseIntro(marque.nom, tous.length, deps)}
-            {liens.length > 0 && (
-              <>
-                {" "}
-                La marque est la plus prÃ©sente en {liens[0].nom.toLowerCase()}, avec{" "}
-                {liens[0].nb} rÃ©fÃ©rences.
-              </>
-            )}
+            {redigeeMarque?.chapeau[0]
+              ? enrichir(redigeeMarque.chapeau[0])
+              : introSansTexte(marque.nom, deps)}
           </p>
         </header>
 
@@ -248,8 +254,8 @@ export default async function PageMarque({ params }: Props) {
           </nav>
         )}
 
-        {/* La contrefaÃ§on est la premiÃ¨re objection Ã  l'achat de cosmÃ©tiques en ligne
-            en AlgÃ©rie : le bloc est fixe, factuel, et prÃ©sent sur chaque page marque. */}
+        {/* La contrefaçon est la première objection à l'achat de cosmétiques en ligne
+            en Algérie : le bloc est fixe, factuel, et présent sur chaque page marque. */}
         <section
           aria-labelledby="authenticite"
           className="mt-12 border border-black/15 bg-white p-6 md:p-8"
@@ -258,23 +264,23 @@ export default async function PageMarque({ params }: Props) {
             id="authenticite"
             className="text-[18px] font-[500] leading-[1.2] text-[#141414] md:text-[22px]"
           >
-            Produits {marque.nom} originaux : comment nous le vÃ©rifions
+            Produits {marque.nom} originaux : comment nous le vérifions
           </h2>
           <div className="mt-4 grid gap-4 text-[14px] leading-[1.65] text-[#4f4f4f] md:grid-cols-2 md:gap-8">
             <p>
-              Les rÃ©fÃ©rences {marque.nom} publiÃ©es ici sont des produits originaux. Elles
-              proviennent de distributeurs, pharmacies et parapharmacies Ã©tablis en AlgÃ©rie,
+              Les références {marque.nom} publiées ici sont des produits originaux. Elles
+              proviennent de distributeurs, pharmacies et parapharmacies établis en Algérie,
               et chaque fiche reprend le nom exact, la contenance et le visuel fournis par
-              la source. Une rÃ©fÃ©rence dont l&apos;origine ne peut pas Ãªtre Ã©tablie
-              n&apos;est pas publiÃ©e : c&apos;est la raison pour laquelle une partie du
+              la source. Une référence dont l&apos;origine ne peut pas être établie
+              n&apos;est pas publiée : c&apos;est la raison pour laquelle une partie du
               catalogue {marque.nom} reste hors ligne.
             </p>
             <p>
-              Ã€ la rÃ©ception, deux contrÃ´les suffisent Ã  Ã©carter une imitation : le numÃ©ro
-              de lot et la date de pÃ©remption doivent Ãªtre imprimÃ©s sur le flacon et sur
-              l&apos;Ã©tui, et correspondre entre les deux ; l&apos;impression du packaging
-              doit Ãªtre nette, sans faute d&apos;orthographe ni couleur dÃ©lavÃ©e. Si un
-              produit reÃ§u ne correspond pas Ã  sa fiche, il est repris.
+              À la réception, deux contrôles suffisent à écarter une imitation : le numéro
+              de lot et la date de péremption doivent être imprimés sur le flacon et sur
+              l&apos;étui, et correspondre entre les deux ; l&apos;impression du packaging
+              doit être nette, sans faute d&apos;orthographe ni couleur délavée. Si un
+              produit reçu ne correspond pas à sa fiche, il est repris.
             </p>
           </div>
         </section>
@@ -285,7 +291,7 @@ export default async function PageMarque({ params }: Props) {
               id="categories"
               className="border-b border-black/10 pb-2 font-mono text-[13px] uppercase tracking-[0.12em] text-[#141414]"
             >
-              {marque.nom} par catÃ©gorie
+              {marque.nom} par catégorie
             </h2>
             <ul className="mt-5 grid grid-cols-1 gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {liens.map((c) => (
@@ -314,7 +320,7 @@ export default async function PageMarque({ params }: Props) {
               Produits {marque.nom}
             </h2>
             <p className="font-mono text-[11px] text-[#909090]">
-              {affiches.length} affichÃ©s sur {tous.length}
+              {affiches.length} affichés sur {tous.length}
             </p>
           </div>
 
@@ -326,15 +332,16 @@ export default async function PageMarque({ params }: Props) {
 
           {tous.length > affiches.length && liens.length > 0 && (
             <p className="mt-10 text-[14px] leading-[1.6] text-[#4f4f4f]">
-              Les {tous.length - affiches.length} autres rÃ©fÃ©rences {marque.nom} sont
-              accessibles depuis les catÃ©gories listÃ©es plus haut.
+              Les autres références {marque.nom} sont accessibles depuis les catégories
+              listées plus haut.
             </p>
           )}
         </section>
 
         {redigeeMarque ? (
           <div className="mt-16 space-y-12 border-t border-[#e5e5e5] pt-12">
-            <TexteEditorial paragraphes={redigeeMarque.chapeau} />
+            {/* Le premier paragraphe du chapeau est déjà sous le H1. */}
+            <TexteEditorial paragraphes={redigeeMarque.chapeau.slice(1)} />
             {redigeeMarque.sections.map((sec) => (
               <TexteEditorial key={sec.titre} titre={sec.titre} paragraphes={sec.paragraphes} />
             ))}

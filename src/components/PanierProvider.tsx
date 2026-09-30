@@ -744,7 +744,9 @@ export function FormulaireCommande({ resoudre }: { resoudre: ResoudrePanier }) {
 
   return (
     <div className="mt-10 grid gap-12 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-16">
-      <form onSubmit={soumettre} noValidate>
+      {/* Masqué dans les enregistrements Clarity : nom, téléphone et adresse
+          des clients ne partent pas chez un tiers. */}
+      <form onSubmit={soumettre} noValidate data-clarity-mask="True">
         <fieldset className="border-0 p-0">
           <legend className="text-[20px] leading-[1.2] text-[#141414]">
             Vos coordonnées
@@ -1024,8 +1026,12 @@ export function ConfirmationCommande({ departements }: { departements: LienDepar
         avant expédition — gardez votre téléphone à portée.
       </p>
 
+      {/* Commune et téléphone du client : masqués dans Clarity, comme le formulaire. */}
       {commande && (
-        <dl className="mt-8 grid grid-cols-1 gap-px border border-[#e5e5e5] bg-[#e5e5e5] sm:grid-cols-3">
+        <dl
+          data-clarity-mask="True"
+          className="mt-8 grid grid-cols-1 gap-px border border-[#e5e5e5] bg-[#e5e5e5] sm:grid-cols-3"
+        >
           <div className="bg-white px-5 py-4">
             <dt className={LIBELLE_MONO}>Numéro de commande</dt>
             <dd className="mt-2 font-mono text-[16px] text-[#141414]">{commande.numero}</dd>
@@ -1048,7 +1054,7 @@ export function ConfirmationCommande({ departements }: { departements: LienDepar
       )}
 
       {commande && (
-        <p className="mt-4 text-[13px] text-[#909090]">
+        <p data-clarity-mask="True" className="mt-4 text-[13px] text-[#909090]">
           Appel de confirmation au {formaterTelephone(commande.client.telephone)}.
         </p>
       )}

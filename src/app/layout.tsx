@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import BoutonWhatsApp from "@/components/BoutonWhatsApp";
 import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
@@ -42,6 +43,24 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
+/**
+ * Microsoft Clarity : cartes de chaleur et enregistrements de sessions.
+ *
+ * Chargé en `lazyOnload`, c'est-à-dire une fois la page chargée et le
+ * navigateur au repos : le trafic est presque entièrement mobile, et un script
+ * d'analyse qui s'exécute pendant l'hydratation dégrade l'INP, un signal de
+ * classement. Il manque au pire les toutes premières secondes d'une visite.
+ *
+ * Seulement sur le déploiement de production Vercel : ni le serveur local ni
+ * les aperçus ne doivent polluer les statistiques.
+ *
+ * Le formulaire de commande est masqué dans les enregistrements
+ * (`data-clarity-mask` dans PanierProvider) : nom, téléphone et adresse des
+ * clients n'ont pas à partir chez un tiers.
+ */
+const CLARITY_ID = "yqcl0p4e3f";
+const CLARITY_ACTIF = process.env.VERCEL_ENV === "production";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -67,6 +86,11 @@ export default function RootLayout({
           <Footer />
           <BoutonWhatsApp />
         </PanierProvider>
+        {CLARITY_ACTIF && (
+          <Script id="clarity" strategy="lazyOnload">
+            {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`}
+          </Script>
+        )}
       </body>
     </html>
   );

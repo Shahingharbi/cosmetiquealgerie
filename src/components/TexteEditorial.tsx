@@ -13,7 +13,7 @@ import type { ReactNode } from "react";
 
 const MARQUEUR = /\[\[([^|\]]+)\|([^\]]+)\]\]/g;
 
-function enrichir(texte: string): ReactNode[] {
+export function enrichir(texte: string): ReactNode[] {
   const morceaux: ReactNode[] = [];
   let curseur = 0;
   let n = 0;

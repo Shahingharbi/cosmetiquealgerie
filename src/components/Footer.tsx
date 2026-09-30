@@ -105,6 +105,10 @@ export function Footer() {
               <a href={TEL_DZ_LIEN} className="font-medium underline underline-offset-2 hover:opacity-60">
                 {TEL_DZ_AFFICHE}
               </a>
+              {/* Sans séparateur, les extraits Google lisaient « 06 62 10 41 50WhatsApp ». */}
+              <span aria-hidden="true" className="text-[#909090]">
+                ·
+              </span>
               <a
                 href={WHATSAPP_LIEN}
                 target="_blank"

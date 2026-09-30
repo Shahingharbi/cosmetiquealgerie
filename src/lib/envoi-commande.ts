@@ -2,7 +2,7 @@
  * Transmission des commandes.
  *
  * Le navigateur ne fait plus qu'une chose : poster la commande à notre propre
- * route `/api/commande`. Tout le reste — écriture au tableur, notification
+ * route `/api/commande`. Tout le reste — e-mail au vendeur, tableur, alerte
  * WhatsApp — se passe côté serveur.
  *
  * Ce que ce changement corrige, et pourquoi il comptait :

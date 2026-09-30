@@ -85,9 +85,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!marque || !noeud) return {};
 
   const chemin = `${urlMarque(slugMarque)}${segment}/`;
-  const nb = produitsCroisement(noeud.url, slugMarque).length;
   const title = titreCroisement(noeud.nom, marque.nom);
-  const description = `${nb} ${noeud.keyword} ${marque.nom} originaux disponibles en Algérie. Prix en dinars, livraison dans les 69 wilayas.`;
+  // Sans comptage de références : le propriétaire refuse les chiffres de
+  // catalogue dans tout texte visible, et Google affiche la description.
+  const description = `${noeud.nom} ${marque.nom} : produits originaux en Algérie, prix en dinars, livraison dans les 69 wilayas et paiement à la livraison.`;
 
   return {
     title: { absolute: title },
@@ -169,11 +170,9 @@ export default async function PageMarqueCategorie({ params }: Props) {
             {h1}
           </h1>
           <p className="mt-4 text-[15px] leading-[1.6] text-[#4f4f4f]">
-            {tous.length > 1
-              ? `${tous.length} produits ${marque.nom} de la catégorie ${noeud.nom.toLowerCase()} sont disponibles en Algérie.`
-              : `Un produit ${marque.nom} de la catégorie ${noeud.nom.toLowerCase()} est disponible en Algérie.`}{" "}
-            Les références sont originales, les prix sont indiqués en dinars et la
-            livraison couvre les 69 wilayas.
+            {noeud.nom} {marque.nom} : chaque référence est un produit original, présenté
+            avec sa contenance et son prix en dinars. La livraison couvre les 69 wilayas,
+            avec paiement à la réception.
           </p>
         </header>
 

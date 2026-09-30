@@ -46,6 +46,11 @@ if (Test-Path -LiteralPath (Join-Path $publication '.git')) {
 & node (Join-Path $atelier 'pipeline\11-deploiement\verifier_public.mjs')
 if ($LASTEXITCODE -ne 0) { throw 'public/ non conforme : publication annulee.' }
 
+# Meme principe pour le texte : un accent casse dans le code s'affiche tel quel
+# sur le site et dans Google (542 pages marque touchees jusqu'au 30/09/2026).
+& node (Join-Path $atelier 'pipeline\11-deploiement\verifier_encodage.mjs')
+if ($LASTEXITCODE -ne 0) { throw 'texte mal encode : publication annulee.' }
+
 foreach ($d in $dossiers) {
   $src = Join-Path $atelier $d
   $dst = Join-Path $publication $d

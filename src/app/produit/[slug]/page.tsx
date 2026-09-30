@@ -191,6 +191,27 @@ function descriptionProduit(p: Produit): string {
   return `${tronquer(p.nom, Math.max(budget, 24))}${contenance}${marque}${queue}`;
 }
 
+/**
+ * Référence courte et stable, pour le champ `sku` du balisage Product.
+ *
+ * Le slug servait de sku, mais Google refuse plus de 50 caractères dans les
+ * fiches marchand (« Longueur de chaîne non valide dans le champ sku »,
+ * inspection Search Console du 30/09/2026) et bien des slugs dépassent.
+ * Deux empreintes FNV-1a de 32 bits concaténées : un slug donne toujours la
+ * même référence, et l'espace de 64 bits rend une collision improbable.
+ */
+function skuProduit(slug: string): string {
+  const empreinte = (graine: number) => {
+    let h = graine >>> 0;
+    for (let i = 0; i < slug.length; i++) {
+      h ^= slug.charCodeAt(i);
+      h = Math.imul(h, 0x01000193) >>> 0;
+    }
+    return h.toString(36).padStart(7, "0");
+  };
+  return `CA-${empreinte(0x811c9dc5)}${empreinte(0x050c5d1f)}`.toUpperCase();
+}
+
 /* ------------------------------------------------------------------ */
 /* Route                                                               */
 /* ------------------------------------------------------------------ */
@@ -282,9 +303,12 @@ export default async function PageProduit({ params }: Props) {
     name: p.nom,
     // `image` omis plutot que vide quand la fiche n'a pas encore de visuel :
     // un tableau vide fait echouer la validation du Product chez Google.
-    ...(p.images.length > 0 ? { image: p.images } : {}),
+    // URL absolues : le balisage est lu hors de la page, par Google Shopping.
+    ...(p.images.length > 0
+      ? { image: p.images.map((src) => (src.startsWith("http") ? src : urlAbsolue(src))) }
+      : {}),
     description,
-    sku: p.slug,
+    sku: skuProduit(p.slug),
     ...(p.marque ? { brand: { "@type": "Brand", name: p.marque } } : {}),
     ...(noeud ? { category: noeud.nom } : {}),
     offers: {
@@ -325,14 +349,23 @@ export default async function PageProduit({ params }: Props) {
             <h1 className="mt-2 text-[24px] leading-[1.25] text-[#141414] sm:text-[28px]">
               {p.nom}
             </h1>
+            {/* Le point médian n'est pas décoratif. Sans lui, le texte de la page
+                se lisait « 950 DA500ml » : Google y a vu « DA 500 » et affichait
+                500,00 DZD sous la fiche, malgré le prix exact des données
+                structurées. */}
             <p className="mt-4 flex items-baseline gap-3">
               <span className="text-[22px] font-medium text-[#141414]">
                 {formatPrix(p.prix)}
               </span>
               {p.contenance && (
-                <span className="font-mono text-[12px] text-[#909090]">
-                  {p.contenance}
-                </span>
+                <>
+                  <span aria-hidden="true" className="text-[#909090]">
+                    ·
+                  </span>
+                  <span className="font-mono text-[12px] text-[#909090]">
+                    {p.contenance}
+                  </span>
+                </>
               )}
             </p>
           </div>

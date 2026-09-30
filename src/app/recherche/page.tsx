@@ -143,9 +143,14 @@ export default async function PageRecherche({ searchParams }: Props) {
                           {formatPrix(p.prix)}
                         </span>
                         {p.contenance && (
-                          <span className="font-mono text-[11px] text-[#909090]">
-                            {p.contenance}
-                          </span>
+                          <>
+                            <span aria-hidden="true" className="text-[11px] text-[#909090]">
+                              ·
+                            </span>
+                            <span className="font-mono text-[11px] text-[#909090]">
+                              {p.contenance}
+                            </span>
+                          </>
                         )}
                       </p>
                     </div>
