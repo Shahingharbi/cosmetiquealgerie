@@ -228,8 +228,13 @@ export function generateStaticParams(): { slug: string }[] {
   return produitsPrioritaires.map((p) => ({ slug: p.slug }));
 }
 
-/** Les fiches non pré-générées sont revalidées une fois par jour. */
-export const revalidate = 86400;
+/**
+ * Une fiche générée à la demande reste en cache jusqu'au déploiement suivant.
+ * Le catalogue est un fichier du dépôt : il ne change qu'avec un déploiement,
+ * qui vide ce cache. La régénérer chaque jour, comme avant le 30/09/2026, ne
+ * produisait que des écritures ISR inutiles, décomptées du quota Vercel.
+ */
+export const revalidate = false;
 
 // Un slug hors du pré-rendu est rendu à la demande ; s'il ne correspond à
 // aucun produit publiable, la page appelle notFound() et renvoie bien un 404.

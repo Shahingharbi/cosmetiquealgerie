@@ -55,6 +55,8 @@ import {
   type ResoudrePanier,
 } from "@/lib/panier";
 import { TEL_DZ_AFFICHE, TEL_DZ_LIEN } from "@/lib/contact";
+import { LogoWhatsApp } from "@/components/BoutonWhatsApp";
+import { EncartNewsletter } from "@/components/Newsletter";
 import { envoyerCommande, lienWhatsApp, whatsappConfigure } from "@/lib/envoi-commande";
 import { WILAYAS, codeWilayaValide, wilayaParCode } from "@/lib/wilayas";
 
@@ -1012,7 +1014,14 @@ function memoriserCommande(commande: Commande): void {
   for (const alerter of abonnesCommande) alerter();
 }
 
-export function ConfirmationCommande({ departements }: { departements: LienDepartement[] }) {
+export function ConfirmationCommande({
+  departements,
+  newsletter = false,
+}: {
+  departements: LienDepartement[];
+  /** Vrai si un canal d'inscription à la lettre est configuré (lib/newsletter). */
+  newsletter?: boolean;
+}) {
   const commande = useSyncExternalStore(
     sabonnerCommande,
     instantaneCommande,
@@ -1059,6 +1068,30 @@ export function ConfirmationCommande({ departements }: { departements: LienDepar
         </p>
       )}
 
+      {/* Facultatif, et dit comme tel : la commande est déjà reçue par e-mail.
+          Le client qui vit sur WhatsApp peut la confirmer là, message déjà
+          rédigé ; les autres n'ont rien à faire. */}
+      {commande && whatsappConfigure && (
+        <div className="mt-8 flex flex-col gap-4 border border-[#e5e5e5] bg-white px-5 py-5 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-[15px] leading-[1.5] text-[#141414]">Vous préférez WhatsApp ?</p>
+            <p className="mt-1 max-w-[52ch] text-[14px] leading-[1.6] text-[#4f4f4f]">
+              Votre commande est déjà enregistrée. Si vous le souhaitez, confirmez-la
+              aussi sur WhatsApp : le message est prêt, il ne reste qu&apos;à l&apos;envoyer.
+            </p>
+          </div>
+          <a
+            href={lienWhatsApp(commande, "confirmation")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${BOUTON_CONTOUR} shrink-0 gap-2`}
+          >
+            <LogoWhatsApp taille={18} />
+            Confirmer sur WhatsApp
+          </a>
+        </div>
+      )}
+
       <div className="mt-10 max-w-[62ch]">
         <MentionPaiement />
       </div>
@@ -1083,6 +1116,13 @@ export function ConfirmationCommande({ departements }: { departements: LienDepar
           </li>
         </ol>
       </section>
+
+      {newsletter && (
+        <section className="mt-12 border-t border-[#e5e5e5] pt-8">
+          {/* Trait d'union insécable (U+2011) : sans lui, « e-mail » se coupait en fin de ligne. */}
+          <EncartNewsletter source="commande" titre="Recevez nos nouveautés par e‑mail." />
+        </section>
+      )}
 
       <section aria-labelledby="titre-continuer" className="mt-12 border-t border-[#e5e5e5] pt-8">
         <h2 id="titre-continuer" className="text-[20px] leading-[1.2] text-[#141414]">

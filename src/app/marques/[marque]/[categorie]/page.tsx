@@ -9,7 +9,6 @@ import {
   categoriesDeLaMarque,
   getMarque,
   getNoeud,
-  marqueCategories,
   produitsDuNoeud,
   trierParPertinence,
   urlAbsolue,
@@ -47,22 +46,15 @@ function resoudre(marqueSlug: string, segment: string): NoeudTaxonomie | undefin
 }
 
 /**
- * Un croisement dont tous les produits sont non publiables (sans visuel ou sans
- * prix) ne génère pas de page : 17 combinaisons sur 1 010 sont dans ce cas.
+ * Aucun croisement n'est généré pendant le build : chacun l'est à sa première
+ * visite, puis servi depuis le cache jusqu'au déploiement suivant. Même raison
+ * que les pages marque : le plafond de stockage des déploiements Vercel
+ * (voir src/app/marques/[marque]/page.tsx).
+ *
+ * Un croisement sans produit publiable répond 404 (voir la page).
  */
 export function generateStaticParams() {
-  const vus = new Set<string>();
-  const params: Array<{ marque: string; categorie: string }> = [];
-  for (const mc of marqueCategories) {
-    const noeud = getNoeud(mc.categorie);
-    if (!noeud) continue;
-    const cle = `${mc.marqueSlug}/${noeud.slug}`;
-    if (vus.has(cle)) continue;
-    if (produitsCroisement(noeud.url, mc.marqueSlug).length === 0) continue;
-    vus.add(cle);
-    params.push({ marque: mc.marqueSlug, categorie: noeud.slug });
-  }
-  return params;
+  return [];
 }
 
 /** Title <= 60 caractères, mot-clé de la catégorie et marque toujours en tête. */

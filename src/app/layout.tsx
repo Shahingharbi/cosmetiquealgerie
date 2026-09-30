@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import BoutonWhatsApp from "@/components/BoutonWhatsApp";
+import { FenetreNewsletter } from "@/components/Newsletter";
+import { newsletterActive } from "@/lib/newsletter";
 import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
@@ -85,6 +87,7 @@ export default function RootLayout({
           <div className="flex flex-1 flex-col">{children}</div>
           <Footer />
           <BoutonWhatsApp />
+          {newsletterActive && <FenetreNewsletter />}
         </PanierProvider>
         {CLARITY_ACTIF && (
           <Script id="clarity" strategy="lazyOnload">

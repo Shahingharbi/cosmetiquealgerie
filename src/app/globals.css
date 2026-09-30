@@ -198,6 +198,12 @@
 .ca-carousel::-webkit-scrollbar { display: none; }
 .ca-carousel > * { scroll-snap-align: start; flex: 0 0 auto; }
 
+/* Entrée de la fenêtre de la lettre d'information (Newsletter.tsx) */
+@keyframes ca-glisse-haut {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Rotation de mots du manifeste */
 @keyframes ca-word-cycle {
   0%, 25% { opacity: 1; transform: translateY(0); }

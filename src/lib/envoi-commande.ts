@@ -97,11 +97,17 @@ export const whatsappConfigure = WHATSAPP.length >= 8;
 /**
  * Lien WhatsApp pré-rempli avec la commande complète.
  *
- * Il ne s'affiche que lorsque la route serveur a échoué : à ce moment-là, une
- * action manuelle du client vaut mieux qu'une commande perdue. Ce n'est plus
- * le chemin nominal, et il ne doit pas le redevenir.
+ * Deux usages :
+ *  - « secours » : la route serveur a échoué, et une action manuelle du client
+ *    vaut mieux qu'une commande perdue ;
+ *  - « confirmation » : la commande est déjà reçue, et le client qui préfère
+ *    WhatsApp peut la confirmer là, sur la page de remerciement. C'est une
+ *    facilité offerte, jamais une étape : la commande n'en dépend pas.
  */
-export function lienWhatsApp(commande: Commande): string | undefined {
+export function lienWhatsApp(
+  commande: Commande,
+  objet: "secours" | "confirmation" = "secours",
+): string | undefined {
   if (!whatsappConfigure) return undefined;
 
   const { client } = commande;
@@ -122,8 +128,12 @@ export function lienWhatsApp(commande: Commande): string | undefined {
     })
     .join("\n");
 
+  const entete =
+    objet === "confirmation"
+      ? `Bonjour, je confirme ma commande ${commande.numero} passée sur cosmetiquealgerie.com.`
+      : `Nouvelle commande ${commande.numero}`;
   const texte =
-    `Nouvelle commande ${commande.numero}\n\n` +
+    `${entete}\n\n` +
     `Nom : ${`${client.prenom} ${client.nom}`.trim()}\n` +
     `Téléphone : ${client.telephone}\n` +
     `Wilaya : ${client.wilayaCode} — ${client.wilayaNom}\n` +

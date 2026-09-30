@@ -14,7 +14,6 @@ import {
   getDepartement,
   getMarque,
   getNoeud,
-  marques,
   produitsDeLaMarque,
   produitsDuNoeud,
   trierParPertinence,
@@ -32,14 +31,20 @@ interface Props {
 }
 
 /**
- * Une marque sans aucun produit publiable ne génère pas de page : 7 marques sur
- * 431 n'ont que des références sans visuel ou sans prix, une page vide serait
- * du thin content pur.
+ * Aucune page marque n'est générée pendant le build : chacune l'est à sa
+ * première visite, puis servie depuis le cache jusqu'au déploiement suivant.
+ *
+ * Pourquoi : Vercel stocke chaque déploiement en entier et en garde trois.
+ * Pré-générées, les pages marque et marque × catégorie pesaient près d'un Go
+ * par déploiement (HTML + trois copies des données de navigation), et le
+ * compte gratuit a atteint son plafond de 10 Go le 30/09/2026. Le cache des
+ * pages générées à la demande, lui, ne compte pas dans ce plafond.
+ *
+ * Une marque sans aucun produit publiable répond 404 (voir la page) : une
+ * page vide serait du thin content pur.
  */
 export function generateStaticParams() {
-  return marques
-    .filter((m) => produitsDeLaMarque(m.slug).length > 0)
-    .map((m) => ({ marque: m.slug }));
+  return [];
 }
 
 /**

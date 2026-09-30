@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { TEL_DZ_AFFICHE, TEL_DZ_LIEN, WHATSAPP_LIEN } from "@/lib/contact";
 import LogoCosmetiqueAlgerie from "@/components/LogoCosmetiqueAlgerie";
+import { EncartNewsletter } from "@/components/Newsletter";
+import { newsletterActive } from "@/lib/newsletter";
 import { SITE_NOM } from "@/lib/catalogue";
 import { FOOTER } from "@/lib/site-data";
 
@@ -36,7 +38,8 @@ function ChevronBas() {
 /**
  * Pied de page.
  *
- * Server Component, aucun JavaScript : les colonnes deviennent des accordéons
+ * Server Component ; seul le formulaire de la lettre est un îlot client.
+ * Sans JavaScript, les colonnes deviennent des accordéons
  * en dessous de 1024 px grâce au même motif case à cocher + <label> que la
  * navigation. Le contenu replié reste dans le HTML servi, donc crawlable.
  */
@@ -46,6 +49,16 @@ export function Footer() {
   return (
     <footer className="mt-24 border-t border-[#141414] bg-[#f4f4f2] text-[#141414]">
       <div className="mx-auto max-w-[1280px] px-4 py-10 lg:px-8 lg:py-14">
+        {/* Lettre d'information : seul îlot interactif du pied de page, le
+            reste demeure rendu côté serveur, sans JavaScript. */}
+        {newsletterActive && (
+          <EncartNewsletter
+            source="pied"
+            titre="Les nouveautés, avant tout le monde."
+            className="mb-10 border-b border-[#141414]/10 pb-10 lg:mb-14 lg:pb-14"
+          />
+        )}
+
         <div className="lg:grid lg:grid-cols-4 lg:gap-12">
           {COLONNES.map((colonne) => (
             <div

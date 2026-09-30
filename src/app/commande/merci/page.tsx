@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { ConfirmationCommande, type LienDepartement } from "@/components/PanierProvider";
 import { taxonomie } from "@/lib/catalogue";
+import { newsletterActive } from "@/lib/newsletter";
 
 const DEPARTEMENTS: LienDepartement[] = taxonomie.map((d) => ({ nom: d.nom, url: d.url }));
 
@@ -22,7 +23,7 @@ export default function PageMerci() {
             Merci, votre commande est enregistrée
           </h1>
 
-          <ConfirmationCommande departements={DEPARTEMENTS} />
+          <ConfirmationCommande departements={DEPARTEMENTS} newsletter={newsletterActive} />
         </div>
       </main>
     </div>

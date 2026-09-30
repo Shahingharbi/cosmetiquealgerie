@@ -10,10 +10,9 @@ import { SITE_NOM, urlAbsolue } from "@/lib/catalogue";
  * Décrit le traitement réel, pas un traitement type : la commande part par
  * e-mail vers la boutique, le panier vit dans le navigateur du visiteur, et
  * aucune donnée bancaire n'existe puisque le paiement se fait en espèces à la
- * livraison. Ce texte doit être relu à chaque fois que la collecte change.
+ * livraison. Ce texte doit être relu à chaque fois que la collecte change :
+ * dernière mise à jour le 30/09/2026 (lettre d'information, Microsoft Clarity).
  */
-
-const A_COMPLETER = "[à compléter]";
 
 export const metadata: Metadata = {
   title: { absolute: `Politique de confidentialité | ${SITE_NOM}` },
@@ -32,6 +31,7 @@ const SECTIONS: Section[] = [
     titre: "Ce que nous collectons",
     paragraphes: [
       "Uniquement ce qu'il faut pour vous livrer : prénom, nom, numéro de téléphone, wilaya, commune, adresse de livraison, et le commentaire que vous ajoutez librement à votre commande.",
+      "Si vous vous inscrivez à notre lettre d'information, nous enregistrons aussi votre adresse e-mail, et l'endroit du site où vous vous êtes inscrit. L'inscription est facultative et n'a aucun lien avec une commande.",
       "Nous ne demandons ni date de naissance, ni pièce d'identité, ni profession, ni situation familiale. Aucun compte client n'est créé, donc aucun mot de passe n'est stocké.",
       "Aucune donnée bancaire n'est collectée, pour une raison simple : le paiement se fait en espèces au livreur. Nous n'avons ni passerelle de paiement, ni numéro de carte à protéger.",
     ],
@@ -40,7 +40,8 @@ const SECTIONS: Section[] = [
     titre: "Pourquoi nous les collectons",
     paragraphes: [
       "Pour vous appeler et confirmer la commande, préparer le colis, le confier au transporteur, et vous recontacter en cas de problème de livraison ou de réclamation.",
-      "Ces informations ne servent à rien d'autre. Nous n'envoyons pas de prospection commerciale, et votre numéro n'alimente aucune liste de diffusion.",
+      "Les informations d'une commande ne servent à rien d'autre : votre numéro de téléphone et votre adresse n'alimentent aucune liste de diffusion.",
+      "Votre adresse e-mail, si vous nous l'avez confiée, sert uniquement à vous envoyer la lettre : nouveautés, retours en stock, conseils et offres réservées aux inscrits. Chaque envoi comporte un lien de désinscription, qui prend effet immédiatement.",
     ],
   },
   {
@@ -48,13 +49,15 @@ const SECTIONS: Section[] = [
     paragraphes: [
       "L'équipe qui traite les commandes, et le transporteur chargé de la livraison — il a besoin de votre nom, de votre téléphone et de votre adresse pour vous remettre le colis.",
       "Vos données ne sont ni vendues, ni louées, ni cédées à un tiers à des fins commerciales.",
-      "La commande transite par un service d'envoi d'e-mails qui achemine le message vers notre boîte de réception. Ce service voit donc le contenu de la commande, sans en faire d'autre usage.",
+      "La commande transite par un service d'envoi d'e-mails (EmailJS) qui achemine le message vers notre boîte de réception. Ce service voit donc le contenu de la commande, sans en faire d'autre usage.",
+      "Les adresses inscrites à la lettre sont conservées par le service qui nous permet de l'envoyer. Il ne s'en sert pour rien d'autre.",
     ],
   },
   {
     titre: "Combien de temps nous les gardons",
     paragraphes: [
       "Les commandes sont conservées le temps nécessaire au suivi, aux réclamations et aux obligations comptables. Au-delà, elles sont supprimées.",
+      "Votre adresse e-mail reste inscrite à la lettre jusqu'à votre désinscription, et pas au-delà.",
       "Le panier, lui, ne quitte jamais votre navigateur : il est stocké localement sur votre appareil et disparaît si vous videz les données du site.",
     ],
   },
@@ -63,7 +66,8 @@ const SECTIONS: Section[] = [
     paragraphes: [
       "Le site n'utilise pas de cookie publicitaire et ne fait pas de suivi entre sites.",
       "Le panier utilise le stockage local du navigateur, un mécanisme technique sans lequel il ne pourrait pas retenir vos articles d'une page à l'autre.",
-      `Mesure d'audience : ${A_COMPLETER} — à préciser si un outil de statistiques est installé, avec son nom et sa finalité.`,
+      "Mesure d'audience : nous utilisons Microsoft Clarity pour comprendre comment les pages sont parcourues (clics, défilement, zones ignorées) et corriger ce qui gêne la navigation. Clarity dépose des cookies de mesure propres à ce site. Les champs de saisie, dont le formulaire de commande et l'adresse e-mail, sont masqués : leur contenu n'apparaît jamais dans ces mesures.",
+      "La fenêtre qui propose la lettre d'information retient, dans votre navigateur, que vous l'avez refermée ou que vous êtes inscrit, pour ne pas vous la reproposer.",
     ],
   },
   {
