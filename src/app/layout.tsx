@@ -90,7 +90,11 @@ export default function RootLayout({
           {newsletterActive && <FenetreNewsletter />}
         </PanierProvider>
         {CLARITY_ACTIF && (
-          <Script id="clarity" strategy="lazyOnload">
+          // Surtout pas id="clarity" : un élément HTML dont l'id est « clarity »
+          // devient window.clarity pour le navigateur, et le code de Clarity,
+          // qui appelle window.clarity(...), plantait sur cette balise sans rien
+          // enregistrer (constaté le 30/09/2026 : aucune session pendant 4 h).
+          <Script id="ms-clarity-init" strategy="lazyOnload">
             {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_ID}");`}
           </Script>
         )}
