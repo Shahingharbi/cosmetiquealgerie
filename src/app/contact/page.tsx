@@ -2,38 +2,40 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FilAriane from "@/components/FilAriane";
 import { SITE_NOM, urlAbsolue } from "@/lib/catalogue";
-
-/**
- * PLACEHOLDER À REMPLACER PAR LE PROPRIÉTAIRE AVANT MISE EN LIGNE.
- * Aucun numéro n'est inventé ici : tant que la valeur commence par "À
- * COMPLÉTER", le numéro est affiché en clair comme non renseigné et n'est
- * jamais transformé en lien wa.me (un lien vers un numéro faux serait pire
- * qu'une absence de lien).
- */
-const WHATSAPP = "À COMPLÉTER — numéro WhatsApp au format +213 X XX XX XX XX";
+import { TEL_DZ_AFFICHE, TEL_DZ_LIEN, WHATSAPP_LIEN } from "@/lib/contact";
 
 /** PLACEHOLDER : adresse dérivée du domaine, à créer côté hébergeur mail. */
 const EMAIL = "contact@cosmetiquealgerie.com";
 
+/* Téléphone et WhatsApp : le même numéro algérien, tiré de lib/contact. */
 const CANAUX = [
+  {
+    titre: "Téléphone",
+    detail: TEL_DZ_AFFICHE,
+    href: TEL_DZ_LIEN,
+    externe: false,
+    note: "Pour commander directement, ou confirmer une commande passée sur le site.",
+  },
+  {
+    titre: "WhatsApp",
+    detail: TEL_DZ_AFFICHE,
+    href: WHATSAPP_LIEN,
+    externe: true,
+    note: "Pour une question rapide avant achat : disponibilité, contenance, conseil sur une routine.",
+  },
   {
     titre: "E-mail",
     detail: EMAIL,
     href: `mailto:${EMAIL}`,
-    note: "Réponse sous 24 h ouvrées. Le canal à privilégier pour un suivi de commande ou une réclamation : la trace écrite reste.",
-  },
-  {
-    titre: "WhatsApp",
-    detail: WHATSAPP,
-    href: null,
-    note: "Pour une question rapide avant achat : disponibilité, contenance, conseil sur une routine.",
+    externe: false,
+    note: "Réponse sous 24 h ouvrées. Le canal à privilégier pour une réclamation : la trace écrite reste.",
   },
 ];
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contacter Cosmétique Algérie par e-mail ou WhatsApp : question avant achat, suivi de commande, conseil produit. Réponse sous 24 h ouvrées.",
+    "Contacter Cosmétique Algérie par téléphone, WhatsApp ou e-mail : question avant achat, suivi de commande, conseil produit.",
   alternates: { canonical: urlAbsolue("/contact/") },
 };
 
@@ -55,10 +57,10 @@ export default function PageContact() {
           </h1>
           <p className="mt-6 max-w-[62ch] text-[17px] leading-[1.6] text-[#4f4f4f] md:text-[19px]">
             Une question sur un produit, une commande en cours ou un colis reçu ?
-            Deux canaux, tenus par la même équipe.
+            Trois canaux, tenus par la même équipe.
           </p>
 
-          <ul className="mt-10 grid grid-cols-1 gap-px border border-[#e5e5e5] bg-[#e5e5e5] sm:grid-cols-2">
+          <ul className="mt-10 grid grid-cols-1 gap-px border border-[#e5e5e5] bg-[#e5e5e5] sm:grid-cols-3">
             {CANAUX.map((c) => (
               <li key={c.titre} className="bg-white p-6 md:p-8">
                 <h2 className="font-mono text-[12px] uppercase tracking-[0.14em] text-[#909090]">
@@ -66,7 +68,11 @@ export default function PageContact() {
                 </h2>
                 {c.href ? (
                   <p className="mt-4 text-[18px] leading-[1.3] text-[#141414]">
-                    <a href={c.href} className="underline underline-offset-2">
+                    <a
+                      href={c.href}
+                      className="underline underline-offset-2"
+                      {...(c.externe ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    >
                       {c.detail}
                     </a>
                   </p>

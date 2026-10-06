@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TEL_DZ_AFFICHE } from "@/lib/contact";
 import Link from "next/link";
 
 import FilAriane from "@/components/FilAriane";
@@ -43,7 +44,7 @@ const ARTICLES: Article[] = [
     titre: "2. Identité du vendeur",
     paragraphes: [
       `Dénomination : ${A_COMPLETER}. Registre de commerce : ${A_COMPLETER}. Numéro d'identification fiscale : ${A_COMPLETER}.`,
-      `Adresse : ${A_COMPLETER}. Téléphone : ${A_COMPLETER}. Courriel : contact@cosmetiquealgerie.com.`,
+      `Adresse : ${A_COMPLETER}. Téléphone : ${TEL_DZ_AFFICHE}. Courriel : contact@cosmetiquealgerie.com.`,
     ],
   },
   {

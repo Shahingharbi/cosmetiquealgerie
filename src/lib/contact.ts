@@ -1,20 +1,21 @@
 /**
  * Coordonnées du vendeur, en un seul endroit.
  *
- * Deux numéros, deux usages distincts :
+ * Depuis le 06/10/2026, un seul numéro algérien, le 06 72 64 44 81, sert à
+ * tout ce qui est visible : appel (en-tête, bandeau, pied de page, fiche
+ * produit, commande) et WhatsApp (bouton flottant, pied de page, question sur
+ * un produit). Un numéro du pays, que le visiteur compose sans frais
+ * d'international, est un signal de confiance sur un marché où tout se règle
+ * à la livraison.
  *
- *  - le numéro ALGÉRIEN est celui que l'on affiche. C'est un numéro local, que
- *    le visiteur reconnaît et peut composer sans frais d'international. Sur un
- *    marché où tout se règle à la livraison, voir un numéro du pays est un
- *    signal de confiance plus fort que n'importe quelle mention rassurante ;
- *  - le numéro FRANÇAIS porte le compte WhatsApp. Il n'a pas à être affiché en
- *    clair : il sert de destination aux liens `wa.me`.
+ * SEULE EXCEPTION : la confirmation de commande sur WhatsApp (page de
+ * remerciement, et secours si l'envoi automatique échoue) part vers le compte
+ * WhatsApp personnel du propriétaire, via la variable `NEXT_PUBLIC_WHATSAPP`
+ * lue par `envoi-commande`. Ne pas la brancher sur ce fichier.
  *
  * Les valeurs sont écrites ici plutôt que tirées de l'environnement : ce sont
  * des coordonnées publiques, elles doivent figurer sur le site dès le premier
- * rendu, y compris si une variable est oubliée au déploiement. `envoi-commande`
- * garde en revanche sa variable `NEXT_PUBLIC_WHATSAPP`, qui permet de basculer
- * la réception des commandes sans toucher au code.
+ * rendu, y compris si une variable est oubliée au déploiement.
  */
 
 /* ------------------------------------------------------------------ */
@@ -22,7 +23,7 @@
 /* ------------------------------------------------------------------ */
 
 /** Tel qu'on le lit en Algérie. */
-export const TEL_DZ_AFFICHE = "06 62 10 41 50";
+export const TEL_DZ_AFFICHE = "06 72 64 44 81";
 
 /**
  * Format international pour `href="tel:"`.
@@ -31,14 +32,14 @@ export const TEL_DZ_AFFICHE = "06 62 10 41 50";
  * un visiteur en itinérance, ou dont le téléphone n'est pas sur un réseau
  * algérien, ne peut composer le numéro qu'à cette condition.
  */
-export const TEL_DZ_LIEN = "tel:+213662104150";
+export const TEL_DZ_LIEN = "tel:+213672644481";
 
 /* ------------------------------------------------------------------ */
-/* WhatsApp — le compte qui reçoit                                     */
+/* WhatsApp — le compte qui répond aux visiteurs                       */
 /* ------------------------------------------------------------------ */
 
 /** Chiffres seuls, indicatif compris, sans le « + » : format attendu par wa.me. */
-export const WHATSAPP_NUMERO = "33782214993";
+export const WHATSAPP_NUMERO = "213672644481";
 
 /** Lien WhatsApp simple, sans message pré-rempli. */
 export const WHATSAPP_LIEN = `https://wa.me/${WHATSAPP_NUMERO}`;
