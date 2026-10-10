@@ -2,71 +2,27 @@ import type { FicheRedigee } from "@/lib/redige/types";
 
 export const LOT: FicheRedigee[] = [
   {
-    "slug": "biafine-0-67g-100g-emul-cut-b-186g",
-    "identite": [
-      "Biafine est une émulsion pour application cutanée à base de trolamine, dosée à 0,67 g pour 100 g, traditionnellement utilisée pour apaiser les peaux irritées, tiraillées ou fragilisées par une agression extérieure. Sa texture émulsion, ni grasse ni collante, s'étale en fine couche et laisse un film qui aide à limiter la sensation d'inconfort sur les zones sensibilisées du visage. Elle s'utilise en soin ponctuel plutôt qu'en crème de routine quotidienne, sur une peau qui a besoin d'un geste apaisant immédiat. Vendue en pharmacie, elle reste une référence connue pour ce type d'usage cutané localisé."
-    ],
-    "faits": [
-      { "libelle": "Actif principal", "valeur": "Trolamine" },
-      { "libelle": "Texture", "valeur": "Émulsion cutanée" },
-      { "libelle": "Usage", "valeur": "Soin ponctuel localisé" },
-      { "libelle": "Zone", "valeur": "Visage (zones irritées)" }
-    ],
-    "usage": [
-      "S'applique en couche fine sur la zone concernée, sans besoin de frotter, une à plusieurs fois par jour selon la sensation d'inconfort, sans temps de pose particulier. Elle se combine mal avec un soin exfoliant ou un actif asséchant appliqué sur la même zone au même moment, qui viendrait contrarier l'effet apaisant recherché."
-    ],
-    "positionnement": [
-      "Face aux crèmes réparatrices du rayon peau à problèmes, elle se distingue par une action ciblée et immédiate plutôt qu'un protocole de soin structuré matin et soir. Elle ne remplace pas une crème hydratante quotidienne ni un avis médical en cas de lésion cutanée importante, sa vocation restant le confort ponctuel d'une peau irritée localement."
-    ],
-    "faq": [
-      {
-        "question": "Peut-on utiliser Biafine tous les jours en soin visage ?",
-        "reponse": "Elle est pensée pour un usage ponctuel sur une zone inconfortable plutôt que comme crème de jour quotidienne. Pour une routine hydratante régulière, une crème adaptée au type de peau reste plus indiquée sur le long terme."
-      },
-      {
-        "question": "Convient-elle aux peaux à imperfections ?",
-        "reponse": "Sa texture non grasse convient à une application localisée sans obstruer particulièrement les pores, mais elle ne cible pas les imperfections elles-mêmes. Sur une peau à tendance acnéique, un soin dédié reste plus pertinent en usage courant."
-      }
-    ]
-  },
-  {
-    "slug": "biafine-emulsion-application-cutanee",
-    "identite": [
-      "Cette émulsion pour application cutanée est la même formule Biafine à base de trolamine, ici positionnée pour un usage corps sur les zones sèches, tiraillées ou récemment agressées par le soleil, le rasage ou un frottement répété. Sa texture fluide et non grasse pénètre rapidement, sans laisser de film collant, ce qui la rend pratique sur de plus grandes surfaces que le visage. Elle s'utilise en soin de dépannage sur une zone précise plutôt qu'en lait corps hydratant du quotidien, pour retrouver rapidement une sensation de confort cutané localisé."
-    ],
-    "faits": [
-      { "libelle": "Actif principal", "valeur": "Trolamine" },
-      { "libelle": "Texture", "valeur": "Émulsion fluide" },
-      { "libelle": "Usage", "valeur": "Soin ponctuel localisé" },
-      { "libelle": "Zone", "valeur": "Corps" }
-    ],
-    "usage": [
-      "S'applique en couche fine sur la zone concernée, sans masser longuement, autant de fois que nécessaire dans la journée selon la sensation d'inconfort. Elle convient bien après une exposition trop appuyée au soleil ou un rasage qui a laissé la peau sensible, mais ne remplace pas un lait corps appliqué au quotidien sur l'ensemble du corps."
-    ],
-    "positionnement": [
-      "Dans le rayon des soins hydratants corps, elle se distingue par sa vocation de dépannage ciblé plutôt que d'entretien quotidien de toute la surface cutanée. Pour une hydratation générale jour après jour, un lait ou une crème corps classique reste plus adapté et plus économique à l'usage sur de grandes zones."
-    ],
-    "faq": [
-      {
-        "question": "Peut-on l'utiliser sur tout le corps comme un lait hydratant ?",
-        "reponse": "Sa vocation reste le soin ponctuel d'une zone inconfortable plutôt qu'une application quotidienne sur l'ensemble du corps. Pour l'hydratation générale, un lait corps pensé pour un usage étendu convient mieux."
-      },
-      {
-        "question": "Est-elle adaptée après un coup de soleil léger ?",
-        "reponse": "Elle peut apporter un confort ponctuel sur une peau tiraillée par une exposition trop appuyée, en complément du geste après-soleil habituel. En cas de brûlure importante, un avis médical reste nécessaire plutôt qu'un soin cosmétique seul."
-      }
-    ]
-  },
-  {
     "slug": "bic-pack-4-rasoirs-miss-soleil-3-lames",
     "identite": [
       "Ce pack de quatre rasoirs jetables de la ligne Miss Soleil de Bic propose une tête à trois lames pensée pour le rasage des jambes, des aisselles et du maillot. Son manche ergonomique et sa tête pivotante suivent les courbes du corps pour limiter les zones oubliées, tandis que la bande lubrifiante intégrée facilite le glissé sur peau savonneuse. Chaque rasoir est à usage limité dans le temps avant d'être changé, ce qui en fait un produit d'appoint pratique à garder en réserve plutôt qu'un accessoire d'épilation durable comme un rasoir rechargeable."
     ],
     "faits": [
-      { "libelle": "Format", "valeur": "Pack de 4 rasoirs jetables" },
-      { "libelle": "Nombre de lames", "valeur": "3" },
-      { "libelle": "Zone", "valeur": "Jambes, aisselles, maillot" },
-      { "libelle": "Applicateur", "valeur": "Manche avec tête pivotante" }
+      {
+        "libelle": "Format",
+        "valeur": "Pack de 4 rasoirs jetables"
+      },
+      {
+        "libelle": "Nombre de lames",
+        "valeur": "3"
+      },
+      {
+        "libelle": "Zone",
+        "valeur": "Jambes, aisselles, maillot"
+      },
+      {
+        "libelle": "Applicateur",
+        "valeur": "Manche avec tête pivotante"
+      }
     ],
     "usage": [
       "S'utilise sur peau mouillée et savonnée, idéalement en fin de douche lorsque le poil est ramolli, en rasant dans le sens de la pousse pour limiter les irritations. Chaque rasoir se rince abondamment après usage et se change dès que les lames tirent sur la peau plutôt que de couper net, signe d'usure."
@@ -91,10 +47,22 @@ export const LOT: FicheRedigee[] = [
       "Ce gel-crème exfoliant à l'extrait de pêche associe un léger acide de fruit à une base gel-crème pour lisser la surface de la peau et aider à éliminer les cellules mortes qui ternissent le teint. Sa texture, entre le gel et la crème, s'applique en couche fine sur peau humide et se rince après quelques minutes de pose, sans grains abrasifs à frotter longuement. Le format pot de 140 g permet plusieurs usages avant épuisement, dans le cadre d'un gommage visage utilisé de façon régulière mais non quotidienne."
     ],
     "faits": [
-      { "libelle": "Actif principal", "valeur": "Acide de fruit" },
-      { "libelle": "Texture", "valeur": "Gel-crème" },
-      { "libelle": "Usage", "valeur": "Gommage visage" },
-      { "libelle": "Type de peau", "valeur": "Peau terne, texture irrégulière" }
+      {
+        "libelle": "Actif principal",
+        "valeur": "Acide de fruit"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Gel-crème"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Gommage visage"
+      },
+      {
+        "libelle": "Type de peau",
+        "valeur": "Peau terne, texture irrégulière"
+      }
     ],
     "usage": [
       "S'applique en couche fine sur visage humide, en évitant le contour des yeux, puis se laisse poser quelques minutes avant rinçage à l'eau tiède, une à deux fois par semaine. Il se combine mal avec un rétinol ou un acide exfoliant fort utilisé le même soir, qui accentuerait le risque d'irritation sur une peau déjà sollicitée."
@@ -119,10 +87,22 @@ export const LOT: FicheRedigee[] = [
       "Ce gommage visage au parfum de pêche se présente en gel-crème à appliquer sur peau humide pour affiner la texture de la peau et redonner de l'éclat à un teint terne. Sa formule, sans grain abrasif à gros calibre, mise sur un nettoyage en douceur plutôt que sur une action mécanique appuyée, ce qui la rend accessible à un usage régulier sans agresser la peau. Le pot de 140 g s'inscrit dans un rituel de gommage hebdomadaire plutôt que dans un nettoyage quotidien du visage."
     ],
     "faits": [
-      { "libelle": "Texture", "valeur": "Gel-crème" },
-      { "libelle": "Usage", "valeur": "Gommage visage hebdomadaire" },
-      { "libelle": "Parfum", "valeur": "Pêche" },
-      { "libelle": "Type de peau", "valeur": "Peau terne" }
+      {
+        "libelle": "Texture",
+        "valeur": "Gel-crème"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Gommage visage hebdomadaire"
+      },
+      {
+        "libelle": "Parfum",
+        "valeur": "Pêche"
+      },
+      {
+        "libelle": "Type de peau",
+        "valeur": "Peau terne"
+      }
     ],
     "usage": [
       "S'applique sur visage humide en évitant le contour des yeux, puis se rince après un bref massage circulaire, une à deux fois par semaine selon la sensibilité de la peau. Il complète une routine de nettoyage classique sans la remplacer, en geste ponctuel plutôt qu'en usage biquotidien."
@@ -147,10 +127,22 @@ export const LOT: FicheRedigee[] = [
       "Ce shampooing de la gamme Bioxcine associe collagène et biotine, deux ingrédients courants des formules capillaires pensées pour accompagner des cheveux qui montrent des signes de fragilité ou de finesse. Sa formule nettoie le cuir chevelu et la fibre sans effet asséchant marqué, pour un usage régulier plutôt qu'un traitement ponctuel. Il s'utilise comme un shampooing d'entretien dans une routine capillaire suivie, sans remplacer un avis médical en cas de chute de cheveux importante et persistante."
     ],
     "faits": [
-      { "libelle": "Actif principal", "valeur": "Collagène et biotine" },
-      { "libelle": "Usage", "valeur": "Shampooing d'entretien" },
-      { "libelle": "Type de cheveux", "valeur": "Cheveux fins ou fragilisés" },
-      { "libelle": "Gamme", "valeur": "Bioxcine" }
+      {
+        "libelle": "Actif principal",
+        "valeur": "Collagène et biotine"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Shampooing d'entretien"
+      },
+      {
+        "libelle": "Type de cheveux",
+        "valeur": "Cheveux fins ou fragilisés"
+      },
+      {
+        "libelle": "Gamme",
+        "valeur": "Bioxcine"
+      }
     ],
     "usage": [
       "S'applique sur cheveux mouillés, en faisant mousser sur le cuir chevelu par un léger massage, puis se rince abondamment avant un éventuel soin démêlant. Un usage régulier sur plusieurs semaines est nécessaire pour juger de son effet sur l'aspect général de la chevelure."
@@ -175,10 +167,22 @@ export const LOT: FicheRedigee[] = [
       "Ce sérum capillaire de la gamme Bioxcine complète la routine shampooing en apportant un soin sans rinçage, pensé pour le cuir chevelu ou les longueurs selon le geste choisi. Sa texture fluide s'applique en petite quantité et ne nécessite pas d'être rincée, ce qui en fait un geste rapide à intégrer après le lavage ou en entretien entre deux shampooings. Il s'adresse à une chevelure qui montre des signes de fragilité, en complément d'une routine suivie plutôt qu'en solution isolée."
     ],
     "faits": [
-      { "libelle": "Usage", "valeur": "Soin sans rinçage" },
-      { "libelle": "Type de cheveux", "valeur": "Cheveux fragilisés" },
-      { "libelle": "Gamme", "valeur": "Bioxcine" },
-      { "libelle": "Applicateur", "valeur": "Flacon compte-gouttes ou pipette" }
+      {
+        "libelle": "Usage",
+        "valeur": "Soin sans rinçage"
+      },
+      {
+        "libelle": "Type de cheveux",
+        "valeur": "Cheveux fragilisés"
+      },
+      {
+        "libelle": "Gamme",
+        "valeur": "Bioxcine"
+      },
+      {
+        "libelle": "Applicateur",
+        "valeur": "Flacon compte-gouttes ou pipette"
+      }
     ],
     "usage": [
       "S'applique en petites quantités directement sur le cuir chevelu ou réparti sur les longueurs selon le besoin, par un léger massage du bout des doigts, sans rinçage. Un usage régulier, plusieurs fois par semaine, permet de juger son effet sur la durée plutôt qu'après une seule application isolée."
@@ -203,10 +207,22 @@ export const LOT: FicheRedigee[] = [
       "Ce fond de teint fluide SPF15 de Bobbi Brown, dans le code C036, appartient à une ligne pensée pour un fini léger et naturel plutôt que pour une couvrance forte. La lettre C, dans la nomenclature de la maison, désigne un sous-ton froid, ici à une profondeur claire à moyenne, ce qui destine cette teinte aux carnations claires à sous-ton rosé ou neutre-froid plutôt qu'aux peaux à reflets dorés. Sa texture fluide se fond rapidement et laisse un rendu peau nue légèrement lumineux, pour un maquillage du quotidien plutôt qu'une occasion demandant une forte couvrance."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS15" },
-      { "libelle": "Texture", "valeur": "Fluide légère" },
-      { "libelle": "Fini", "valeur": "Naturel" },
-      { "libelle": "Sous-ton", "valeur": "Froid" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS15"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Fluide légère"
+      },
+      {
+        "libelle": "Fini",
+        "valeur": "Naturel"
+      },
+      {
+        "libelle": "Sous-ton",
+        "valeur": "Froid"
+      }
     ],
     "usage": [
       "S'applique en petite quantité au doigt, au pinceau ou à l'éponge, en partant du centre du visage vers l'extérieur pour un résultat homogène et modulable. Une seconde couche sur les zones qui en ont besoin permet d'ajuster la couvrance sans alourdir l'ensemble du teint."
@@ -231,10 +247,22 @@ export const LOT: FicheRedigee[] = [
       "Cette teinte très claire du fond de teint fluide SPF15 de Bobbi Brown porte le code N010, la lettre N désignant un sous-ton neutre dans la nomenclature de la maison et le nombre le plus bas de la ligne signalant la profondeur la plus claire disponible. Elle s'adresse aux carnations très claires, sans reflet particulièrement doré ni rosé, en quête d'un fini léger plutôt que d'une couvrance marquée. Sa texture fluide se fond facilement et laisse un rendu proche de la peau nue, pour un maquillage du quotidien discret."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS15" },
-      { "libelle": "Texture", "valeur": "Fluide légère" },
-      { "libelle": "Fini", "valeur": "Naturel" },
-      { "libelle": "Sous-ton", "valeur": "Neutre" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS15"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Fluide légère"
+      },
+      {
+        "libelle": "Fini",
+        "valeur": "Naturel"
+      },
+      {
+        "libelle": "Sous-ton",
+        "valeur": "Neutre"
+      }
     ],
     "usage": [
       "S'applique en petite quantité, idéalement à l'éponge légèrement humide pour un fini encore plus fondu, en tapotant plutôt qu'en frottant sur les zones les plus fines de la peau. Elle se superpose bien à un correcteur ciblé plutôt que d'être appliquée en couche épaisse sur tout le visage."
@@ -259,10 +287,22 @@ export const LOT: FicheRedigee[] = [
       "Le code N030 désigne, dans la ligne de fond de teint fluide SPF15 de Bobbi Brown, une teinte à sous-ton neutre et à profondeur claire à moyenne, un peu plus soutenue que les teintes les plus claires de la gamme. Elle convient aux carnations claires qui ont légèrement plus de densité de pigment que les teintes d'entrée, sans reflet doré ou rosé dominant. Sa texture fluide, modulable en couche, laisse un fini naturel qui ne fige pas les traits, pensé pour un usage quotidien plutôt qu'un maquillage de soirée fortement couvrant."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS15" },
-      { "libelle": "Texture", "valeur": "Fluide légère" },
-      { "libelle": "Fini", "valeur": "Naturel" },
-      { "libelle": "Sous-ton", "valeur": "Neutre" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS15"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Fluide légère"
+      },
+      {
+        "libelle": "Fini",
+        "valeur": "Naturel"
+      },
+      {
+        "libelle": "Sous-ton",
+        "valeur": "Neutre"
+      }
     ],
     "usage": [
       "S'applique en fine couche au doigt ou au pinceau, en partant des zones centrales du visage vers les contours, avant d'ajuster la couvrance par petites touches sur les zones qui en ont besoin. Elle se fixe bien avec une poudre libre légère pour un rendu qui tient mieux dans une journée chaude."
@@ -287,10 +327,22 @@ export const LOT: FicheRedigee[] = [
       "Avec le code N050, cette teinte du fond de teint fluide SPF15 de Bobbi Brown se situe au sous-ton neutre et à une profondeur moyenne, plus soutenue que les déclinaisons d'entrée de gamme. Elle s'adresse aux carnations moyennes, sans dominante particulièrement dorée ou rosée, en quête d'un fini léger qui n'accentue pas les pores ni les fines lignes. Sa texture fluide, modulable selon la quantité appliquée, permet de passer d'un voile léger à une couvrance plus marquée sans changer de produit."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS15" },
-      { "libelle": "Texture", "valeur": "Fluide légère" },
-      { "libelle": "Fini", "valeur": "Naturel" },
-      { "libelle": "Sous-ton", "valeur": "Neutre" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS15"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Fluide légère"
+      },
+      {
+        "libelle": "Fini",
+        "valeur": "Naturel"
+      },
+      {
+        "libelle": "Sous-ton",
+        "valeur": "Neutre"
+      }
     ],
     "usage": [
       "S'applique en couche fine au pinceau plat ou à l'éponge, en superposant une seconde couche uniquement sur les zones qui présentent des imperfections ou un teint plus irrégulier. Un fixateur en spray peut prolonger sa tenue sur une peau qui a tendance à briller en cours de journée."
@@ -315,10 +367,22 @@ export const LOT: FicheRedigee[] = [
       "Le code N052 correspond, dans la ligne de fond de teint fluide SPF15 de Bobbi Brown, à une teinte neutre légèrement plus soutenue que le N050 voisin, pour une carnation moyenne à moyenne-foncée. Elle s'adresse à une peau qui a besoin d'un peu plus de densité de pigment sans basculer vers les teintes franchement foncées de la gamme. Sa texture fluide et modulable garde un fini léger, sans effet masque, pour un maquillage porté au quotidien plutôt que réservé aux grandes occasions."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS15" },
-      { "libelle": "Texture", "valeur": "Fluide légère" },
-      { "libelle": "Fini", "valeur": "Naturel" },
-      { "libelle": "Sous-ton", "valeur": "Neutre" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS15"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Fluide légère"
+      },
+      {
+        "libelle": "Fini",
+        "valeur": "Naturel"
+      },
+      {
+        "libelle": "Sous-ton",
+        "valeur": "Neutre"
+      }
     ],
     "usage": [
       "S'applique en couche fine, en testant d'abord sur la mâchoire pour confirmer la correspondance avec le cou, puis en ajustant la couvrance par petites touches successives sur le reste du visage. Elle s'estompe bien avec une éponge légèrement humide pour un fini qui se fond dans la peau."
@@ -343,10 +407,22 @@ export const LOT: FicheRedigee[] = [
       "Dans la ligne de fond de teint fluide SPF15 de Bobbi Brown, le code W046 désigne une teinte à sous-ton chaud, la lettre W signalant classiquement un reflet doré dans la nomenclature de la maison, à une profondeur moyenne. Elle convient aux carnations qui dorent plutôt qu'elles ne rosissent au soleil, en quête d'un fini léger et lumineux plutôt que d'une couvrance opaque. Sa texture fluide s'estompe facilement et laisse transparaître le grain de peau, pour un maquillage porté au quotidien."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS15" },
-      { "libelle": "Texture", "valeur": "Fluide légère" },
-      { "libelle": "Fini", "valeur": "Naturel" },
-      { "libelle": "Sous-ton", "valeur": "Chaud" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS15"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Fluide légère"
+      },
+      {
+        "libelle": "Fini",
+        "valeur": "Naturel"
+      },
+      {
+        "libelle": "Sous-ton",
+        "valeur": "Chaud"
+      }
     ],
     "usage": [
       "S'applique en petite quantité au doigt ou au pinceau, en insistant sur le centre du visage puis en estompant vers les contours pour éviter tout effet de démarcation près de la mâchoire. Une application par couches fines successives permet d'ajuster la couvrance sans perdre le rendu lumineux propre à cette formule."
@@ -371,10 +447,22 @@ export const LOT: FicheRedigee[] = [
       "Le code W048 appartient à la même famille chaude que le W046 dans la ligne de fond de teint fluide SPF15 de Bobbi Brown, avec une profondeur légèrement plus soutenue. Il s'adresse à une carnation qui dore au soleil et qui a besoin d'un peu plus de densité de pigment que la teinte voisine, sans pour autant basculer vers les profondeurs foncées de la gamme. Sa texture fluide reste modulable et laisse un fini naturel, loin de l'effet masque d'un maquillage très couvrant."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS15" },
-      { "libelle": "Texture", "valeur": "Fluide légère" },
-      { "libelle": "Fini", "valeur": "Naturel" },
-      { "libelle": "Sous-ton", "valeur": "Chaud" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS15"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Fluide légère"
+      },
+      {
+        "libelle": "Fini",
+        "valeur": "Naturel"
+      },
+      {
+        "libelle": "Sous-ton",
+        "valeur": "Chaud"
+      }
     ],
     "usage": [
       "S'applique en couche fine au pinceau ou à l'éponge, en testant d'abord la correspondance sur la mâchoire avant d'étendre au reste du visage. Une seconde couche localisée sur les zones qui en ont besoin permet d'ajuster la couvrance sans alourdir l'ensemble du teint."
@@ -399,10 +487,22 @@ export const LOT: FicheRedigee[] = [
       "Ce déodorant stick Boss Bottled reprend l'univers olfactif boisé et ambré de la fragrance du même nom, pour prolonger sa trace en dessous des vêtements plutôt que de la reproduire à pleine intensité. Sa texture stick, solide et non collante, s'applique directement sur peau propre et sèche sans laisser de traces blanches sur les vêtements sombres une fois bien séchée. Pensé pour une protection annoncée longue durée, il s'inscrit dans une routine d'hygiène masculine quotidienne, en complément d'un gel douche ou d'un soin corps plutôt qu'en remplacement de ceux-ci."
     ],
     "faits": [
-      { "libelle": "Format", "valeur": "Stick" },
-      { "libelle": "Zone", "valeur": "Aisselles" },
-      { "libelle": "Parfum", "valeur": "Accord boisé-ambré Boss Bottled" },
-      { "libelle": "Usage", "valeur": "Protection longue durée revendiquée" }
+      {
+        "libelle": "Format",
+        "valeur": "Stick"
+      },
+      {
+        "libelle": "Zone",
+        "valeur": "Aisselles"
+      },
+      {
+        "libelle": "Parfum",
+        "valeur": "Accord boisé-ambré Boss Bottled"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Protection longue durée revendiquée"
+      }
     ],
     "usage": [
       "S'applique directement sur peau propre et sèche, de préférence après la douche, en quelques passages suffisants pour couvrir la zone sans excès. Il est préférable de laisser sécher quelques instants avant de s'habiller pour éviter tout dépôt sur un tissu sombre fraîchement enfilé."
@@ -427,10 +527,22 @@ export const LOT: FicheRedigee[] = [
       "Cette eau de parfum appartient à Boss The Collection, une ligne plus confidentielle de la maison que ses parfums grand public, pensée pour des compositions plus affirmées. Comme son nom l'indique, elle s'organise autour d'un accord d'encens, une matière boisée et fumée qui donne à la fragrance un caractère plus enveloppant que les eaux de toilette classiques de la marque. Le format 100 ml en spray permet un usage régulier plutôt qu'un simple essai, pour qui recherche une signature olfactive différente des références les plus connues de Boss."
     ],
     "faits": [
-      { "libelle": "Gamme", "valeur": "Boss The Collection" },
-      { "libelle": "Accord", "valeur": "Encens" },
-      { "libelle": "Concentration", "valeur": "Eau de parfum" },
-      { "libelle": "Applicateur", "valeur": "Vaporisateur" }
+      {
+        "libelle": "Gamme",
+        "valeur": "Boss The Collection"
+      },
+      {
+        "libelle": "Accord",
+        "valeur": "Encens"
+      },
+      {
+        "libelle": "Concentration",
+        "valeur": "Eau de parfum"
+      },
+      {
+        "libelle": "Applicateur",
+        "valeur": "Vaporisateur"
+      }
     ],
     "usage": [
       "Se vaporise sur les points de pulsation, poignets et cou, en une à deux pressions selon l'intensité recherchée, la concentration eau de parfum offrant généralement une tenue plus longue qu'une eau de toilette. Il est préférable d'éviter de frotter les poignets l'un contre l'autre après vaporisation."
@@ -455,10 +567,22 @@ export const LOT: FicheRedigee[] = [
       "Cette eau de parfum de la ligne Boss The Collection s'organise autour d'un accord fougère, une famille olfactive aromatique et boisée traditionnellement associée à la parfumerie masculine, ici déclinée dans une version plus énergique comme l'indique son nom. Le format 100 ml en spray permet un usage régulier, pour qui apprécie une fragrance structurée plutôt qu'une eau de toilette fraîche et légère. Elle appartient à une ligne plus confidentielle que les parfums grand public de la maison, pensée pour une signature olfactive différenciante."
     ],
     "faits": [
-      { "libelle": "Gamme", "valeur": "Boss The Collection" },
-      { "libelle": "Accord", "valeur": "Fougère" },
-      { "libelle": "Concentration", "valeur": "Eau de parfum" },
-      { "libelle": "Applicateur", "valeur": "Vaporisateur" }
+      {
+        "libelle": "Gamme",
+        "valeur": "Boss The Collection"
+      },
+      {
+        "libelle": "Accord",
+        "valeur": "Fougère"
+      },
+      {
+        "libelle": "Concentration",
+        "valeur": "Eau de parfum"
+      },
+      {
+        "libelle": "Applicateur",
+        "valeur": "Vaporisateur"
+      }
     ],
     "usage": [
       "Se vaporise sur les poignets et le cou, en une à deux pressions, la concentration eau de parfum permettant une tenue plus longue qu'une eau de toilette classique. Une seule vaporisation suffit généralement pour un usage de journée, la fougère aromatique se développant progressivement sur la peau."
@@ -483,10 +607,22 @@ export const LOT: FicheRedigee[] = [
       "Cette crème douche surgras associe huile d'amande et beurre de karité pour un nettoyage plus doux qu'un gel douche classique, pensé pour les peaux sèches à qui un nettoyant trop dégraissant tire dessus. Sa texture crème, plus riche qu'un gel, mousse peu mais nettoie efficacement tout en laissant un léger voile hydratant après le rinçage. Le grand flacon s'inscrit dans un usage familial quotidien, pour une douche qui nettoie sans accentuer la sensation de peau sèche au sortir de l'eau."
     ],
     "faits": [
-      { "libelle": "Actif principal", "valeur": "Huile d'amande et beurre de karité" },
-      { "libelle": "Texture", "valeur": "Crème surgras" },
-      { "libelle": "Type de peau", "valeur": "Peau sèche" },
-      { "libelle": "Usage", "valeur": "Nettoyage quotidien" }
+      {
+        "libelle": "Actif principal",
+        "valeur": "Huile d'amande et beurre de karité"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Crème surgras"
+      },
+      {
+        "libelle": "Type de peau",
+        "valeur": "Peau sèche"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Nettoyage quotidien"
+      }
     ],
     "usage": [
       "S'applique sur peau mouillée, en faisant mousser légèrement à la main ou au gant, puis se rince à l'eau tiède plutôt que très chaude, qui accentue la sensation de peau qui tire. Elle convient à un usage quotidien pour toute la famille, y compris sur une peau qui réagit à des nettoyants plus décapants."
@@ -511,10 +647,22 @@ export const LOT: FicheRedigee[] = [
       "Ce gel douche de la ligne Dermo Respect associe une huile d'amande douce biologique à une formule pensée pour respecter l'équilibre naturel de la peau lors du nettoyage. Sa texture gel, plus fluide qu'une crème douche, mousse modérément et se rince facilement, pour un usage quotidien qui ne laisse pas de film gras après la douche. Il s'adresse à une peau normale à sèche qui recherche un nettoyage respectueux sans renoncer à un geste simple et rapide au quotidien."
     ],
     "faits": [
-      { "libelle": "Actif principal", "valeur": "Huile d'amande douce biologique" },
-      { "libelle": "Texture", "valeur": "Gel" },
-      { "libelle": "Usage", "valeur": "Nettoyage corps quotidien" },
-      { "libelle": "Type de peau", "valeur": "Peau normale à sèche" }
+      {
+        "libelle": "Actif principal",
+        "valeur": "Huile d'amande douce biologique"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Gel"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Nettoyage corps quotidien"
+      },
+      {
+        "libelle": "Type de peau",
+        "valeur": "Peau normale à sèche"
+      }
     ],
     "usage": [
       "S'applique sur peau mouillée au gant ou à la main, en insistant sur les zones les plus sèches comme les coudes et les genoux, puis se rince abondamment. Un usage quotidien convient à cette formule, pensée pour ne pas accentuer la sensation de peau qui tire au sortir de la douche."
@@ -539,10 +687,22 @@ export const LOT: FicheRedigee[] = [
       "Cette crème douche Surdoux à la crème d'amande mise sur une formule enrichie pour un nettoyage tout en douceur, pensée pour les peaux qui ont besoin d'un geste plus doux qu'un gel douche standard. Sa texture crème, riche et onctueuse, mousse peu mais nettoie efficacement tout en respectant le film hydrolipidique de la peau. Le flacon convient à un usage quotidien, pour une douche qui ne laisse pas la sensation de peau qui tire une fois sorti de l'eau."
     ],
     "faits": [
-      { "libelle": "Actif principal", "valeur": "Crème d'amande" },
-      { "libelle": "Texture", "valeur": "Crème surdouce" },
-      { "libelle": "Type de peau", "valeur": "Peau sèche" },
-      { "libelle": "Usage", "valeur": "Nettoyage quotidien" }
+      {
+        "libelle": "Actif principal",
+        "valeur": "Crème d'amande"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Crème surdouce"
+      },
+      {
+        "libelle": "Type de peau",
+        "valeur": "Peau sèche"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Nettoyage quotidien"
+      }
     ],
     "usage": [
       "S'applique sur peau mouillée en petite quantité, la texture crème moussant moins qu'un gel classique mais suffisant pour nettoyer efficacement, puis se rince à l'eau tiède. Elle convient à un usage quotidien pour toute la famille, y compris sur une peau réactive aux nettoyants plus décapants."
@@ -567,10 +727,22 @@ export const LOT: FicheRedigee[] = [
       "Cette eau micellaire nettoie le visage et retire le maquillage sans nécessiter de rinçage, un geste pensé pour les routines rapides du matin comme du soir. Sa formule à base de micelles capte les impuretés et les résidus de maquillage à leur contact, pour un nettoyage en douceur adapté à de nombreux types de peau, y compris les peaux sensibles qui tolèrent mal les nettoyants moussants. Le flacon se prête à un usage quotidien, appliqué au coton, sur le visage et les yeux."
     ],
     "faits": [
-      { "libelle": "Texture", "valeur": "Eau micellaire" },
-      { "libelle": "Usage", "valeur": "Démaquillage sans rinçage" },
-      { "libelle": "Type de peau", "valeur": "Tous types de peau" },
-      { "libelle": "Zone", "valeur": "Visage et yeux" }
+      {
+        "libelle": "Texture",
+        "valeur": "Eau micellaire"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Démaquillage sans rinçage"
+      },
+      {
+        "libelle": "Type de peau",
+        "valeur": "Tous types de peau"
+      },
+      {
+        "libelle": "Zone",
+        "valeur": "Visage et yeux"
+      }
     ],
     "usage": [
       "S'applique sur un coton, puis se passe délicatement sur le visage, en insistant sur les zones maquillées sans frotter, y compris sur les paupières pour retirer le maquillage des yeux. Aucun rinçage n'est nécessaire, ce qui en fait un geste rapide avant le coucher ou pour rafraîchir la peau en journée."
@@ -595,10 +767,22 @@ export const LOT: FicheRedigee[] = [
       "Ce sérum capillaire associe huile d'olive, kératine et vitamine E, trois ingrédients courants des soins pensés pour les cheveux qui manquent de souplesse ou de brillance. Sa texture sérum, sans rinçage, s'applique en petite quantité sur longueurs et pointes pour aider à discipliner la fibre et limiter l'aspect rêche au toucher. Il s'utilise en complément d'un shampooing adapté, dans une routine capillaire régulière plutôt qu'en soin isolé, sur cheveux secs ou humides selon la préférence."
     ],
     "faits": [
-      { "libelle": "Actif principal", "valeur": "Huile d'olive, kératine, vitamine E" },
-      { "libelle": "Usage", "valeur": "Soin sans rinçage" },
-      { "libelle": "Type de cheveux", "valeur": "Cheveux secs ou rêches" },
-      { "libelle": "Applicateur", "valeur": "Flacon avec dose contrôlée" }
+      {
+        "libelle": "Actif principal",
+        "valeur": "Huile d'olive, kératine, vitamine E"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Soin sans rinçage"
+      },
+      {
+        "libelle": "Type de cheveux",
+        "valeur": "Cheveux secs ou rêches"
+      },
+      {
+        "libelle": "Applicateur",
+        "valeur": "Flacon avec dose contrôlée"
+      }
     ],
     "usage": [
       "S'applique en petite quantité sur longueurs et pointes, cheveux humides après le shampooing ou cheveux secs pour discipliner les frisottis, en évitant les racines pour ne pas alourdir le cuir chevelu. Un usage régulier permet de juger son effet sur la souplesse générale de la fibre."
@@ -623,10 +807,22 @@ export const LOT: FicheRedigee[] = [
       "Ce gel après-soleil de Caribbean Bronze vient rafraîchir et apaiser la peau une fois l'exposition terminée, avec une texture gel plus légère qu'une crème, qui pénètre rapidement sans laisser de film gras. Il s'utilise en fin de journée, après la douche qui suit l'exposition, pour limiter la sensation de tiraillement liée au dessèchement cutané provoqué par le soleil, le sel ou le chlore. Le flacon convient à un usage répété sur toute la durée d'un séjour au soleil."
     ],
     "faits": [
-      { "libelle": "Texture", "valeur": "Gel" },
-      { "libelle": "Usage", "valeur": "Après exposition solaire" },
-      { "libelle": "Zone", "valeur": "Corps et visage" },
-      { "libelle": "Effet", "valeur": "Fraîcheur immédiate" }
+      {
+        "libelle": "Texture",
+        "valeur": "Gel"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Après exposition solaire"
+      },
+      {
+        "libelle": "Zone",
+        "valeur": "Corps et visage"
+      },
+      {
+        "libelle": "Effet",
+        "valeur": "Fraîcheur immédiate"
+      }
     ],
     "usage": [
       "S'applique en couche généreuse sur peau propre, après la douche qui suit l'exposition, par mouvements circulaires jusqu'à pénétration complète. Il peut se conserver au réfrigérateur pour renforcer la sensation de fraîcheur recherchée après une journée particulièrement chaude."
@@ -651,10 +847,22 @@ export const LOT: FicheRedigee[] = [
       "Cette huile solaire en spray SPF15 de Caribbean Bronze combine une protection modérée à une texture huile qui laisse un fini satiné sur la peau, plutôt qu'un rendu mat. Sa formule spray facilite une application rapide sur de grandes surfaces, un atout pour les zones difficiles d'accès comme le dos. L'indice SPF15, plus modéré que les indices hauts du rayon, s'adresse à une peau déjà habituée au soleil ou à une exposition de courte durée plutôt qu'à une première sortie de la saison."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS15 (protection faible à modérée)" },
-      { "libelle": "Texture", "valeur": "Huile spray" },
-      { "libelle": "Fini", "valeur": "Satiné" },
-      { "libelle": "Zone", "valeur": "Corps" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS15 (protection faible à modérée)"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Huile spray"
+      },
+      {
+        "libelle": "Fini",
+        "valeur": "Satiné"
+      },
+      {
+        "libelle": "Zone",
+        "valeur": "Corps"
+      }
     ],
     "usage": [
       "Se vaporise à bonne distance de la peau puis s'étale à la main pour une répartition homogène, en renouvelant l'application toutes les deux heures et après chaque baignade. Sa texture huile demande d'être bien répartie pour éviter les zones sur-appliquées qui brillent davantage que le reste du corps."
@@ -679,10 +887,22 @@ export const LOT: FicheRedigee[] = [
       "Cette huile solaire en spray SPF30 de Caribbean Bronze offre une protection haute dans une texture huile au fini satiné, plus légère qu'une crème classique. Elle s'adresse à une peau qui recherche un bel effet brillant en plus de la protection, sans le fini mat de certains laits solaires. Le format spray facilite l'application sur de grandes surfaces et convient à un usage répété au fil d'une journée d'exposition."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS30 (protection haute)" },
-      { "libelle": "Texture", "valeur": "Huile spray" },
-      { "libelle": "Fini", "valeur": "Satiné" },
-      { "libelle": "Zone", "valeur": "Corps" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS30 (protection haute)"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Huile spray"
+      },
+      {
+        "libelle": "Fini",
+        "valeur": "Satiné"
+      },
+      {
+        "libelle": "Zone",
+        "valeur": "Corps"
+      }
     ],
     "usage": [
       "Se vaporise à bonne distance de la peau puis s'étale à la main en couche généreuse, avant l'exposition et toutes les deux heures ensuite, ainsi qu'après chaque baignade. Une dose suffisante est nécessaire pour atteindre l'indice annoncé, la texture huile pouvant donner une fausse impression de couverture complète alors qu'elle est insuffisante."
@@ -707,10 +927,22 @@ export const LOT: FicheRedigee[] = [
       "Cette lotion solaire SPF30 de Caribbean Bronze offre une protection haute dans une texture lotion plus fluide qu'une crème classique, pensée pour accompagner une exposition prolongée sans laisser de film épais sur la peau. Le nom tanning renvoie à l'usage classique de ce type de lotion pendant le bronzage, en complément d'une bonne hydratation de la peau exposée. Le flacon convient à un usage répété sur plusieurs jours d'exposition."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS30 (protection haute)" },
-      { "libelle": "Texture", "valeur": "Lotion fluide" },
-      { "libelle": "Zone", "valeur": "Corps" },
-      { "libelle": "Usage", "valeur": "Exposition solaire prolongée" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS30 (protection haute)"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Lotion fluide"
+      },
+      {
+        "libelle": "Zone",
+        "valeur": "Corps"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Exposition solaire prolongée"
+      }
     ],
     "usage": [
       "S'applique généreusement sur peau propre et sèche avant l'exposition, en renouvelant toutes les deux heures et après chaque baignade. Une quantité généreuse est nécessaire pour atteindre l'indice annoncé, la plupart des utilisateurs en appliquant une dose insuffisante par rapport à ce que prévoit le test de l'indice."
@@ -735,10 +967,22 @@ export const LOT: FicheRedigee[] = [
       "Cette lotion solaire teintée SPF30 de Caribbean Bronze combine une protection haute à une légère coloration qui donne un effet bonne mine immédiat, sans attendre le bronzage naturel. Sa texture lotion s'étale facilement et laisse un léger voile doré sur la peau dès l'application, un plus pour qui souhaite un effet visuel immédiat en plus de la protection. Le flacon convient à un usage répété sur plusieurs jours d'exposition."
     ],
     "faits": [
-      { "libelle": "Indice de protection", "valeur": "FPS30 (protection haute)" },
-      { "libelle": "Texture", "valeur": "Lotion teintée" },
-      { "libelle": "Effet", "valeur": "Bonne mine immédiat" },
-      { "libelle": "Zone", "valeur": "Corps" }
+      {
+        "libelle": "Indice de protection",
+        "valeur": "FPS30 (protection haute)"
+      },
+      {
+        "libelle": "Texture",
+        "valeur": "Lotion teintée"
+      },
+      {
+        "libelle": "Effet",
+        "valeur": "Bonne mine immédiat"
+      },
+      {
+        "libelle": "Zone",
+        "valeur": "Corps"
+      }
     ],
     "usage": [
       "S'applique généreusement sur peau propre et sèche avant l'exposition, en étalant uniformément pour éviter les zones plus marquées que d'autres, la teinte rendant les traces d'application inégale plus visibles qu'une lotion classique. Le renouvellement toutes les deux heures et après chaque baignade reste nécessaire pour maintenir la protection."
@@ -763,10 +1007,22 @@ export const LOT: FicheRedigee[] = [
       "Cette brume parfumée Castelbajac développe un accord gourmand et exotique de noix de coco et de pitaya, pensé pour un usage léger et répété plutôt que pour une tenue de parfum classique. Sa texture brume, plus légère qu'une eau de toilette, se vaporise sur le corps et les cheveux pour un parfum discret qui se renouvelle facilement au fil de la journée. Le flacon, généreux pour ce type de produit, convient à une utilisation fréquente sans compter les vaporisations."
     ],
     "faits": [
-      { "libelle": "Format", "valeur": "Brume corporelle" },
-      { "libelle": "Accord", "valeur": "Coco et pitaya" },
-      { "libelle": "Usage", "valeur": "Corps et cheveux" },
-      { "libelle": "Concentration", "valeur": "Brume (tenue légère)" }
+      {
+        "libelle": "Format",
+        "valeur": "Brume corporelle"
+      },
+      {
+        "libelle": "Accord",
+        "valeur": "Coco et pitaya"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Corps et cheveux"
+      },
+      {
+        "libelle": "Concentration",
+        "valeur": "Brume (tenue légère)"
+      }
     ],
     "usage": [
       "Se vaporise directement sur le corps ou à quelques centimètres des cheveux, en une ou plusieurs pressions selon l'intensité souhaitée, à renouveler dans la journée si besoin puisque sa tenue reste plus courte qu'un parfum classique. Elle se superpose bien à un gel douche ou un lait corps sans accord, pour ne pas brouiller le parfum recherché."
@@ -791,10 +1047,22 @@ export const LOT: FicheRedigee[] = [
       "Cette brume parfumée Castelbajac s'articule autour d'un accord figue et miel, une association gourmande et légèrement boisée par la figue, pensée pour un parfum léger renouvelé au fil de la journée plutôt qu'une tenue de longue durée. Sa texture brume se vaporise facilement sur le corps et laisse un sillage discret, adapté à un usage quotidien y compris pour qui trouve les eaux de toilette classiques trop marquées. Le flacon permet un usage généreux et répété."
     ],
     "faits": [
-      { "libelle": "Format", "valeur": "Brume corporelle" },
-      { "libelle": "Accord", "valeur": "Figue et miel" },
-      { "libelle": "Usage", "valeur": "Corps" },
-      { "libelle": "Concentration", "valeur": "Brume (tenue légère)" }
+      {
+        "libelle": "Format",
+        "valeur": "Brume corporelle"
+      },
+      {
+        "libelle": "Accord",
+        "valeur": "Figue et miel"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Corps"
+      },
+      {
+        "libelle": "Concentration",
+        "valeur": "Brume (tenue légère)"
+      }
     ],
     "usage": [
       "Se vaporise directement sur le corps, en une ou plusieurs pressions selon l'intensité recherchée, à renouveler en cours de journée si le sillage s'estompe. Elle peut s'appliquer après la douche sur peau encore légèrement humide pour une meilleure tenue du parfum sur quelques heures."
@@ -819,10 +1087,22 @@ export const LOT: FicheRedigee[] = [
       "Cette brume parfumée Castelbajac associe rose et cerise dans un accord floral et fruité, plus gourmand qu'une eau de toilette florale classique. Sa texture légère, pensée pour un usage fréquent plutôt qu'une seule vaporisation par jour, convient à qui apprécie renouveler son parfum au fil des heures sans miser sur une tenue longue. Le flacon, généreux, permet un usage libéral sur le corps sans craindre d'épuiser rapidement le produit."
     ],
     "faits": [
-      { "libelle": "Format", "valeur": "Brume corporelle" },
-      { "libelle": "Accord", "valeur": "Rose et cerise" },
-      { "libelle": "Usage", "valeur": "Corps" },
-      { "libelle": "Concentration", "valeur": "Brume (tenue légère)" }
+      {
+        "libelle": "Format",
+        "valeur": "Brume corporelle"
+      },
+      {
+        "libelle": "Accord",
+        "valeur": "Rose et cerise"
+      },
+      {
+        "libelle": "Usage",
+        "valeur": "Corps"
+      },
+      {
+        "libelle": "Concentration",
+        "valeur": "Brume (tenue légère)"
+      }
     ],
     "usage": [
       "Se vaporise directement sur le corps, en une ou plusieurs pressions, à renouveler en cours de journée selon la tenue souhaitée. Elle se marie bien avec un gel douche neutre pour ne pas superposer d'autres parfums qui viendraient brouiller l'accord rose et cerise recherché."

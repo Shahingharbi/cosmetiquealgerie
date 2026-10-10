@@ -21,6 +21,8 @@ import {
   marqueCategories,
   marques,
   noeuds,
+  produitsDeLaMarque,
+  produitsDuNoeud,
   produitsIndexables,
   taxonomie,
   urlAbsolue,
@@ -96,14 +98,21 @@ function decouper<T>(liste: T[], max: number): T[][] {
  * tout l'arbre (règle « un label ne route que vers un seul nœud »).
  */
 function urlsCroisements(): string[] {
-  const urls: string[] = [];
+  const urls = new Set<string>();
   for (const mc of marqueCategories) {
     const noeud = getNoeud(mc.categorie);
     if (!noeud) continue;
-    urls.push(urlAbsolue(`/marques/${mc.marqueSlug}/${noeud.slug}/`));
+    // Un croisement sans produit en ligne répond 404 : il n'a rien à faire
+    // dans le sitemap. Arrive dès qu'on retire des produits du catalogue
+    // (médicaments, le 10/10/2026) sans régénérer marque-categorie.json.
+    if (!produitsDuNoeud(noeud.url).some((p) => p.marqueSlug === mc.marqueSlug)) continue;
+    urls.add(urlAbsolue(`/marques/${mc.marqueSlug}/${noeud.slug}/`));
   }
-  return urls;
+  return [...urls];
 }
+
+/** Marques ayant au moins un produit en ligne : les autres répondent 404. */
+const marquesEnLigne = marques.filter((m) => produitsDeLaMarque(m.slug).length > 0);
 
 function construireSegments(): SegmentSitemap[] {
   const croisements = urlsCroisements();
@@ -132,9 +141,9 @@ function construireSegments(): SegmentSitemap[] {
     {
       id: "marques",
       lastModified: DATE_CATALOGUE,
-      nbUrl: marques.length,
+      nbUrl: marquesEnLigne.length,
       entrees: () =>
-        marques.map((m) => ({
+        marquesEnLigne.map((m) => ({
           url: urlAbsolue(urlMarque(m.slug)),
           lastModified: DATE_CATALOGUE,
         })),

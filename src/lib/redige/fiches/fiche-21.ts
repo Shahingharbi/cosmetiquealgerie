@@ -634,42 +634,6 @@ export const LOT: FicheRedigee[] = [
     ]
   },
   {
-    "slug": "devlor-niacide-b3",
-    "identite": [
-      "Niacide-B3 de Devlor est un soin construit autour de la niacinamide, la vitamine B3 dont le nom du produit reprend directement la fonction, un actif largement documenté pour son rôle dans l'aspect plus uniforme du teint et la régulation visuelle de la brillance. Positionné dans le rayon des soins anti-imperfections, il s'adresse aux peaux mixtes à grasses cherchant à limiter l'aspect luisant et les pores marqués au fil de la journée, dans une approche progressive plutôt qu'un traitement agressif immédiat."
-    ],
-    "faits": [
-      {
-        "libelle": "Actif principal",
-        "valeur": "Niacinamide (vitamine B3)"
-      },
-      {
-        "libelle": "Rayon",
-        "valeur": "Soin anti-imperfections"
-      },
-      {
-        "libelle": "Type de peau",
-        "valeur": "Peau mixte à grasse"
-      }
-    ],
-    "usage": [
-      "S'applique sur peau nettoyée, en quelques gouttes ou une noisette selon la galénique, avant la crème hydratante. Un usage régulier, matin ou soir selon la texture, est nécessaire pour observer un effet progressif sur l'aspect du grain de peau et la régulation de la brillance."
-    ],
-    "positionnement": [
-      "Face aux soins anti-imperfections plus agressifs à base d'acides exfoliants, il mise sur la niacinamide pour une action plus douce et compatible avec un usage quotidien prolongé. Il convient à une peau cherchant à limiter la brillance sans irritation, mais reste insuffisant face à une acné inflammatoire marquée, qui nécessite un accompagnement plus ciblé."
-    ],
-    "faq": [
-      {
-        "question": "La niacinamide convient-elle à toutes les peaux ?",
-        "reponse": "C'est un actif généralement bien toléré, y compris par les peaux sensibles, ce qui en fait une option d'entrée pour qui découvre les soins actifs anti-imperfections sans vouloir risquer l'irritation d'un acide exfoliant."
-      },
-      {
-        "question": "Peut-on l'associer à un rétinol ?",
-        "reponse": "Oui, la niacinamide se combine bien avec le rétinol et peut même en atténuer les effets irritants, ce qui en fait un bon complément dans une routine du soir plus complète."
-      }
-    ]
-  },
-  {
     "slug": "ducray-kertyol-p-s-o-shampooing",
     "identite": [
       "Kertyol P.S.O. de Ducray est un shampoing kératoréducteur de la gamme dermo-cosmétique Ducray, destiné aux cuirs chevelus marqués par des squames importantes et persistantes, qu'elles soient liées à des pellicules sévères ou à un état squameux du cuir chevelu comme la dermite séborrhéique. Sa formule s'appuie sur des agents kératorégulateurs qui aident à réduire l'épaisseur des squames et à apaiser les tiraillements associés, dans une logique de soin d'appoint qui accompagne un éventuel traitement prescrit par un dermatologue plutôt qu'il ne le remplace. Il se distingue des shampoings antipelliculaires classiques par une action plus ciblée sur les états squameux marqués."
