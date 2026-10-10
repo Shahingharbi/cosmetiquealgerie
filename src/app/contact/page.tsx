@@ -4,9 +4,6 @@ import FilAriane from "@/components/FilAriane";
 import { SITE_NOM, urlAbsolue } from "@/lib/catalogue";
 import { TEL_DZ_AFFICHE, TEL_DZ_LIEN, WHATSAPP_LIEN } from "@/lib/contact";
 
-/** PLACEHOLDER : adresse dérivée du domaine, à créer côté hébergeur mail. */
-const EMAIL = "contact@cosmetiquealgerie.com";
-
 /* Téléphone et WhatsApp : le même numéro algérien, tiré de lib/contact. */
 const CANAUX = [
   {
@@ -23,19 +20,12 @@ const CANAUX = [
     externe: true,
     note: "Pour une question rapide avant achat : disponibilité, contenance, conseil sur une routine.",
   },
-  {
-    titre: "E-mail",
-    detail: EMAIL,
-    href: `mailto:${EMAIL}`,
-    externe: false,
-    note: "Réponse sous 24 h ouvrées. Le canal à privilégier pour une réclamation : la trace écrite reste.",
-  },
 ];
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contacter Cosmétique Algérie par téléphone, WhatsApp ou e-mail : question avant achat, suivi de commande, conseil produit.",
+    "Contacter Cosmétique Algérie par téléphone ou WhatsApp : question avant achat, suivi de commande, conseil produit.",
   alternates: { canonical: urlAbsolue("/contact/") },
 };
 
@@ -57,10 +47,10 @@ export default function PageContact() {
           </h1>
           <p className="mt-6 max-w-[62ch] text-[17px] leading-[1.6] text-[#4f4f4f] md:text-[19px]">
             Une question sur un produit, une commande en cours ou un colis reçu ?
-            Trois canaux, tenus par la même équipe.
+            Deux canaux, un même numéro, tenus par la même équipe.
           </p>
 
-          <ul className="mt-10 grid grid-cols-1 gap-px border border-[#e5e5e5] bg-[#e5e5e5] sm:grid-cols-3">
+          <ul className="mt-10 grid grid-cols-1 gap-px border border-[#e5e5e5] bg-[#e5e5e5] sm:grid-cols-2">
             {CANAUX.map((c) => (
               <li key={c.titre} className="bg-white p-6 md:p-8">
                 <h2 className="font-mono text-[12px] uppercase tracking-[0.14em] text-[#909090]">

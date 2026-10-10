@@ -2,38 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import FilAriane from "@/components/FilAriane";
 import { SITE_NOM, SITE_URL, urlAbsolue } from "@/lib/catalogue";
-
-/** PLACEHOLDER : adresse dérivée du domaine, à créer côté hébergeur mail. */
-const EMAIL = "contact@cosmetiquealgerie.com";
-
-/**
- * Toutes les informations que seul le propriétaire peut fournir sont rendues
- * par ce composant : elles restent visuellement identifiables tant qu'elles ne
- * sont pas remplies, plutôt que d'être inventées.
- */
-function ACompleter({ libelle }: { libelle: string }) {
-  return (
-    <span className="inline-block border border-dashed border-[#909090] bg-white px-2 py-0.5 font-mono text-[12px] text-[#141414]">
-      À COMPLÉTER — {libelle}
-    </span>
-  );
-}
+import { TEL_DZ_AFFICHE } from "@/lib/contact";
 
 const EDITEUR: { terme: string; valeur: string }[] = [
-  { terme: "Dénomination sociale", valeur: "raison sociale exacte" },
-  { terme: "Forme juridique", valeur: "EURL, SARL, auto-entrepreneur…" },
-  { terme: "Siège social", valeur: "adresse complète et wilaya" },
-  { terme: "Registre du commerce (RC)", valeur: "numéro RC" },
-  { terme: "Identifiant fiscal (NIF)", valeur: "numéro NIF" },
-  { terme: "Article d'imposition", valeur: "numéro d'article" },
-  { terme: "Téléphone", valeur: "numéro fixe ou mobile" },
-  { terme: "Directeur de la publication", valeur: "nom et prénom" },
+  { terme: "Marque", valeur: SITE_NOM },
+  { terme: "Site", valeur: SITE_URL.replace("https://", "") },
+  { terme: "Téléphone et WhatsApp", valeur: TEL_DZ_AFFICHE },
 ];
 
+/** Repris des e-mails de Vercel, qui sert le site. */
 const HEBERGEUR: { terme: string; valeur: string }[] = [
-  { terme: "Hébergeur", valeur: "raison sociale de l'hébergeur" },
-  { terme: "Adresse", valeur: "adresse postale de l'hébergeur" },
-  { terme: "Contact", valeur: "téléphone ou e-mail de l'hébergeur" },
+  { terme: "Hébergeur", valeur: "Vercel Inc." },
+  { terme: "Adresse", valeur: "440 N Barranca Ave #4133, Covina, CA 91723, États-Unis" },
+  { terme: "Site", valeur: "vercel.com" },
 ];
 
 export const metadata: Metadata = {
@@ -61,9 +42,7 @@ export default function PageMentionsLegales() {
           </h1>
           <p className="mt-6 max-w-[62ch] text-[15px] leading-[1.6] text-[#4f4f4f]">
             Informations relatives au site {SITE_URL.replace("https://", "")},
-            exploité sous la marque {SITE_NOM}. Les champs marqués « À COMPLÉTER »
-            doivent être renseignés par l&apos;exploitant avant la mise en ligne
-            publique.
+            exploité sous la marque {SITE_NOM}.
           </p>
 
           <section className="mt-12 border-t border-[#e5e5e5] pt-8">
@@ -76,21 +55,9 @@ export default function PageMentionsLegales() {
                   <dt className="w-[240px] shrink-0 text-[14px] text-[#141414]">
                     {l.terme}
                   </dt>
-                  <dd className="text-[14px] text-[#4f4f4f]">
-                    <ACompleter libelle={l.valeur} />
-                  </dd>
+                  <dd className="text-[14px] text-[#4f4f4f]">{l.valeur}</dd>
                 </div>
               ))}
-              <div className="flex flex-col gap-1 sm:flex-row sm:gap-4">
-                <dt className="w-[240px] shrink-0 text-[14px] text-[#141414]">
-                  E-mail
-                </dt>
-                <dd className="text-[14px] text-[#4f4f4f]">
-                  <a href={`mailto:${EMAIL}`} className="text-[#141414] underline">
-                    {EMAIL}
-                  </a>
-                </dd>
-              </div>
             </dl>
           </section>
 
@@ -104,9 +71,7 @@ export default function PageMentionsLegales() {
                   <dt className="w-[240px] shrink-0 text-[14px] text-[#141414]">
                     {l.terme}
                   </dt>
-                  <dd className="text-[14px] text-[#4f4f4f]">
-                    <ACompleter libelle={l.valeur} />
-                  </dd>
+                  <dd className="text-[14px] text-[#4f4f4f]">{l.valeur}</dd>
                 </div>
               ))}
             </dl>
@@ -128,7 +93,7 @@ export default function PageMentionsLegales() {
                 produits appartiennent à leurs titulaires respectifs. Ils sont
                 utilisés à seule fin d&apos;identifier les articles proposés à la
                 vente. Tout titulaire de droits peut demander le retrait
-                d&apos;un visuel en écrivant à {EMAIL}.
+                d&apos;un visuel en nous contactant au {TEL_DZ_AFFICHE}.
               </p>
             </div>
           </section>
@@ -141,8 +106,8 @@ export default function PageMentionsLegales() {
               <p>
                 Les prix sont indiqués en dinars algériens (DZD), toutes taxes
                 comprises, hors frais de livraison. Ils peuvent varier sans
-                préavis et sont ceux en vigueur au moment de la confirmation de
-                la commande.
+                préavis : le prix et la disponibilité de chaque article sont
+                confirmés par téléphone avant l&apos;expédition.
               </p>
               <p>
                 Les informations produits — contenance, composition, visuels —
@@ -178,11 +143,15 @@ export default function PageMentionsLegales() {
                 protection des personnes physiques dans le traitement des données
                 à caractère personnel, vous disposez d&apos;un droit
                 d&apos;accès, de rectification et de suppression de vos données.
-                Exercez-le en écrivant à {EMAIL}.
+                Exercez-le en nous contactant au {TEL_DZ_AFFICHE}.
               </p>
               <p>
-                Durée de conservation :{" "}
-                <ACompleter libelle="durée retenue, ex. 3 ans après le dernier achat" />
+                Le détail des traitements et des durées de conservation figure
+                dans la{" "}
+                <Link href="/politique-de-confidentialite/" className="text-[#141414] underline">
+                  politique de confidentialité
+                </Link>
+                .
               </p>
             </div>
           </section>
@@ -198,9 +167,8 @@ export default function PageMentionsLegales() {
                 cookies ne nécessitent pas de consentement préalable.
               </p>
               <p>
-                Outils de mesure d&apos;audience et de publicité effectivement
-                déployés :{" "}
-                <ACompleter libelle="lister les outils, ex. Google Analytics, Meta Pixel, ou « aucun »" />
+                Mesure d&apos;audience : Microsoft Clarity, pour comprendre
+                comment les pages sont parcourues. Aucun cookie publicitaire.
               </p>
               <p>
                 Vous pouvez à tout moment refuser ou supprimer les cookies depuis
@@ -237,12 +205,10 @@ export default function PageMentionsLegales() {
             <div className="mt-4 flex flex-col gap-4 text-[15px] leading-[1.65] text-[#4f4f4f]">
               <p>
                 Les présentes mentions sont régies par le droit algérien. Tout
-                litige relève de la compétence des tribunaux de{" "}
-                <ACompleter libelle="wilaya du siège social" />.
+                litige relève de la compétence des juridictions algériennes.
               </p>
               <p>
-                Dernière mise à jour :{" "}
-                <ACompleter libelle="date de publication de cette version" />
+                Dernière mise à jour : octobre 2026.
               </p>
             </div>
           </section>

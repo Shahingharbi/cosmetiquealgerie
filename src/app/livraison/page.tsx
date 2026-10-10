@@ -61,9 +61,6 @@ const LIGNES_WILAYAS = WILAYAS.map((w) => {
   return { ...w, zone };
 });
 
-/** PLACEHOLDER : grille tarifaire à arrêter avec le transporteur. */
-const FRAIS = "À COMPLÉTER — montant des frais de livraison par zone";
-
 export const metadata: Metadata = {
   title: "Livraison en Algérie",
   description:
@@ -108,8 +105,10 @@ export default function PageLivraison() {
                 correspond pas à la commande, refusez la remise : rien ne vous
                 est facturé.
               </p>
-              <p className="border border-dashed border-[#909090] bg-white px-4 py-3 font-mono text-[13px] text-[#141414]">
-                {FRAIS}
+              <p>
+                Les frais de livraison dépendent de votre wilaya. Ils vous sont
+                annoncés lors de l&apos;appel de confirmation, avant toute
+                expédition.
               </p>
             </div>
           </section>

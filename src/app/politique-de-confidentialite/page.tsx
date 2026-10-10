@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import FilAriane from "@/components/FilAriane";
+import { TEL_DZ_AFFICHE } from "@/lib/contact";
 import { SITE_NOM, urlAbsolue } from "@/lib/catalogue";
 
 /**
@@ -74,7 +75,7 @@ const SECTIONS: Section[] = [
     titre: "Vos droits",
     paragraphes: [
       "Vous pouvez demander à consulter les informations que nous détenons sur vous, les faire corriger, ou en demander la suppression.",
-      "Écrivez-nous à contact@cosmetiquealgerie.com en indiquant votre numéro de commande. Nous répondons sous quinze jours.",
+      `Contactez-nous par téléphone ou sur WhatsApp au ${TEL_DZ_AFFICHE}, en indiquant votre numéro de commande. Nous répondons sous quinze jours.`,
       "Ces droits s'exercent dans le cadre de la loi 18-07 relative à la protection des personnes physiques dans le traitement des données à caractère personnel.",
     ],
   },

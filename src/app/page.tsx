@@ -46,7 +46,7 @@ export default function PageAccueil() {
           {
             "@type": "ContactPoint",
             contactType: "customer service",
-            email: "contact@cosmetiquealgerie.com",
+            telephone: "+213672644481",
             availableLanguage: ["fr", "ar"],
           },
         ],

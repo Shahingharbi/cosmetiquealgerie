@@ -17,7 +17,7 @@ const ENGAGEMENTS = [
   {
     titre: "Conseil avant l'achat",
     texte:
-      "Une question sur une texture, un actif ou une routine ? Notre équipe répond par e-mail et par WhatsApp avant que vous ne commandiez.",
+      "Une question sur une texture, un actif ou une routine ? Notre équipe répond par téléphone et sur WhatsApp avant que vous ne commandiez.",
   },
 ];
 

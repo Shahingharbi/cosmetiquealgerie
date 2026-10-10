@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { TEL_DZ_AFFICHE } from "@/lib/contact";
 import Link from "next/link";
 
 import FilAriane from "@/components/FilAriane";
@@ -18,7 +17,6 @@ import { SITE_NOM, urlAbsolue } from "@/lib/catalogue";
  * mention manquante.
  */
 
-const A_COMPLETER = "[à compléter]";
 
 export const metadata: Metadata = {
   title: { absolute: `Conditions générales de vente | ${SITE_NOM}` },
@@ -41,14 +39,7 @@ const ARTICLES: Article[] = [
     ],
   },
   {
-    titre: "2. Identité du vendeur",
-    paragraphes: [
-      `Dénomination : ${A_COMPLETER}. Registre de commerce : ${A_COMPLETER}. Numéro d'identification fiscale : ${A_COMPLETER}.`,
-      `Adresse : ${A_COMPLETER}. Téléphone : ${TEL_DZ_AFFICHE}. Courriel : contact@cosmetiquealgerie.com.`,
-    ],
-  },
-  {
-    titre: "3. Produits",
+    titre: "2. Produits",
     paragraphes: [
       "Les produits proposés sont des cosmétiques d'hygiène et de soin. Ils ne sont ni des médicaments, ni des dispositifs médicaux, et ne remplacent aucun traitement ni aucun avis médical.",
       "Les descriptions, compositions et contenances sont reproduites d'après les informations du fabricant. Les visuels sont indicatifs : un emballage peut évoluer sans que cela modifie le produit livré.",
@@ -56,29 +47,30 @@ const ARTICLES: Article[] = [
     ],
   },
   {
-    titre: "4. Prix",
+    titre: "3. Prix",
     paragraphes: [
-      "Les prix sont indiqués en dinars algériens, toutes taxes comprises. Les frais de livraison sont indiqués avant la validation de la commande et s'ajoutent au montant des produits.",
-      "Le prix applicable est celui affiché au moment de la commande. Une modification ultérieure du tarif ne s'applique pas aux commandes déjà confirmées.",
+      "Les prix sont indiqués en dinars algériens, toutes taxes comprises. Les frais de livraison dépendent de la wilaya et vous sont annoncés lors de l'appel de confirmation ; ils s'ajoutent au montant des produits.",
+      "Les prix affichés suivent nos arrivages et peuvent évoluer. Le prix applicable est celui que nous vous confirmons par téléphone avant l'expédition : s'il a changé depuis votre commande, vous êtes libre de l'annuler, sans aucun frais. Une fois la commande confirmée, son prix ne change plus.",
     ],
   },
   {
-    titre: "5. Commande et confirmation",
+    titre: "4. Commande et confirmation",
     paragraphes: [
       "La commande se passe sans création de compte. Vous indiquez vos nom, prénom, téléphone, wilaya, commune et adresse de livraison. Ces informations servent uniquement à vous joindre et à livrer.",
       "Toute commande fait l'objet d'un appel téléphonique de confirmation. Une commande qui ne peut être confirmée après plusieurs tentatives d'appel n'est pas expédiée.",
+      "La disponibilité de chaque article est vérifiée lors de cet appel. Si une référence vient à manquer, nous vous le disons avant tout envoi, et vous choisissez de maintenir ou non le reste de la commande.",
       "Nous nous réservons le droit de refuser une commande manifestement anormale, incomplète, ou émanant d'un client avec lequel un litige de livraison est en cours.",
     ],
   },
   {
-    titre: "6. Paiement à la livraison",
+    titre: "5. Paiement à la livraison",
     paragraphes: [
       "Le paiement se fait exclusivement à la livraison, en espèces, entre les mains du livreur. Aucun paiement en ligne n'est proposé, aucune donnée bancaire n'est demandée ni collectée.",
       "Aucune avance n'est exigée à la commande. Si un tiers vous réclame un versement préalable en notre nom, il ne s'agit pas de nous.",
     ],
   },
   {
-    titre: "7. Livraison",
+    titre: "6. Livraison",
     paragraphes: [
       "La livraison couvre les 69 wilayas, à domicile ou en point de retrait selon la commune, par un transporteur partenaire.",
       "Les délais indicatifs sont de 24 à 48 h sur le centre, 48 à 72 h sur l'est et l'ouest, 2 à 4 jours sur les Hauts-Plateaux et 3 à 6 jours sur le sud. Ils courent à partir de la confirmation téléphonique, hors vendredis et jours fériés.",
@@ -87,14 +79,14 @@ const ARTICLES: Article[] = [
     ],
   },
   {
-    titre: "8. Vérification du colis avant paiement",
+    titre: "7. Vérification du colis avant paiement",
     paragraphes: [
       "Vous pouvez ouvrir le colis et vérifier les produits avant de payer : nature des articles, contenance, état de l'emballage, date de péremption.",
       "Si le contenu ne correspond pas à votre commande ou si un produit est endommagé, refusez la remise. Rien ne vous est alors facturé.",
     ],
   },
   {
-    titre: "9. Retours et réclamations",
+    titre: "8. Retours et réclamations",
     paragraphes: [
       "Pour des raisons d'hygiène, les produits cosmétiques ouverts, descellés ou utilisés ne sont pas repris, sauf défaut avéré du produit.",
       "Un produit reçu non conforme, endommagé, ou dont l'authenticité vous paraît douteuse est repris ou remplacé. Signalez-le sous 48 heures après réception, photos à l'appui, depuis la page contact.",
@@ -102,21 +94,21 @@ const ARTICLES: Article[] = [
     ],
   },
   {
-    titre: "10. Authenticité des produits",
+    titre: "9. Authenticité des produits",
     paragraphes: [
       "Nos références proviennent de circuits identifiés : pharmacies, parapharmacies et parfumeries. La contenance publiée sur chaque fiche correspond à celle de l'emballage, ce qui vous permet de recouper à la réception.",
       "Toute suspicion de contrefaçon signalée fait l'objet d'une vérification de notre part et, si elle est fondée, d'un remboursement intégral.",
     ],
   },
   {
-    titre: "11. Données personnelles",
+    titre: "10. Données personnelles",
     paragraphes: [
       "Les informations collectées servent uniquement à traiter et livrer votre commande. Elles ne sont ni vendues, ni louées, ni transmises à des tiers autres que le transporteur chargé de la livraison.",
       "Le détail du traitement figure dans notre politique de confidentialité.",
     ],
   },
   {
-    titre: "12. Droit applicable et litiges",
+    titre: "11. Droit applicable et litiges",
     paragraphes: [
       "Les présentes conditions sont soumises au droit algérien, notamment à la loi 18-05 relative au commerce électronique et à la loi 09-03 relative à la protection du consommateur.",
       "En cas de différend, une solution amiable sera recherchée en priorité. À défaut, le litige relève des juridictions algériennes compétentes.",

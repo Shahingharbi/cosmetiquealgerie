@@ -349,6 +349,34 @@ function MentionPaiement() {
   );
 }
 
+/**
+ * Prix et disponibilité : annoncés AVANT l'engagement du client, dit comme un
+ * service (l'appel de confirmation) plutôt que comme une réserve. Les prix
+ * suivent les arrivages, et une référence peut manquer : le client l'apprend
+ * au téléphone, avant l'envoi, et reste libre d'annuler sans frais (CGV, art. 3
+ * et 4). Pas sur la fiche produit, à la demande du propriétaire.
+ */
+function MentionPrixDisponibilite({ courte = false }: { courte?: boolean }) {
+  if (courte) {
+    return (
+      <p className="mt-3 text-[12px] leading-[1.5] text-[#909090]">
+        Prix et disponibilité confirmés par téléphone avant l&apos;expédition.
+      </p>
+    );
+  }
+  return (
+    <div className="mt-8 border-l-2 border-[#141414] bg-white px-5 py-4">
+      <p className={LIBELLE_MONO}>Prix et disponibilité</p>
+      <p className="mt-2 max-w-[60ch] text-[14px] leading-[1.6] text-[#4f4f4f]">
+        Nos arrivages évoluent vite. Avant d&apos;expédier, nous vous appelons pour
+        confirmer la disponibilité et le prix de chaque article. Si un prix a changé
+        ou qu&apos;une référence manque, vous décidez à ce moment-là : rien n&apos;est
+        dû avant la livraison.
+      </p>
+    </div>
+  );
+}
+
 /* ================================================================== */
 /* Îlot 1 — page /panier/                                              */
 /* ================================================================== */
@@ -531,6 +559,7 @@ export function ContenuPanier({
         <Link href="/commande/" prefetch={false} className={`${BOUTON_PLEIN} mt-6 w-full`}>
           Commander
         </Link>
+        <MentionPrixDisponibilite courte />
 
         <div className="mt-6">
           <MentionPaiement />
@@ -911,6 +940,8 @@ export function FormulaireCommande({ resoudre }: { resoudre: ResoudrePanier }) {
           </div>
         )}
 
+        <MentionPrixDisponibilite />
+
         <button type="submit" disabled={envoi} className={`${BOUTON_PLEIN} mt-8 w-full sm:w-auto`}>
           {envoi ? "Envoi…" : "Confirmer la commande"}
         </button>
@@ -1101,7 +1132,10 @@ export function ConfirmationCommande({
           Et ensuite
         </h2>
         <ol className="mt-4 flex max-w-[62ch] list-decimal flex-col gap-3 pl-5 text-[15px] leading-[1.65] text-[#4f4f4f]">
-          <li>Un conseiller vous appelle pour confirmer la commande et l&apos;adresse.</li>
+          <li>
+            Un conseiller vous appelle pour confirmer la commande, le prix et la
+            disponibilité des articles, ainsi que l&apos;adresse de livraison.
+          </li>
           <li>
             Le colis part ensuite vers votre wilaya. Les délais indicatifs par
             zone sont détaillés sur la page{" "}

@@ -112,7 +112,7 @@ export default function PageAPropos() {
                 possibilité de vérifier le colis avant de régler.
               </p>
               <p>
-                Si un produit reçu vous paraît non conforme, écrivez-nous depuis
+                Si un produit reçu vous paraît non conforme, contactez-nous depuis
                 la page{" "}
                 <Link href="/contact/" className="text-[#141414] underline">
                   contact
