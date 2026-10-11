@@ -304,11 +304,6 @@ export const EDITORIAL_ACCUEIL: {
 /** Questions réellement posées avant un premier achat en ligne en Algérie. */
 export const FAQ_ACCUEIL: { question: string; reponse: string }[] = [
   {
-    question: "Comment se passe le paiement ?",
-    reponse:
-      "Le paiement se fait à la livraison, directement au livreur, en dinars. Aucune carte bancaire n'est demandée et aucune donnée de paiement n'est saisie sur le site. Le montant dû est celui affiché sur la fiche produit au moment de la commande.",
-  },
-  {
     question: "Livrez-vous dans toutes les wilayas ?",
     reponse:
       "Oui, les 69 wilayas sont desservies. Le délai varie selon la distance et le transporteur qui couvre votre commune. La page livraison détaille la couverture wilaya par wilaya.",

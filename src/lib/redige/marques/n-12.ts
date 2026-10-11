@@ -54,7 +54,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Seraya est-elle livrée dans toute l'Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble des flacons Seraya, sans création de compte préalable. Le mode de règlement reste identique quelle que soit la ligne commandée.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble des flacons Seraya. Le mode de règlement reste identique quelle que soit la ligne commandée.",
       },
     ],
   },
@@ -111,7 +111,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Biolane est-elle livrée dans toute l'Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble de la gamme Biolane, sans création de compte préalable. Le mode de règlement reste identique quel que soit le produit commandé, du plus petit format au plus grand conditionnement.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble de la gamme Biolane. Le mode de règlement reste identique quel que soit le produit commandé, du plus petit format au plus grand conditionnement.",
       },
     ],
   },
@@ -168,7 +168,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Elvital est-elle livrée dans toute l'Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble de la gamme Elvital, sans création de compte préalable. Le suivi de la commande fonctionne de la même manière que pour les autres marques de soin capillaire présentes sur le site.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble de la gamme Elvital. Le suivi de la commande fonctionne de la même manière que pour les autres marques de soin capillaire présentes sur le site.",
       },
     ],
   },
@@ -225,7 +225,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Rom&nd est-elle livrée dans toute l'Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble des tints Rom&nd, sans création de compte préalable. Ce fonctionnement s'applique de la même façon quelle que soit la teinte commandée.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble des tints Rom&nd. Ce fonctionnement s'applique de la même façon quelle que soit la teinte commandée.",
       },
     ],
   },
@@ -282,7 +282,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Tsubaki est-elle livrée dans toute l'Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble de la gamme Tsubaki, sans création de compte préalable. Les délais et le mode de règlement restent identiques quelle que soit la ligne commandée, shampoing, après-shampoing ou masque.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble de la gamme Tsubaki. Les délais et le mode de règlement restent identiques quelle que soit la ligne commandée, shampoing, après-shampoing ou masque.",
       },
     ],
   },
@@ -396,7 +396,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Comment est livrée une commande de parfum Zara en Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble des flacons et coffrets Zara, sans création de compte préalable. Ce mode de livraison s'applique de la même façon à un flacon seul, à une eau de toilette ou à un coffret complet.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble des flacons et coffrets Zara. Ce mode de livraison s'applique de la même façon à un flacon seul, à une eau de toilette ou à un coffret complet.",
       },
     ],
   },
@@ -453,7 +453,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Comment est livrée une commande Farfasha en Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble de la gamme Farfasha, sans création de compte préalable. Les délais et le mode de règlement restent identiques quelle que soit la teinte ou le produit commandé.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble de la gamme Farfasha. Les délais et le mode de règlement restent identiques quelle que soit la teinte ou le produit commandé.",
       },
     ],
   },
@@ -510,7 +510,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Comment est livrée une commande Glow en Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble des références Glow, sans création de compte préalable. Ce mode de livraison s'applique à l'ensemble des formats, du petit sérum au grand pot de masque.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble des références Glow. Ce mode de livraison s'applique à l'ensemble des formats, du petit sérum au grand pot de masque.",
       },
     ],
   },
@@ -567,7 +567,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Comment est livrée une commande Huda Beauty en Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble du maquillage Huda Beauty, sans création de compte préalable. Ce mode de livraison s'applique à l'ensemble du catalogue, du plus petit format de correcteur à la palette la plus complète.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble du maquillage Huda Beauty. Ce mode de livraison s'applique à l'ensemble du catalogue, du plus petit format de correcteur à la palette la plus complète.",
       },
     ],
   },

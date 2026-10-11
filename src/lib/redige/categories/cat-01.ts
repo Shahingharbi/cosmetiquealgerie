@@ -145,7 +145,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "Livrez-vous les produits nettoyants visage dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception. Le règlement se fait à la livraison, directement auprès du livreur au moment de la réception du colis, sans paiement en ligne à avancer ni création de compte préalable sur le site.",
+          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception.",
       },
     ],
   },
@@ -219,7 +219,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "Livrez-vous les gels nettoyants visage dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception. Le règlement se fait à la livraison, directement auprès du livreur au moment de la réception du colis, sans paiement en ligne à avancer ni création de compte préalable sur le site.",
+          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception.",
       },
     ],
   },
@@ -293,7 +293,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "Livrez-vous l'eau micellaire dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception. Le règlement se fait à la livraison, directement auprès du livreur au moment de la réception du colis, sans paiement en ligne à avancer ni création de compte préalable sur le site.",
+          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception.",
       },
     ],
   },
@@ -367,7 +367,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "Livrez-vous les démaquillants visage dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception. Le règlement se fait à la livraison, directement auprès du livreur au moment de la réception du colis, sans paiement en ligne à avancer ni création de compte préalable sur le site.",
+          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception.",
       },
     ],
   },
@@ -441,7 +441,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "Livrez-vous les huiles démaquillantes dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception. Le règlement se fait à la livraison, directement auprès du livreur au moment de la réception du colis, sans paiement en ligne à avancer ni création de compte préalable sur le site.",
+          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception.",
       },
     ],
   },
@@ -515,7 +515,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "Livrez-vous les lotions toniques visage dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception. Le règlement se fait à la livraison, directement auprès du livreur au moment de la réception du colis, sans paiement en ligne à avancer ni création de compte préalable sur le site.",
+          "Oui, la livraison couvre les 69 wilayas d'Algérie, sans exception.",
       },
     ],
   },

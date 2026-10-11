@@ -54,7 +54,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "St.Ives livre-t-elle dans toute l'Algérie ?",
         reponse:
-          "Les produits St.Ives référencés sur le site sont livrables dans les 69 wilayas, avec paiement au livreur à la remise du colis. Aucune création de compte n'est nécessaire pour passer commande.",
+          "Les produits St.Ives référencés sur le site sont livrables dans les 69 wilayas, avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -163,7 +163,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où acheter &honey en Algérie avec livraison ?",
         reponse:
-          "La référence est disponible sur le rayon soin visage coréen du site, livrable dans les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte obligatoire.",
+          "La référence est disponible sur le rayon soin visage coréen du site, livrable dans les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -220,7 +220,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "La livraison des produits Forcapil est-elle possible partout en Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -277,7 +277,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "La livraison de produits Batiste est-elle possible dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte pour passer commande.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -381,7 +381,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Cette crème est-elle livrable partout en Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte nécessaire.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -433,7 +433,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Peut-on se faire livrer ce parfum partout en Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte pour commander.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -485,7 +485,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Ce produit est-il livrable dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte pour commander.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -542,7 +542,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Ce spray est-il livrable partout en Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte nécessaire.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
     ],
   },

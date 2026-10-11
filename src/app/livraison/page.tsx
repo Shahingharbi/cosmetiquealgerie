@@ -95,11 +95,6 @@ export default function PageLivraison() {
             </h2>
             <div className="mt-4 flex flex-col gap-4 text-[15px] leading-[1.65] text-[#4f4f4f]">
               <p>
-                Aucun paiement n&apos;est demandé au moment de la commande. Vous
-                réglez en espèces au livreur lorsque le colis vous est remis. Ni
-                carte bancaire, ni virement préalable.
-              </p>
-              <p>
                 Vous pouvez ouvrir le colis et vérifier les produits — emballage,
                 contenance, date de péremption — avant de payer. Si le contenu ne
                 correspond pas à la commande, refusez la remise : rien ne vous

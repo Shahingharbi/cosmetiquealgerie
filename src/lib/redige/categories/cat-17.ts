@@ -29,7 +29,7 @@ export const LOT: CategorieRedigee[] = [
         paragraphes: [
           "Le soin homme fait partie des rayons les plus touchés par la contrefaçon en Algérie, en particulier les grandes marques internationales de déodorant et de rasage, très demandées et donc très copiées. Un flacon à l'odeur légèrement différente, un packaging aux couleurs un peu ternes ou une texture qui ne correspond pas à ce qu'on connaît d'un produit habituel sont des signaux à prendre au sérieux avant l'achat, quel que soit le canal.",
           "La prudence porte autant sur le produit que sur son circuit de vente. Un article dont l'origine ne peut pas être établie n'a pas sa place dans une sélection sérieuse : c'est la règle appliquée sur ce rayon, où chaque référence provient de pharmacie, de parapharmacie ou de parfumerie, jamais d'un circuit parallèle non identifié.",
-          "Cette exigence a un coût en choix disponible, certaines références très demandées restent absentes le temps qu'une source fiable soit confirmée, mais elle évite le principal risque du soin homme acheté en ligne : une formule qui n'est pas celle annoncée sur l'étiquette. La commande, elle, se règle directement au livreur à la réception, pour les 69 wilayas du pays.",
+          "Cette exigence a un coût en choix disponible, certaines références très demandées restent absentes le temps qu'une source fiable soit confirmée, mais elle évite le principal risque du soin homme acheté en ligne : une formule qui n'est pas celle annoncée sur l'étiquette.",
         ],
       },
     ],
@@ -62,7 +62,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "Peut-on commander depuis n'importe quelle wilaya ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas d'Algérie, avec paiement à la livraison : le règlement se fait directement auprès du livreur à la réception du colis, sans paiement en ligne préalable.",
+          "Oui, la livraison couvre les 69 wilayas d'Algérie, avec paiement à la livraison.",
       },
     ],
   },

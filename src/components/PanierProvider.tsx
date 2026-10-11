@@ -336,19 +336,6 @@ function MessageAttente({ texte }: { texte: string }) {
   );
 }
 
-/** Mention de réassurance. Le paiement en ligne n'existe pas sur ce marché. */
-function MentionPaiement() {
-  return (
-    <div className="border border-[#141414] bg-white px-5 py-4">
-      <p className={LIBELLE_MONO}>Paiement à la livraison</p>
-      <p className="mt-2 text-[14px] leading-[1.6] text-[#4f4f4f]">
-        Vous réglez en espèces au livreur, à la réception du colis. Aucun
-        paiement n&apos;est demandé maintenant : ni carte bancaire, ni virement.
-      </p>
-    </div>
-  );
-}
-
 /**
  * Prix et disponibilité : annoncés AVANT l'engagement du client, dit comme un
  * service (l'appel de confirmation) plutôt que comme une réserve. Les prix
@@ -560,10 +547,6 @@ export function ContenuPanier({
           Commander
         </Link>
         <MentionPrixDisponibilite courte />
-
-        <div className="mt-6">
-          <MentionPaiement />
-        </div>
       </aside>
     </div>
   );
@@ -783,8 +766,8 @@ export function FormulaireCommande({ resoudre }: { resoudre: ResoudrePanier }) {
             Vos coordonnées
           </legend>
           <p className="mt-2 max-w-[56ch] text-[14px] leading-[1.6] text-[#4f4f4f]">
-            Aucun compte à créer. Ces informations servent uniquement à vous
-            appeler pour confirmer et à livrer le colis.
+            Ces informations servent uniquement à vous appeler pour confirmer et à
+            livrer le colis.
           </p>
 
           <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
@@ -890,10 +873,6 @@ export function FormulaireCommande({ resoudre }: { resoudre: ResoudrePanier }) {
             />
           </p>
         </fieldset>
-
-        <div className="mt-10">
-          <MentionPaiement />
-        </div>
 
         {/* Leurre : hors du flux visuel et du parcours clavier, jamais rempli
             par un humain. Sans `hidden`, que les robots savent détecter. */}
@@ -1122,10 +1101,6 @@ export function ConfirmationCommande({
           </a>
         </div>
       )}
-
-      <div className="mt-10 max-w-[62ch]">
-        <MentionPaiement />
-      </div>
 
       <section aria-labelledby="titre-suite" className="mt-12 border-t border-[#e5e5e5] pt-8">
         <h2 id="titre-suite" className="text-[20px] leading-[1.2] text-[#141414]">

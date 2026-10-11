@@ -162,7 +162,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Bionnex est-elle livrée partout en Algérie ?",
-        "reponse": "Oui, le catalogue Bionnex suit les mêmes conditions que l'ensemble du site : livraison dans les 69 wilayas et paiement à la livraison, sans création de compte préalable. C'est une réassurance particulièrement utile pour une marque encore peu connue du grand public algérien."
+        "reponse": "Oui, le catalogue Bionnex suit les mêmes conditions que l'ensemble du site : livraison dans les 69 wilayas et paiement à la livraison. C'est une réassurance particulièrement utile pour une marque encore peu connue du grand public algérien."
       }
     ]
   },
@@ -272,7 +272,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Garranso est-elle livrée dans toute l'Algérie ?",
-        "reponse": "Oui, comme l'ensemble du catalogue du site, les produits Garranso sont livrables dans les 69 wilayas avec paiement à la livraison. Aucune création de compte n'est nécessaire pour commander, ce qui simplifie l'achat pour une marque encore peu connue du grand public algérien."
+        "reponse": "Oui, comme l'ensemble du catalogue du site, les produits Garranso sont livrables dans les 69 wilayas avec paiement à la livraison."
       }
     ]
   },
@@ -327,7 +327,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Andrea est-elle livrée dans toutes les wilayas ?",
-        "reponse": "Oui, le catalogue Andrea suit les mêmes conditions que l'ensemble du site : livraison dans les 69 wilayas et paiement à la livraison. Aucune création de compte n'est requise pour commander, ce qui facilite l'achat pour une marque que beaucoup d'acheteurs algériens découvrent en ligne."
+        "reponse": "Oui, le catalogue Andrea suit les mêmes conditions que l'ensemble du site : livraison dans les 69 wilayas et paiement à la livraison."
       }
     ]
   },
@@ -437,7 +437,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Viola livre-t-elle dans toutes les wilayas ?",
-        "reponse": "Oui, comme l'ensemble du catalogue du site, les produits Viola sont livrables dans les 69 wilayas avec paiement à la livraison, sans création de compte préalable. C'est une réassurance utile pour une marque de soin capillaire encore peu connue du grand public algérien."
+        "reponse": "Oui, comme l'ensemble du catalogue du site, les produits Viola sont livrables dans les 69 wilayas avec paiement à la livraison. C'est une réassurance utile pour une marque de soin capillaire encore peu connue du grand public algérien."
       }
     ]
   },

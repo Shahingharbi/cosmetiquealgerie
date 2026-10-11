@@ -49,7 +49,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Bedouine est-elle livrée dans toute l'Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble des références Bedouine, du gommage à l'eau de toilette. La commande se passe sans création de compte, avec un simple formulaire nom, téléphone, wilaya et commune à remplir avant validation.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, pour l'ensemble des références Bedouine, du gommage à l'eau de toilette.",
       },
     ],
   },
@@ -101,7 +101,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où acheter de la cire Bita en Algérie avec une livraison fiable ?",
         reponse:
-          "Le [[rayon épilation|/hygiene-bain/epilation/]] regroupe les cartouches, les perles et les accessoires Bita disponibles. La commande se passe sans création de compte, avec un formulaire limité au nom, au téléphone, à la wilaya et à la commune, et le paiement s'effectue à la livraison, dans les 69 wilayas couvertes par le site.",
+          "Le [[rayon épilation|/hygiene-bain/epilation/]] regroupe les cartouches, les perles et les accessoires Bita disponibles.",
       },
     ],
   },
@@ -151,9 +151,9 @@ export const LOT: MarqueRedigee[] = [
           "Le sérum collagène vise le confort et la fermeté ressentie de la peau, tandis que le sérum vitamine C cible plutôt l'aspect terne du teint. Les deux s'utilisent en complément d'une crème hydratante, jamais seuls, et se choisissent selon la préoccupation principale plutôt que l'un à la place de l'autre.",
       },
       {
-        question: "Comment commander Celanie en Algérie sans créer de compte ?",
+        question: "Comment commander Celanie en Algérie ?",
         reponse:
-          "La commande se passe directement depuis la fiche produit, avec un formulaire limité au nom, au téléphone, à la wilaya et à la commune, sans création de compte. Le paiement s'effectue à la livraison, sur l'ensemble des [[69 wilayas couvertes|/livraison/]], avec règlement en main propre à la réception du colis.",
+          "La livraison couvre les [[69 wilayas|/livraison/]], avec paiement à la livraison.",
       },
     ],
   },
@@ -182,7 +182,7 @@ export const LOT: MarqueRedigee[] = [
         titre: "Reconnaître un produit Character authentique",
         paragraphes: [
           "Le maquillage compte parmi les catégories les plus copiées en Algérie, notamment sur les palettes multi-teintes et les correcteurs vendus à l'unité, faciles à reconditionner dans un emballage similaire. Une palette d'origine présente des teintes nettement délimitées, sans coulure ni mélange entre les cases, et un boîtier qui se ferme sans jeu excessif ni bruit de pièce mal ajustée. Un correcteur trop liquide, qui sèche anormalement vite dès l'ouverture ou qui dégage une odeur inhabituelle, est un signal à prendre au sérieux avant l'achat, tout comme une teinte imprimée qui ne correspond pas à la couleur réelle du produit.",
-          "Privilégier une enseigne établie, en [[maquillage|/maquillage/]] ou en parapharmacie, reste la meilleure garantie sur ce type de produit vendu à l'unité. Ce site fait venir ses produits par ce type de circuit et livre dans les 69 wilayas avec paiement à la remise du colis, ce qui laisse le temps de vérifier l'emballage et la teinte avant règlement, sans avance à verser au moment de la commande.",
+          "Privilégier une enseigne établie, en [[maquillage|/maquillage/]] ou en parapharmacie, reste la meilleure garantie sur ce type de produit vendu à l'unité. Ce site fait venir ses produits par ce type de circuit et livre dans les 69 wilayas avec paiement à la remise du colis, ce qui laisse le temps de vérifier l'emballage et la teinte avant règlement.",
         ],
       },
     ],
@@ -205,7 +205,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Character livre-t-elle partout en Algérie ?",
         reponse:
-          "Le catalogue Character de ce site se commande comme le reste du catalogue, avec livraison dans les 69 wilayas et paiement au livreur à la remise du colis, sans création de compte préalable. Le formulaire de commande se limite au nom, au téléphone, à la wilaya et à la commune.",
+          "Le catalogue Character de ce site se commande comme le reste du catalogue, avec livraison dans les 69 wilayas et paiement au livreur à la remise du colis. Le formulaire de commande se limite au nom, au téléphone, à la wilaya et à la commune.",
       },
     ],
   },
@@ -257,7 +257,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Chicco est-elle vendue uniquement en pharmacie en Algérie ?",
         reponse:
-          "Non : la marque circule aussi en parapharmacie et sur des sites spécialisés en puériculture, pas seulement en pharmacie. Sur ce site, la gamme [[toilette bébé|/bebe-maman/soin-toilette-bebe/]] se commande directement, avec livraison dans les 69 wilayas et paiement à la livraison, sans création de compte au préalable.",
+          "Non : la marque circule aussi en parapharmacie et sur des sites spécialisés en puériculture, pas seulement en pharmacie. Sur ce site, la gamme [[toilette bébé|/bebe-maman/soin-toilette-bebe/]] se commande directement, avec livraison dans les 69 wilayas et paiement à la livraison.",
       },
     ],
   },

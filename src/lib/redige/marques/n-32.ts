@@ -57,7 +57,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livre-t-on un parfum Prada dans toutes les wilayas d'Algérie ?",
         reponse:
-          "Oui, la livraison couvre l'ensemble des 69 wilayas du pays, avec paiement directement au livreur au moment de la remise du colis, sans avancer la somme avant réception. La page [[livraison|/livraison/]] détaille les modalités pratiques avant de finaliser une commande de parfum.",
+          "Oui, la livraison couvre l'ensemble des 69 wilayas du pays, avec paiement directement au livreur au moment de la remise du colis. La page [[livraison|/livraison/]] détaille les modalités pratiques avant de finaliser une commande de parfum.",
       },
     ],
   },
@@ -477,7 +477,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livre-t-on un parfum Valentino dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre l'ensemble des 69 wilayas, avec paiement directement au livreur à la remise du colis, sans avance à régler avant réception. La page [[livraison|/livraison/]] détaille les modalités pratiques avant de finaliser une commande.",
+          "Oui, la livraison couvre l'ensemble des 69 wilayas, avec paiement directement au livreur à la remise du colis. La page [[livraison|/livraison/]] détaille les modalités pratiques avant de finaliser une commande.",
       },
     ],
   },

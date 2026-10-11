@@ -212,7 +212,7 @@ export const LOT: MarqueRedigee[] = [
       { question: "Les produits Abusaad éclaircissants sont-ils sûrs ?", reponse: "Comme pour tout soin ciblé, il convient de lire la liste des ingrédients et de tester le produit sur une petite zone avant utilisation complète. Un cosmétique agit sur l'aspect de la peau, il ne remplace pas un avis médical en cas de doute." },
       { question: "Quelle est la différence entre la brume parfumée et le talc Abusaad ?", reponse: "La brume se vaporise et sèche rapidement, avec un sillage léger, tandis que le talc s'applique en poudre sur peau sèche pour un fini doux et parfumé. Les deux se déclinent souvent dans les mêmes familles de senteurs. Cette distinction aide à choisir selon le moment de la journée." },
       { question: "Les huiles Abusaad conviennent-elles à tous les types de peau ?", reponse: "Une huile corporelle riche convient surtout aux peaux sèches ; une peau grasse ou mixte préférera un lait plus léger. En cas de doute, un test sur une petite zone reste la précaution la plus simple. Vérifier la liste des ingrédients est utile en cas d'allergie connue." },
-      { question: "Où acheter des produits Abusaad avec paiement à la livraison ?", reponse: "Les produits Abusaad proposés sur le site sont livrables dans les 69 wilayas, avec paiement à la livraison, ce qui permet de vérifier le produit reçu avant de finaliser l'achat. Le paiement se fait uniquement à la réception, sans avance à verser en ligne." }
+      { question: "Où acheter des produits Abusaad avec paiement à la livraison ?", reponse: "Les produits Abusaad proposés sur le site sont livrables dans les 69 wilayas, avec paiement à la livraison, ce qui permet de vérifier le produit reçu avant de finaliser l'achat." }
     ],
   },
   {
@@ -298,7 +298,7 @@ export const LOT: MarqueRedigee[] = [
       { question: "Quelle est la différence entre les bandes dépilatoires et le rasoir Venus ?", reponse: "Les bandes dépilatoires arrachent le poil à la racine, pour un résultat plus durable, tandis que le rasoir coupe le poil en surface, pour un entretien rapide mais à renouveler plus souvent. Les deux se complètent selon la fréquence souhaitée." },
       { question: "Le shampoing deux-en-un Venus convient-il à tous les cheveux ?", reponse: "Le format deux-en-un privilégie la rapidité et convient à un usage occasionnel ou à un cheveu peu exigeant. Un cheveu sec, abîmé ou indiscipliné profite davantage d'un shampoing et d'un après-shampoing utilisés séparément. Un test sur une mèche permet de vérifier le résultat." },
       { question: "La CC crème Venus remplace-t-elle une protection solaire ?", reponse: "Une CC crème unifie le teint et peut inclure une protection légère, mais elle ne remplace pas une protection solaire dédiée en cas d'exposition prolongée. Les deux produits répondent à des besoins différents et se complètent plutôt qu'ils ne se substituent l'un à l'autre." },
-      { question: "Où acheter des produits Venus avec paiement à la livraison ?", reponse: "Les produits Venus proposés sur le site sont livrables dans les 69 wilayas, avec paiement à la livraison, ce qui permet de vérifier le produit reçu avant de régler la commande. Ce mode de paiement reste le plus utilisé en Algérie pour les achats en ligne." }
+      { question: "Où acheter des produits Venus avec paiement à la livraison ?", reponse: "Les produits Venus proposés sur le site sont livrables dans les 69 wilayas, avec paiement à la livraison, ce qui permet de vérifier le produit reçu avant de régler la commande." }
     ],
   },
   {

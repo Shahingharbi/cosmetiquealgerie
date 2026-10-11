@@ -50,7 +50,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Peut-on commander un appareil Braun avec paiement à la livraison ?",
         reponse:
-          "Oui, la commande se règle au livreur à la remise du colis, sans paiement en ligne préalable. La livraison couvre les 69 wilayas ; les délais et modalités précises dépendent de la wilaya de destination, consultables sur la page [[livraison|/livraison/]].",
+          "Oui. La livraison couvre les 69 wilayas ; les délais et modalités précises dépendent de la wilaya de destination, consultables sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -156,7 +156,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Peut-on commander du maquillage fmgt avec paiement à la livraison ?",
         reponse:
-          "Oui, la commande se règle au livreur à la remise du colis, sur l'ensemble des 69 wilayas couvertes. Le détail des délais selon la wilaya de destination figure sur la page [[livraison|/livraison/]].",
+          "Oui. sur l'ensemble des 69 wilayas couvertes. Le détail des délais selon la wilaya de destination figure sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -208,7 +208,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Gisou est-elle livrable dans toute l'Algérie avec paiement à la livraison ?",
         reponse:
-          "Oui, la commande se règle au livreur à la remise du colis, sur les 69 wilayas couvertes, sans paiement en ligne préalable. Les détails pratiques figurent sur la page [[livraison|/livraison/]].",
+          "Oui. sur les 69 wilayas couvertes. Les détails pratiques figurent sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -260,7 +260,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Les produits Jumiso sont-ils livrables partout en Algérie avec paiement à la livraison ?",
         reponse:
-          "Oui, la commande se règle au livreur à la remise du colis, sur les 69 wilayas couvertes, sans paiement en ligne préalable. Les modalités détaillées par wilaya figurent sur la page [[livraison|/livraison/]].",
+          "Oui. sur les 69 wilayas couvertes. Les modalités détaillées par wilaya figurent sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -312,7 +312,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Les produits Lov'yc sont-ils livrables avec paiement à la livraison en Algérie ?",
         reponse:
-          "Oui, la commande se règle au livreur à la remise du colis, sur les 69 wilayas couvertes par la livraison, sans paiement en ligne préalable. Le détail par wilaya figure sur la page [[livraison|/livraison/]].",
+          "Oui. sur les 69 wilayas couvertes par la livraison. Le détail par wilaya figure sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -369,7 +369,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "MAC est-elle livrable dans toute l'Algérie avec paiement à la livraison ?",
         reponse:
-          "Oui, la commande se règle au livreur à la remise du colis, sur les 69 wilayas couvertes, sans paiement en ligne préalable. Les modalités détaillées par wilaya figurent sur la page [[livraison|/livraison/]].",
+          "Oui. sur les 69 wilayas couvertes. Les modalités détaillées par wilaya figurent sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -421,7 +421,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Mauboussin est-elle livrable dans toute l'Algérie avec paiement à la livraison ?",
         reponse:
-          "Oui, la commande se règle au livreur à la remise du colis, sur les 69 wilayas couvertes par la livraison, sans paiement en ligne préalable. Les modalités détaillées par wilaya figurent sur la page [[livraison|/livraison/]].",
+          "Oui. sur les 69 wilayas couvertes par la livraison. Les modalités détaillées par wilaya figurent sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -473,7 +473,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Les produits MP3 sont-ils livrables avec paiement à la livraison en Algérie ?",
         reponse:
-          "Oui, la commande se règle au livreur à la remise du colis, sur les 69 wilayas couvertes par la livraison, sans paiement en ligne préalable. Le détail par wilaya figure sur la page [[livraison|/livraison/]].",
+          "Oui. sur les 69 wilayas couvertes par la livraison. Le détail par wilaya figure sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -525,7 +525,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Peut-on commander Nerys avec paiement à la livraison en Algérie ?",
         reponse:
-          "Oui, la commande se règle au livreur à la remise du colis, sur les 69 wilayas couvertes par la livraison, sans paiement en ligne préalable. Le détail par wilaya figure sur la page [[livraison|/livraison/]].",
+          "Oui. sur les 69 wilayas couvertes par la livraison. Le détail par wilaya figure sur la page [[livraison|/livraison/]].",
       },
     ],
   },

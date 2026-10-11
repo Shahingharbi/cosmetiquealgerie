@@ -348,8 +348,7 @@ export function decrireProduit(p: Produit): DescriptionProduit {
   // argument de vente. Ce qui reste est ce qui sert réellement : le prix, le
   // format, et la façon dont on règle.
   const prixTexte: string[] = [
-    `${p.nom} est proposé à ${prixFr(p.prix)}${p.contenance ? `, pour un format de ${p.contenance}` : ""}. ` +
-      "Le règlement se fait à la livraison, en dinars, remis au livreur. Aucune avance, aucun paiement en ligne, aucune donnée bancaire saisie sur le site.",
+    `${p.nom} est proposé à ${prixFr(p.prix)}${p.contenance ? `, pour un format de ${p.contenance}` : ""}.`,
     `Sur un produit de marque, un écart de prix très large par rapport au marché ne signale presque jamais une bonne opération : il signale un circuit dont l'origine n'est pas établie. Le prix affiché ici correspond à une référence sourcée en pharmacie, parapharmacie ou parfumerie${p.marque ? `, distribuée sous le nom ${p.marque}` : ""}.`,
   ];
   blocs.push({ titre: `Prix ${deElide(court)} en Algérie`, paragraphes: prixTexte });
@@ -373,9 +372,9 @@ export function decrireProduit(p: Produit): DescriptionProduit {
 
   /* ---------- 5. Livraison et authenticité ---------- */
   const LIVRAISON = [
-    "La livraison couvre les 69 wilayas, avec règlement à la réception, en dinars.",
-    "Nous livrons dans les 69 wilayas et vous réglez au livreur, en dinars, une fois le colis entre vos mains.",
-    "Livraison assurée sur les 69 wilayas, paiement à la réception. Vous pouvez ouvrir le colis et vérifier le produit avant de payer.",
+    "La livraison couvre les 69 wilayas.",
+    "Nous livrons dans les 69 wilayas, du littoral au Grand Sud.",
+    "Livraison assurée sur les 69 wilayas. Vous pouvez ouvrir le colis et vérifier le produit avant de payer.",
   ];
   const AUTHENTICITE = [
     `${p.marque || "Cette référence"} provient d'un circuit identifié — pharmacie, parapharmacie ou parfumerie — et non d'un import parallèle.`,
@@ -485,9 +484,9 @@ export function decrireProduit(p: Produit): DescriptionProduit {
  * marché où le colis se paie à la remise. Le texte dit donc ce qui est vrai.
  */
 const QUESTION_LIVRAISON = {
-  question: "Comment se passent la livraison et le paiement ?",
+  question: "Comment se passe la livraison ?",
   reponse:
-    "La livraison couvre les 69 wilayas. Le délai dépend de votre commune et du transporteur qui la dessert : il est plus court sur le nord que sur les wilayas du sud, comme pour tout envoi en Algérie. Le règlement se fait au livreur, en dinars, à la remise du colis — aucune avance, aucune donnée bancaire sur le site.",
+    "La livraison couvre les 69 wilayas. Le délai dépend de votre commune et du transporteur qui la dessert : il est plus court sur le nord que sur les wilayas du sud, comme pour tout envoi en Algérie. Vous pouvez ouvrir le colis et vérifier le produit avant de le régler.",
 };
 
 /** Libellés des champs de la pyramide olfactive, dans l'ordre de lecture. */
@@ -572,8 +571,7 @@ function decrireDepuisNote(
   blocs.push({
     titre: `Prix ${deElide(court)} en Algérie`,
     paragraphes: [
-      `${p.nom} est proposé à ${prixFr(p.prix)}${p.contenance ? `, pour un format de ${p.contenance}` : ""}. ` +
-        "Le règlement se fait à la livraison, en dinars, remis au livreur. Aucune avance, aucun paiement en ligne, aucune donnée bancaire saisie sur le site.",
+      `${p.nom} est proposé à ${prixFr(p.prix)}${p.contenance ? `, pour un format de ${p.contenance}` : ""}.`,
       `Sur un produit de marque, un écart de prix très large par rapport au marché ne signale presque jamais une bonne opération : il signale un circuit dont l'origine n'est pas établie. Le prix affiché ici correspond à une référence sourcée en pharmacie, parapharmacie ou parfumerie${p.marque ? `, distribuée sous le nom ${p.marque}` : ""}.`,
     ],
   });

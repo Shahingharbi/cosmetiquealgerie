@@ -68,7 +68,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "La livraison de produits d'hygiène et de bain est-elle possible partout en Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison : le règlement se fait directement auprès du livreur, sans paiement en ligne à avancer. C'est particulièrement pratique pour ce rayon, fait d'achats récurrents (dentifrice, protections, cotons) qu'on préfère souvent reconstituer sans se déplacer.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison. C'est particulièrement pratique pour ce rayon, fait d'achats récurrents (dentifrice, protections, cotons) qu'on préfère souvent reconstituer sans se déplacer.",
       },
     ],
   },
@@ -134,7 +134,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "Le gel douche est-il livré partout en Algérie avec paiement à la livraison ?",
         reponse:
-          "Oui. La livraison couvre les 69 wilayas et le règlement se fait au livreur, sans paiement en ligne à avancer. C'est adapté à un produit consommé régulièrement, qu'on préfère souvent recommander avant la fin du flacon plutôt que d'en manquer.",
+          "Oui. La livraison couvre les 69 wilayas. C'est adapté à un produit consommé régulièrement, qu'on préfère souvent recommander avant la fin du flacon plutôt que d'en manquer.",
       },
     ],
   },
@@ -271,7 +271,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "Livraison de produits bucco-dentaires dans toute l'Algérie ?",
         reponse:
-          "Oui, dans les 69 wilayas, avec paiement à la livraison : le règlement se fait auprès du livreur. Pratique pour ce rayon d'achats récurrents, dentifrice et bain de bouche se renouvelant régulièrement, et où il est utile de grouper plusieurs références, brosse à dents comprise, en une seule commande.",
+          "Oui, dans les 69 wilayas, avec paiement à la livraison. Pratique pour ce rayon d'achats récurrents, dentifrice et bain de bouche se renouvelant régulièrement, et où il est utile de grouper plusieurs références, brosse à dents comprise, en une seule commande.",
       },
     ],
   },

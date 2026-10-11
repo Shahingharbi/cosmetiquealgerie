@@ -65,7 +65,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Comment est livré un produit L'Oréal Paris commandé en ligne ?",
         reponse:
-          "La livraison couvre les 69 wilayas d'Algérie, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis. Aucune création de compte n'est nécessaire pour commander, un formulaire simple avec nom, téléphone, wilaya et commune suffit à finaliser l'achat.",
+          "La livraison couvre les 69 wilayas d'Algérie, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis.",
       },
     ],
   },
@@ -133,7 +133,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Nivea dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]] pour connaître les délais selon la wilaya. Aucune création de compte n'est nécessaire pour commander. Un simple formulaire avec nom, téléphone, wilaya et commune suffit à valider la commande.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]] pour connaître les délais selon la wilaya.",
       },
     ],
   },
@@ -201,7 +201,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Garnier dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Retrouvez le détail des zones et délais sur la page [[livraison|/livraison/]], accessible depuis le pied de chaque page du site. Le règlement se fait uniquement au moment de la réception du colis, sans avance à effectuer en ligne.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Retrouvez le détail des zones et délais sur la page [[livraison|/livraison/]], accessible depuis le pied de chaque page du site.",
       },
     ],
   },
@@ -269,7 +269,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits La Roche-Posay dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis. Aucune création de compte n'est nécessaire pour commander. Un formulaire simple, avec nom, téléphone, wilaya et commune, suffit à passer commande depuis n'importe quelle page du site.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis.",
       },
     ],
   },
@@ -337,7 +337,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Maybelline dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Retrouvez le détail sur la page [[livraison|/livraison/]], accessible depuis chaque page du site. Le paiement s'effectue uniquement au moment de la réception du colis, sans montant à avancer en ligne au moment de la commande.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Retrouvez le détail sur la page [[livraison|/livraison/]], accessible depuis chaque page du site.",
       },
     ],
   },
@@ -405,7 +405,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Vichy dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis. Aucune création de compte n'est nécessaire pour commander. Un formulaire simple, avec nom, téléphone, wilaya et commune, suffit pour valider une commande depuis le site.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis.",
       },
     ],
   },
@@ -473,7 +473,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits NYX dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Retrouvez toutes les marques de maquillage disponibles sur la page [[marques|/marques/]] du site. Le règlement s'effectue uniquement à la réception du colis, sans paiement en ligne à avancer au moment de la commande.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Retrouvez toutes les marques de maquillage disponibles sur la page [[marques|/marques/]] du site.",
       },
     ],
   },
@@ -541,7 +541,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Bioderma dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis. Aucune création de compte n'est nécessaire pour commander. Un formulaire simple, avec nom, téléphone, wilaya et commune, suffit pour valider une commande depuis le site.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis.",
       },
     ],
   },
@@ -609,7 +609,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Eucerin dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Retrouvez le détail sur la page [[livraison|/livraison/]] du site. Le règlement se fait uniquement à la réception du colis, sans paiement en ligne à avancer, et sans création de compte nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Retrouvez le détail sur la page [[livraison|/livraison/]] du site.",
       },
     ],
   },
@@ -677,7 +677,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Uriage dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis. Aucune création de compte n'est nécessaire pour commander. Un formulaire simple, avec nom, téléphone, wilaya et commune, suffit pour valider une commande depuis le site.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis.",
       },
     ],
   },

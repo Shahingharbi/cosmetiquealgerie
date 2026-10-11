@@ -42,7 +42,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Chanel livre-t-il dans toute l'Algérie ?",
         reponse:
-          "Les produits Chanel commandés sur ce site suivent les mêmes règles que le reste du catalogue : livraison possible dans les 69 wilayas, avec paiement directement au livreur à la remise du colis, sans avance à régler avant réception. Aucune création de compte n'est nécessaire pour valider la commande.",
+          "Les produits Chanel commandés sur ce site suivent les mêmes règles que le reste du catalogue : livraison possible dans les 69 wilayas, avec paiement directement au livreur à la remise du colis.",
       },
       {
         question: "Quelle différence entre une eau de toilette et une eau de parfum Chanel ?",
@@ -112,7 +112,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livraison des produits Dior dans toute l'Algérie ?",
         reponse:
-          "Oui, les produits Dior commandés suivent les mêmes conditions que le reste du catalogue : livraison dans les 69 wilayas, avec règlement au livreur à la remise du colis. Aucun paiement n'est demandé avant la remise du colis, ce qui limite le risque pour l'acheteur.",
+          "Oui, les produits Dior commandés suivent les mêmes conditions que le reste du catalogue : livraison dans les 69 wilayas, avec règlement au livreur à la remise du colis.",
       },
       {
         question: "Le fond de teint Dior convient-il aux peaux grasses ?",
@@ -172,7 +172,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Comment est livré un gel douche Etinia commandé en ligne ?",
         reponse:
-          "Comme le reste du catalogue, la commande est [[livrée|/livraison/]] dans les 69 wilayas avec un règlement directement au livreur à la remise du colis, sans paiement à avancer avant réception. Aucune création de compte n'est nécessaire pour commander un ou plusieurs parfums de la gamme.",
+          "Comme le reste du catalogue, la commande est [[livrée|/livraison/]] dans les 69 wilayas avec un règlement directement au livreur à la remise du colis.",
       },
     ],
   },
@@ -227,7 +227,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Comment sont livrés les produits Isntree en Algérie ?",
         reponse:
-          "Les commandes suivent les conditions générales du site : [[livraison|/livraison/]] dans les 69 wilayas et paiement directement au livreur à la remise du colis, sans frais à régler à l'avance. Aucune création de compte n'est demandée pour passer commande sur le site.",
+          "Les commandes suivent les conditions générales du site : [[livraison|/livraison/]] dans les 69 wilayas et paiement directement au livreur à la remise du colis.",
       },
     ],
   },
@@ -282,7 +282,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Johnson livre-t-il partout en Algérie ?",
         reponse:
-          "Les commandes de produits Johnson suivent les conditions générales du site : [[livraison|/livraison/]] dans les 69 wilayas, paiement au livreur à la remise du colis, sans avance à régler avant réception. Aucune création de compte n'est nécessaire pour commander, un simple numéro de téléphone suffisant à la validation.",
+          "Les commandes de produits Johnson suivent les conditions générales du site : [[livraison|/livraison/]] dans les 69 wilayas, paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -337,7 +337,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Comment sont livrés les produits Lamssa commandés en ligne ?",
         reponse:
-          "Comme le reste du catalogue, la [[livraison|/livraison/]] est possible dans les 69 wilayas avec un paiement directement au livreur à la remise du colis. Aucune création de compte n'est nécessaire pour passer commande, un simple numéro de téléphone suffisant pour valider l'achat, quel que soit le produit Lamssa choisi.",
+          "Comme le reste du catalogue, la [[livraison|/livraison/]] est possible dans les 69 wilayas avec un paiement directement au livreur à la remise du colis.",
       },
     ],
   },
@@ -392,7 +392,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Comment sont livrés les produits Mère Nature en Algérie ?",
         reponse:
-          "Comme pour le reste du catalogue, la [[livraison|/livraison/]] est assurée dans les 69 wilayas avec un règlement directement au livreur à la remise du colis. Aucune création de compte n'est nécessaire pour passer commande, un numéro de téléphone valide suffisant pour la valider.",
+          "Comme pour le reste du catalogue, la [[livraison|/livraison/]] est assurée dans les 69 wilayas avec un règlement directement au livreur à la remise du colis.",
       },
     ],
   },
@@ -447,7 +447,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Monsavon livre-t-il dans toutes les wilayas ?",
         reponse:
-          "Oui, comme le reste du catalogue, les produits Monsavon sont [[livrables|/livraison/]] dans les 69 wilayas, avec un paiement directement au livreur à la remise du colis. Aucune création de compte n'est nécessaire pour passer commande, un simple numéro de téléphone suffisant à la validation de l'achat.",
+          "Oui, comme le reste du catalogue, les produits Monsavon sont [[livrables|/livraison/]] dans les 69 wilayas, avec un paiement directement au livreur à la remise du colis.",
       },
     ],
   },
@@ -502,7 +502,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Parodontax livre-t-il dans toute l'Algérie ?",
         reponse:
-          "Oui, comme le reste du catalogue, les produits Parodontax sont [[livrables|/livraison/]] dans les 69 wilayas, avec paiement au livreur à la remise du colis. Aucune création de compte n'est nécessaire pour passer commande, un simple numéro de téléphone suffisant à la validation.",
+          "Oui, comme le reste du catalogue, les produits Parodontax sont [[livrables|/livraison/]] dans les 69 wilayas, avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -557,7 +557,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Comment sont livrés les produits Seoul 1988 en Algérie ?",
         reponse:
-          "Comme pour le reste du catalogue, la [[livraison|/livraison/]] est assurée dans les 69 wilayas, avec un règlement directement au livreur à la remise du colis. Aucune création de compte n'est nécessaire pour passer commande, un numéro de téléphone valide suffisant pour la valider.",
+          "Comme pour le reste du catalogue, la [[livraison|/livraison/]] est assurée dans les 69 wilayas, avec un règlement directement au livreur à la remise du colis.",
       },
     ],
   },

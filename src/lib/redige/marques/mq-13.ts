@@ -48,7 +48,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Où trouver des produits Abib en Algérie ?",
-        "reponse": "Les produits Abib publiés sur ce site apparaissent dans le rayon soin visage coréen. La commande se règle en paiement à la livraison, avec une expédition possible vers les 69 wilayas ; voir le détail sur la page [[livraison|/livraison/]]."
+        "reponse": "Les produits Abib publiés sur ce site apparaissent dans le rayon soin visage coréen."
       },
       {
         "question": "La gamme Abib est-elle adaptée à une peau sensible ?",
@@ -107,7 +107,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Comment est livrée une commande Malizia en Algérie ?",
-        "reponse": "La livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Aucune création de compte n'est nécessaire : un formulaire simple avec nom, téléphone, wilaya et commune suffit pour passer commande, voir la page [[livraison|/livraison/]] pour le détail."
+        "reponse": "La livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur."
       }
     ]
   },
@@ -165,7 +165,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Comment commander des produits KeraGold en Algérie ?",
-        "reponse": "La commande se passe directement sur le site, en paiement à la livraison, avec une expédition vers les 69 wilayas. Aucune création de compte n'est nécessaire, un formulaire simple avec nom, téléphone, wilaya et commune suffisant pour valider l'achat ; voir la page [[livraison|/livraison/]] pour le détail."
+        "reponse": "La commande se passe directement sur le site, en paiement à la livraison, avec une expédition vers les 69 wilayas."
       }
     ]
   },
@@ -222,7 +222,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Comment commander des produits TOCOBO en Algérie ?",
-        "reponse": "La commande se règle en paiement à la livraison, avec une expédition possible vers les 69 wilayas. Aucune création de compte n'est nécessaire, un formulaire simple avec nom, téléphone, wilaya et commune suffisant pour valider l'achat."
+        "reponse": "La livraison couvre les 69 wilayas, avec paiement à la livraison."
       }
     ]
   },
@@ -279,7 +279,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Comment commander des produits GBM en Algérie ?",
-        "reponse": "La commande se règle en paiement à la livraison, avec une expédition vers les 69 wilayas ; voir la page [[livraison|/livraison/]] pour le détail. Aucune création de compte n'est nécessaire, un formulaire simple avec nom, téléphone, wilaya et commune suffisant."
+        "reponse": "La livraison couvre les 69 wilayas, avec paiement à la livraison ; voir la page [[livraison|/livraison/]] pour le détail."
       }
     ]
   },
@@ -337,7 +337,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Comment commander des produits Ivoire en Algérie ?",
-        "reponse": "La commande se règle en paiement à la livraison, avec une expédition vers les 69 wilayas. Voir la page [[livraison|/livraison/]] pour le détail ; aucune création de compte n'est nécessaire pour passer commande."
+        "reponse": " Voir la page [[livraison|/livraison/]] pour le détail."
       }
     ]
   },
@@ -395,7 +395,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Comment est livrée une commande Old Spice en Algérie ?",
-        "reponse": "La livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Un formulaire simple, nom, téléphone, wilaya et commune, suffit pour commander, voir la page [[livraison|/livraison/]] pour le détail."
+        "reponse": "La livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur."
       }
     ]
   },
@@ -453,7 +453,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Comment commander des produits Arencia en Algérie ?",
-        "reponse": "La commande se règle en paiement à la livraison, avec une expédition vers les 69 wilayas. Voir la page [[livraison|/livraison/]] pour le détail ; aucune création de compte n'est nécessaire pour passer commande."
+        "reponse": " Voir la page [[livraison|/livraison/]] pour le détail."
       }
     ]
   },
@@ -515,7 +515,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Comment commander des produits Énergie Fruit en Algérie ?",
-        "reponse": "La commande se règle en paiement à la livraison, avec une expédition vers les 69 wilayas. Un formulaire simple avec nom, téléphone, wilaya et commune suffit, sans création de compte nécessaire ; voir la page [[livraison|/livraison/]] pour le détail."
+        "reponse": "La livraison couvre les 69 wilayas, avec paiement à la livraison ; voir la page [[livraison|/livraison/]] pour le détail."
       }
     ]
   },
@@ -577,7 +577,7 @@ export const LOT: MarqueRedigee[] = [
       },
       {
         "question": "Comment commander des produits Gliss en Algérie ?",
-        "reponse": "La commande se règle en paiement à la livraison, avec une expédition vers les 69 wilayas. Voir la page [[livraison|/livraison/]] pour le détail ; aucune création de compte n'est nécessaire pour passer commande."
+        "reponse": " Voir la page [[livraison|/livraison/]] pour le détail."
       }
     ]
   }

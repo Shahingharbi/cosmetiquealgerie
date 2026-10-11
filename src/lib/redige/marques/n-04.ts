@@ -54,7 +54,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Peut-on commander un produit Yves Saint Laurent en étant livré partout en Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement au livreur à la remise du colis et sans création de compte préalable avant de recevoir la commande.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -106,7 +106,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Ecrinal est-elle livrée dans toutes les wilayas ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte préalable.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
       {
         question: "Le mascara fortifiant Ecrinal a-t-il un effet cosmétique visible ?",
@@ -168,7 +168,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "La livraison LCA Pharma est-elle possible dans toute l'Algérie ?",
         reponse:
-          "Oui, avec paiement au livreur à la remise du colis et une couverture des 69 wilayas, sans création de compte nécessaire avant de commander.",
+          "Oui, avec paiement au livreur à la remise du colis et une couverture des 69 wilayas.",
       },
     ],
   },
@@ -225,7 +225,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Peut-on se faire livrer les produits Namira partout en Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement au livreur à la remise du colis et sans création de compte préalable.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -282,7 +282,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Niall livre-t-elle dans toutes les wilayas ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte préalable.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -339,7 +339,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Polycos Professionnel est-elle livrée dans toute l'Algérie ?",
         reponse:
-          "Oui, avec une couverture des 69 wilayas et un paiement au livreur à la remise du colis, sans création de compte préalable.",
+          "Oui, avec une couverture des 69 wilayas et un paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -396,7 +396,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "La livraison Awane est-elle possible dans toutes les wilayas ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement au livreur à la remise du colis et sans création de compte préalable.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -453,7 +453,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Bitaderma livre-t-elle dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte préalable.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -510,7 +510,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Daylong livre-t-elle dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement au livreur à la remise du colis et sans création de compte préalable.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -567,7 +567,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Exceptionelle livre-t-elle dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement au livreur à la remise du colis et sans création de compte préalable.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement au livreur à la remise du colis.",
       },
     ],
   },

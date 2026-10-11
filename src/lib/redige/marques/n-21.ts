@@ -57,7 +57,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Stridex livre-t-il dans toute l'Algérie ?",
         reponse:
-          "La livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "La livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -117,7 +117,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Zinal livre-t-elle dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -177,7 +177,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Arm & Hammer livre-t-il dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -297,7 +297,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Bioderminy livre-t-elle dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -357,7 +357,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Bionike livre-t-elle dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -477,7 +477,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Cenera livre-t-elle dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -597,7 +597,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Dr.Melaxin livre-t-il dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },

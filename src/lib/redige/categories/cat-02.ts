@@ -70,7 +70,7 @@ export const LOT: CategorieRedigee[] = [
       {
         question: "Livrez-vous les crèmes de jour dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison : le règlement se fait directement auprès du livreur à la réception du colis, sans paiement en ligne préalable. Chaque référence proposée provient de pharmacie, parapharmacie ou parfumerie, un point de vigilance particulièrement utile sur ce type de produit.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison. Chaque référence proposée provient de pharmacie, parapharmacie ou parfumerie, un point de vigilance particulièrement utile sur ce type de produit.",
       },
     ],
   },

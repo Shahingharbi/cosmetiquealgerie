@@ -45,11 +45,6 @@ export default function PageCommande() {
           <h1 className="text-[32px] leading-[1.1] text-[#141414] md:text-[44px]">
             Finaliser la commande
           </h1>
-          <p className="mt-5 max-w-[62ch] text-[16px] leading-[1.6] text-[#4f4f4f]">
-            Sept champs, dont un facultatif. Pas de compte, pas de mot de passe,
-            et aucun paiement en ligne : vous réglez au livreur.
-          </p>
-
           <FormulaireCommande resoudre={resoudreCommande} />
         </div>
       </main>

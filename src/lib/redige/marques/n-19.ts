@@ -54,7 +54,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livre-t-on Whiskey partout en Algérie ?",
         reponse:
-          "Oui, la livraison est proposée dans les 69 wilayas, avec paiement au livreur à la remise du colis, sans création de compte préalable nécessaire pour passer commande. Le détail des modalités et des zones couvertes figure sur la page [[livraison|/livraison/]].",
+          "Oui, la livraison est proposée dans les 69 wilayas, avec paiement au livreur à la remise du colis. Le détail des modalités et des zones couvertes figure sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -168,7 +168,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Acqua di Parma livre-t-elle dans toutes les wilayas ?",
         reponse:
-          "Oui, la livraison est assurée dans les 69 wilayas d'Algérie, avec paiement au livreur à la réception du colis et sans avance de fonds à effectuer en ligne. Le détail des conditions, des délais et des zones couvertes figure sur la page [[livraison|/livraison/]].",
+          "Oui, la livraison est assurée dans les 69 wilayas d'Algérie, avec paiement au livreur à la réception du colis et. Le détail des conditions, des délais et des zones couvertes figure sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -225,7 +225,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Bepanthen est-elle livrée dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte nécessaire pour commander. Le détail des zones couvertes et du fonctionnement du paiement à la livraison figure sur la page [[livraison|/livraison/]].",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis. Le détail des zones couvertes et du fonctionnement du paiement à la livraison figure sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -282,7 +282,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Cavaillés livre-t-elle dans toute l'Algérie ?",
         reponse:
-          "La livraison est assurée dans les 69 wilayas, avec paiement au livreur à la remise du colis et sans création de compte nécessaire. Les modalités détaillées, y compris les zones couvertes, figurent sur la page [[livraison|/livraison/]], comme pour l'ensemble des commandes passées sur le site.",
+          "La livraison est assurée dans les 69 wilayas, avec paiement au livreur à la remise du colis. Les modalités détaillées, y compris les zones couvertes, figurent sur la page [[livraison|/livraison/]], comme pour l'ensemble des commandes passées sur le site.",
       },
     ],
   },
@@ -396,7 +396,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "IKT est-elle disponible partout en Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte nécessaire pour commander en ligne. Le détail des modalités et des zones couvertes figure sur la page [[livraison|/livraison/]], comme pour l'ensemble des marques de soin cheveux présentes sur le site.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis. Le détail des modalités et des zones couvertes figure sur la page [[livraison|/livraison/]], comme pour l'ensemble des marques de soin cheveux présentes sur le site.",
       },
     ],
   },
@@ -453,7 +453,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "ISDIN livre-t-elle dans toutes les wilayas d'Algérie ?",
         reponse:
-          "Oui, la livraison est assurée dans les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte préalable. Le détail des conditions, des délais et des zones couvertes figure sur la page [[livraison|/livraison/]], comme pour les autres marques de dermocosmétique présentes sur le site.",
+          "Oui, la livraison est assurée dans les 69 wilayas avec paiement au livreur à la remise du colis. Le détail des conditions, des délais et des zones couvertes figure sur la page [[livraison|/livraison/]], comme pour les autres marques de dermocosmétique présentes sur le site.",
       },
     ],
   },
@@ -567,7 +567,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Kera Queen's est-elle livrée dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis, sans création de compte nécessaire pour passer commande. Le détail des conditions et des zones couvertes figure sur la page [[livraison|/livraison/]], au même titre que pour les autres marques du site.",
+          "Oui, la livraison couvre les 69 wilayas avec paiement au livreur à la remise du colis. Le détail des conditions et des zones couvertes figure sur la page [[livraison|/livraison/]], au même titre que pour les autres marques du site.",
       },
     ],
   },

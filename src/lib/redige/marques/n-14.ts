@@ -54,7 +54,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où acheter un Carmex d'origine en Algérie ?",
         reponse:
-          "Privilégier une parapharmacie ou une enseigne identifiée reste la meilleure garantie, plutôt qu'un vendeur qui propose le produit à l'unité et sans emballage d'origine. Ce site livre dans les 69 wilayas avec paiement au livreur à la remise du colis, sans exiger de création de compte.",
+          "Privilégier une parapharmacie ou une enseigne identifiée reste la meilleure garantie, plutôt qu'un vendeur qui propose le produit à l'unité et sans emballage d'origine. Ce site livre dans les 69 wilayas avec paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -396,7 +396,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où commander les produits LPM en Algérie avec livraison ?",
         reponse:
-          "Ce site propose une sélection de la gamme LPM avec [[livraison|/livraison/]] dans les 69 wilayas et paiement au livreur à la remise du colis, sans création de compte nécessaire pour passer commande.",
+          "Ce site propose une sélection de la gamme LPM avec [[livraison|/livraison/]] dans les 69 wilayas et paiement au livreur à la remise du colis.",
       },
     ],
   },
@@ -567,7 +567,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où commander la gamme Musc en Algérie ?",
         reponse:
-          "Cette gamme est disponible avec [[livraison|/livraison/]] dans les 69 wilayas et paiement au livreur à la remise du colis, sans création de compte nécessaire pour passer commande.",
+          "Cette gamme est disponible avec [[livraison|/livraison/]] dans les 69 wilayas et paiement au livreur à la remise du colis.",
       },
     ],
   },

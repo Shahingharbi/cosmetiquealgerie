@@ -278,7 +278,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "NOW Solutions livre-t-elle en Algérie ?",
         reponse:
-          "Les commandes sont livrées dans les 69 wilayas avec paiement au livreur à la remise du colis ; voir la page [[livraison|/livraison/]] pour le détail complet des conditions. Aucune création de compte n'est nécessaire pour passer commande, seuls le nom, le téléphone et la wilaya sont demandés.",
+          "Les commandes sont livrées dans les 69 wilayas avec paiement au livreur à la remise du colis ; voir la page [[livraison|/livraison/]] pour le détail complet des conditions.",
       },
       {
         question: "Les huiles NOW Solutions sont-elles pures ou parfumées ?",

@@ -34,7 +34,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Eloa est-elle vendue en Algérie ?",
         reponse:
-          "Oui, les huiles essentielles Eloa sont proposées sur le site au sein du rayon huile essentielle. La commande se passe sans création de compte, la livraison couvre les 69 wilayas et le paiement se fait au livreur, à la remise du colis, ce qui permet de vérifier le flacon avant de payer.",
+          "Oui, les huiles essentielles Eloa sont proposées sur le site au sein du rayon huile essentielle. La livraison couvre les 69 wilayas, et le flacon se vérifie à la remise du colis, avant de payer.",
       },
       {
         question: "Comment utiliser une huile essentielle Eloa sans risque ?",
@@ -91,7 +91,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Enchanteur est-elle vendue en Algérie ?",
         reponse:
-          "Oui, la marque est présente sur le site au rayon [[parfum|/parfum/]], avec ses quatre lignes Alluring, Charming, Enticing et Romantic en lait et en talc parfumés. La commande se passe sans création de compte, avec livraison dans les 69 wilayas et paiement au livreur à la réception du colis.",
+          "Oui, la marque est présente sur le site au rayon [[parfum|/parfum/]], avec ses quatre lignes Alluring, Charming, Enticing et Romantic en lait et en talc parfumés. La livraison couvre les 69 wilayas.",
       },
       {
         question: "Quelle est la différence entre le lait et le talc Enchanteur ?",
@@ -148,7 +148,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Fructis est-il vendu en Algérie ?",
         reponse:
-          "Oui, la gamme Fructis de Garnier est présente sur le site au rayon [[soin cheveux|/soin-cheveux/]], avec ses shampoings, masques et soins sans rinçage. La commande se passe sans création de compte, avec livraison dans les 69 wilayas et paiement au livreur à la réception du colis.",
+          "Oui, la gamme Fructis de Garnier est présente sur le site au rayon [[soin cheveux|/soin-cheveux/]], avec ses shampoings, masques et soins sans rinçage. La livraison couvre les 69 wilayas.",
       },
       {
         question: "Quelle gamme Fructis choisir pour des cheveux secs ?",
@@ -205,7 +205,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Gilette est-elle vendue en Algérie ?",
         reponse:
-          "Oui, la marque est présente sur le site aux rayons rasage homme, pour les gammes Mach3 et Series, et épilation, pour Venus. La commande se passe sans création de compte, avec livraison dans les 69 wilayas et paiement au livreur à la réception.",
+          "Oui, la marque est présente sur le site aux rayons rasage homme, pour les gammes Mach3 et Series, et épilation, pour Venus. La livraison couvre les 69 wilayas.",
       },
       {
         question: "Quelle est la différence entre Mach3 et Series ?",
@@ -262,7 +262,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Herome est-elle vendue en Algérie ?",
         reponse:
-          "Oui, la marque est présente sur le site au rayon vernis à ongles, avec ses durcisseurs, son huile nourrissante et ses vernis colorés. La commande se passe sans création de compte, livraison dans les 69 wilayas et paiement au livreur à la réception du colis.",
+          "Oui, la marque est présente sur le site au rayon vernis à ongles, avec ses durcisseurs, son huile nourrissante et ses vernis colorés. La livraison couvre les 69 wilayas.",
       },
       {
         question: "Quelle est la différence entre Strong et Extra Strong ?",
@@ -319,7 +319,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Intima est-elle vendue en Algérie ?",
         reponse:
-          "Oui, la gamme est présente sur le site au rayon [[hygiène intime|/hygiene-bain/hygiene-intime/]], avec ses différentes formules, doux, neutre, sensible, apaisant, régulateur. La commande se passe sans création de compte, livraison dans les 69 wilayas et paiement au livreur à la réception du colis.",
+          "Oui, la gamme est présente sur le site au rayon [[hygiène intime|/hygiene-bain/hygiene-intime/]], avec ses différentes formules, doux, neutre, sensible, apaisant, régulateur. La livraison couvre les 69 wilayas.",
       },
       {
         question: "Quelle différence entre le gel Neutre et le gel Sensible ?",
@@ -376,7 +376,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Jason Wu est-elle vendue en Algérie ?",
         reponse:
-          "Oui, la marque de maquillage du couturier Jason Wu est présente sur le site au rayon maquillage, avec ses palettes de fards, ses blushs et son sérum de cils. La commande se passe sans création de compte, livraison dans les 69 wilayas et paiement au livreur à la réception.",
+          "Oui, la marque de maquillage du couturier Jason Wu est présente sur le site au rayon maquillage, avec ses palettes de fards, ses blushs et son sérum de cils. La livraison couvre les 69 wilayas.",
       },
       {
         question: "Quelle palette Jason Wu choisir pour un usage quotidien ?",
@@ -433,7 +433,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Kiehl's est-elle vendue en Algérie ?",
         reponse:
-          "Oui, la marque est présente sur le site au rayon soin anti-âge visage, avec un accent particulier sur le contour des yeux. La commande se passe sans création de compte, livraison dans les 69 wilayas et paiement au livreur à la réception du colis.",
+          "Oui, la marque est présente sur le site au rayon soin anti-âge visage, avec un accent particulier sur le contour des yeux. La livraison couvre les 69 wilayas.",
       },
       {
         question: "Quelle est la crème Kiehl's la plus connue ?",
@@ -490,7 +490,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Noom est-elle vendue en Algérie ?",
         reponse:
-          "Oui, la gamme est présente sur le site au rayon [[soin et toilette bébé|/bebe-maman/soin-toilette-bebe/]], avec sa crème de change, son gel lavant, son lait hydratant et son liniment. La commande se passe sans création de compte, livraison dans les 69 wilayas et paiement au livreur à la réception.",
+          "Oui, la gamme est présente sur le site au rayon [[soin et toilette bébé|/bebe-maman/soin-toilette-bebe/]], avec sa crème de change, son gel lavant, son lait hydratant et son liniment. La livraison couvre les 69 wilayas.",
       },
       {
         question: "Le liniment Noom remplace-t-il la crème de change ?",
@@ -547,7 +547,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "OGX est-elle vendue en Algérie ?",
         reponse:
-          "Oui, la marque est présente sur le site aux rayons soin cheveux et shampoing, avec ses gammes Argan Oil of Morocco, Coconut Oil Miracle et kératine. La commande se passe sans création de compte, livraison dans les 69 wilayas et paiement au livreur à la réception.",
+          "Oui, la marque est présente sur le site aux rayons soin cheveux et shampoing, avec ses gammes Argan Oil of Morocco, Coconut Oil Miracle et kératine. La livraison couvre les 69 wilayas.",
       },
       {
         question: "OGX et Organix, est-ce la même marque ?",

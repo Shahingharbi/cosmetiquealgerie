@@ -101,7 +101,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où acheter Dermomed en Algérie avec livraison ?",
         reponse:
-          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis, sans avoir à créer de compte pour commander. Vérifier l'état du bouchon et l'étiquette à la réception reste le meilleur réflexe pour tout produit d'hygiène en grand format.",
+          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis. Vérifier l'état du bouchon et l'étiquette à la réception reste le meilleur réflexe pour tout produit d'hygiène en grand format.",
       },
     ],
   },
@@ -153,7 +153,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où trouver Email Diamant en Algérie avec livraison à domicile ?",
         reponse:
-          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis, sans création de compte nécessaire pour commander. Le choix se fait par formule, blancheur, sensible, bicarbonate ou charbon, plutôt que par un tube générique unique.",
+          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis. Le choix se fait par formule, blancheur, sensible, bicarbonate ou charbon, plutôt que par un tube générique unique.",
       },
       {
         question: "Comment vérifier qu'un tube Email Diamant n'est pas une contrefaçon ?",
@@ -210,7 +210,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où acheter les produits Eternel en Algérie avec paiement à la livraison ?",
         reponse:
-          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis, sans création de compte pour commander. Le choix entre les rayons hygiène et soin se fait selon le besoin recherché, déodorant, visage ou cheveux.",
+          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis. Le choix entre les rayons hygiène et soin se fait selon le besoin recherché, déodorant, visage ou cheveux.",
       },
       {
         question: "Eternel est-elle une marque algérienne ?",
@@ -267,7 +267,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où commander Ladyfresh en Algérie avec paiement à la livraison ?",
         reponse:
-          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis, sans création de compte. Le choix se fait par ligne, hygiène intime, déodorant, brume ou gel douche, selon le besoin recherché.",
+          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis. Le choix se fait par ligne, hygiène intime, déodorant, brume ou gel douche, selon le besoin recherché.",
       },
       {
         question: "Ladyfresh est-elle disponible en pharmacie ?",
@@ -324,7 +324,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où acheter Magic Dream en Algérie avec livraison ?",
         reponse:
-          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis, sans création de compte pour commander. Le choix se fait selon le besoin, démaquillage, nettoyage ou teint.",
+          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis. Le choix se fait selon le besoin, démaquillage, nettoyage ou teint.",
       },
       {
         question: "Magic Dream propose-t-elle des teintes adaptées aux peaux mates ?",
@@ -381,7 +381,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où acheter les parfums Mont en Algérie avec paiement à la livraison ?",
         reponse:
-          "Les références sont disponibles avec livraison dans les 69 wilayas et paiement à la remise du colis, sans création de compte pour commander. Le choix se fait selon le format recherché, miniature de découverte ou flacon principal.",
+          "Les références sont disponibles avec livraison dans les 69 wilayas et paiement à la remise du colis. Le choix se fait selon le format recherché, miniature de découverte ou flacon principal.",
       },
       {
         question: "Mont propose-t-elle des parfums pour femme ?",
@@ -438,7 +438,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où acheter Murj en Algérie avec paiement à la livraison ?",
         reponse:
-          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis, sans création de compte pour commander. Le choix se fait selon la senteur préférée et le format recherché, brume seule ou coffret.",
+          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis. Le choix se fait selon la senteur préférée et le format recherché, brume seule ou coffret.",
       },
       {
         question: "Le déodorant homme Murj se distingue-t-il du reste de la gamme ?",
@@ -495,7 +495,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où acheter Onagrine en Algérie avec livraison ?",
         reponse:
-          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis, sans création de compte pour commander. Le choix se fait selon le besoin, hydratation, anti-âge, nettoyage ou maquillage léger.",
+          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis. Le choix se fait selon le besoin, hydratation, anti-âge, nettoyage ou maquillage léger.",
       },
       {
         question: "Le gommage Onagrine convient-il à une peau réactive ?",
@@ -552,7 +552,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Où acheter Oryage en Algérie avec paiement à la livraison ?",
         reponse:
-          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis, sans création de compte pour commander. Le choix se fait selon le type de cheveu, coloré, sec ou affaibli, plutôt qu'un produit générique unique.",
+          "La marque est disponible avec livraison dans les 69 wilayas et paiement à la remise du colis. Le choix se fait selon le type de cheveu, coloré, sec ou affaibli, plutôt qu'un produit générique unique.",
       },
       {
         question: "Faut-il alterner shampoing et après-shampoing Oryage avec d'autres marques ?",

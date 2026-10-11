@@ -10,11 +10,6 @@ const ENGAGEMENTS = [
       "Le catalogue est livrable sur l'ensemble du territoire algérien, du littoral au Grand Sud, avec un délai indicatif annoncé avant la commande.",
   },
   {
-    titre: "Paiement à la livraison",
-    texte:
-      "Vous réglez au livreur, à réception du colis. Aucune carte bancaire n'est demandée au moment de la commande.",
-  },
-  {
     titre: "Conseil avant l'achat",
     texte:
       "Une question sur une texture, un actif ou une routine ? Notre équipe répond par téléphone et sur WhatsApp avant que vous ne commandiez.",
@@ -40,7 +35,7 @@ export function Engagements() {
           Nos engagements
         </h2>
 
-        <ul className="mt-8 grid grid-cols-1 gap-px border border-[#e5e5e5] bg-[#e5e5e5] sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-8 grid grid-cols-1 gap-px border border-[#e5e5e5] bg-[#e5e5e5] sm:grid-cols-3">
           {ENGAGEMENTS.map((e, i) => (
             <li key={e.titre} className="bg-white p-6 md:p-8">
               <span className="font-mono text-[12px] text-[#909090]">

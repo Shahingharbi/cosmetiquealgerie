@@ -54,7 +54,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livre-t-on Sheglam partout en Algérie ?",
         reponse:
-          "La [[livraison|/livraison/]] fonctionne dans les 69 wilayas, avec paiement à la livraison à réception de la commande, sans frais cachés annoncés au dernier moment. C'est un point commun à l'ensemble du site, quelle que soit la marque choisie, y compris pour les petits formats comme un gloss ou un blush commandés à l'unité.",
+          "La [[livraison|/livraison/]] fonctionne dans les 69 wilayas, avec paiement à la livraison à réception de la commande. C'est un point commun à l'ensemble du site, quelle que soit la marque choisie, y compris pour les petits formats comme un gloss ou un blush commandés à l'unité.",
       },
     ],
   },

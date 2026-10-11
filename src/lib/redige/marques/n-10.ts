@@ -339,7 +339,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Lovina est-elle livrée dans toute l'Algérie ?",
         reponse:
-          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis, sans création de compte préalable pour commander.",
+          "Sur ce site, [[la livraison|/livraison/]] couvre les 69 wilayas, avec paiement au livreur à la remise du colis.",
       },
     ],
   },

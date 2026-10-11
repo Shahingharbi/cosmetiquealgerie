@@ -52,7 +52,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Ellea dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis. Aucune création de compte n'est nécessaire pour commander, voir le détail sur la page [[livraison|/livraison/]].",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis.",
       },
     ],
   },
@@ -107,7 +107,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Eqqual dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire, un formulaire simple avec nom, téléphone, wilaya et commune suffit.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -162,7 +162,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Flore dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -217,7 +217,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Labello dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur au moment de la réception du colis. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -272,7 +272,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Lisas dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -327,7 +327,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Some By Mi dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -382,7 +382,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits DermaEOS dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -437,7 +437,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Revlon dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -492,7 +492,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Veet dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
@@ -547,7 +547,7 @@ export const LOT: MarqueRedigee[] = [
       {
         question: "Livrez-vous les produits Vogue dans toute l'Algérie ?",
         reponse:
-          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]]. Aucune création de compte n'est nécessaire pour commander.",
+          "Oui, la livraison couvre les 69 wilayas, avec paiement à la livraison directement auprès du livreur. Voir le détail sur la page [[livraison|/livraison/]].",
       },
     ],
   },
