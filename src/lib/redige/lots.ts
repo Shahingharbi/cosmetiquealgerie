@@ -255,6 +255,9 @@ import { LOT as fic_h_052 } from "@/lib/redige/fiches/h-052";
 import { LOT as fic_h_053 } from "@/lib/redige/fiches/h-053";
 import { LOT as fic_h_054 } from "@/lib/redige/fiches/h-054";
 import { LOT as fic_h_055 } from "@/lib/redige/fiches/h-055";
+import { LOT as fic_h_056 } from "@/lib/redige/fiches/h-056";
+import { LOT as fic_h_057 } from "@/lib/redige/fiches/h-057";
+import { LOT as fic_h_058 } from "@/lib/redige/fiches/h-058";
 
 export const LOTS_CATEGORIES: CategorieRedigee[][] = [
   cat_cat_01,
@@ -507,4 +510,7 @@ export const LOTS_FICHES: FicheRedigee[][] = [
   fic_h_053,
   fic_h_054,
   fic_h_055,
+  fic_h_056,
+  fic_h_057,
+  fic_h_058,
 ];
