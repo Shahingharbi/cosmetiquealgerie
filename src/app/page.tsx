@@ -9,7 +9,7 @@ import { Philosophy } from "@/components/Philosophy";
 import { Reviews } from "@/components/Reviews";
 import RoutineCard from "@/components/RoutineCard";
 import TexteEditorial from "@/components/TexteEditorial";
-import { SITE_NOM, SITE_URL, urlAbsolue } from "@/lib/catalogue";
+import { SITE_NOM, SITE_URL, produitsDeLaMarque, urlAbsolue } from "@/lib/catalogue";
 import {
   CATEGORIES,
   EDITORIAL_ACCUEIL,
@@ -86,6 +86,23 @@ export default function PageAccueil() {
       */}
       <main id="contenu" className="flex-1 pb-20">
         <Hero />
+
+        {/*
+          Partenaire KERAY Laboratoire : premier fabricant algérien en accord
+          direct avec le site. Placé haut pour l'acheteur, et parce qu'un lien
+          depuis l'accueil fait découvrir les fiches à Google en priorité.
+        */}
+        <Carousel
+          eyebrow="Fabriqué en Algérie · KERAY Laboratoire"
+          viewAllLabel="Découvrir KERAY"
+          viewAllHref="/marques/keray/"
+          slideClass="min-w-[70vw] sm:min-w-[45vw] md:min-w-[360px] max-w-[440px]"
+          className="bg-white"
+        >
+          {produitsDeLaMarque("keray").map((p) => (
+            <CarteProduit key={p.slug} produit={p} />
+          ))}
+        </Carousel>
 
         <Carousel
           eyebrow="Les plus demandés"

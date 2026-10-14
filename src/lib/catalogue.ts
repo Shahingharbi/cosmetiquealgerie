@@ -247,12 +247,23 @@ export function categoriesDeLaMarque(marqueSlug: string): MarqueCategorie[] {
 /* ------------------------------------------------------------------ */
 
 /**
+ * Marques avec lesquelles le site a un accord direct (photos et données du
+ * fabricant). Leurs produits passent en tête des rayons et ont leur bloc sur la
+ * page d'accueil. Source des fiches : pipeline/13-partenaires/.
+ */
+export const MARQUES_PARTENAIRES = new Set<string>(["keray"]);
+
+/**
  * Ordre de mise en avant. `nbSites` est le signal le plus discriminant dont on
  * dispose : 96,5 % des produits n'existent que sur un seul site concurrent,
  * donc nbSites >= 2 désigne un vrai best-seller.
  */
 export function trierParPertinence(liste: Produit[]): Produit[] {
   return [...liste].sort((a, b) => {
+    // Marques partenaires (accord direct avec le fabricant) : en tête de rayon.
+    const partenaireA = MARQUES_PARTENAIRES.has(a.marqueSlug) ? 1 : 0;
+    const partenaireB = MARQUES_PARTENAIRES.has(b.marqueSlug) ? 1 : 0;
+    if (partenaireA !== partenaireB) return partenaireB - partenaireA;
     // Une fiche illustrée passe devant : une grille qui s'ouvre sur des cadres
     // sans visuel fait fuir, quelle que soit la qualité du reste.
     const illustreA = a.images.length > 0 ? 1 : 0;

@@ -42,6 +42,7 @@ import { LOT as mq_mq_11 } from "@/lib/redige/marques/mq-11";
 import { LOT as mq_mq_12 } from "@/lib/redige/marques/mq-12";
 import { LOT as mq_mq_13 } from "@/lib/redige/marques/mq-13";
 import { LOT as mq_mq_14 } from "@/lib/redige/marques/mq-14";
+import { LOT as mq_mq_keray } from "@/lib/redige/marques/mq-keray";
 import { LOT as mq_n_01 } from "@/lib/redige/marques/n-01";
 import { LOT as mq_n_02 } from "@/lib/redige/marques/n-02";
 import { LOT as mq_n_03 } from "@/lib/redige/marques/n-03";
@@ -134,6 +135,7 @@ import { LOT as fic_fiche_48 } from "@/lib/redige/fiches/fiche-48";
 import { LOT as fic_fiche_49 } from "@/lib/redige/fiches/fiche-49";
 import { LOT as fic_fiche_50 } from "@/lib/redige/fiches/fiche-50";
 import { LOT as fic_fiche_51 } from "@/lib/redige/fiches/fiche-51";
+import { LOT as fic_fiche_keray } from "@/lib/redige/fiches/fiche-keray";
 import { LOT as fic_g_001 } from "@/lib/redige/fiches/g-001";
 import { LOT as fic_g_002 } from "@/lib/redige/fiches/g-002";
 import { LOT as fic_g_003 } from "@/lib/redige/fiches/g-003";
@@ -294,6 +296,7 @@ export const LOTS_MARQUES: MarqueRedigee[][] = [
   mq_mq_12,
   mq_mq_13,
   mq_mq_14,
+  mq_mq_keray,
   mq_n_01,
   mq_n_02,
   mq_n_03,
@@ -389,6 +392,7 @@ export const LOTS_FICHES: FicheRedigee[][] = [
   fic_fiche_49,
   fic_fiche_50,
   fic_fiche_51,
+  fic_fiche_keray,
   fic_g_001,
   fic_g_002,
   fic_g_003,
