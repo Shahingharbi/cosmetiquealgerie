@@ -1,24 +1,20 @@
 name: Google Indexing API — Daily Submit
 
 on:
-  # ⏸ PASSAGE AUTOMATIQUE DÉSACTIVÉ — en attente d'un projet Google Cloud dédié.
-  #
   # Les 200 soumissions quotidiennes de l'Indexing API sont un quota du PROJET Google
   # Cloud, pas du site. Le compte indexing-bot (projet seo-indexing-495516) sert aussi
-  # le site de parfum, dont le robot tourne chaque jour à 09:00 UTC et consomme ses 200.
-  # Constaté le 29/09/2026 : le premier appel de ce robot-ci a reçu un 429. Laisser les
-  # deux passages automatiques actifs, c'est les faire se disputer le même quota chaque
-  # matin — et le second à tourner échoue.
+  # le site de parfum maisonnumidia, dont le robot passe chaque jour (cron 09:00 UTC,
+  # lancé en pratique par GitHub entre 14h et 19h UTC).
   #
-  # Décision du propriétaire : le site de parfum garde ses 200, celui-ci attend son
-  # propre projet Google Cloud. Pour réactiver, une fois ce projet créé :
-  #   1. remplacer le secret GOOGLE_INDEXING_CREDENTIALS_JSON par la clé du NOUVEAU
-  #      compte de service, ajouté propriétaire de sc-domain:cosmetiquealgerie.com ;
-  #   2. décommenter les trois lignes ci-dessous.
-  #
-  # schedule:
-  #   # Every day at 10:00 UTC = 11:00 Algiers time
-  #   - cron: "0 10 * * *"
+  # Règle du propriétaire (16/10/2026) : maisonnumidia est prioritaire QUAND IL EST EN
+  # LIGNE. Le 16/10 il a été coupé par Vercel (plan Hobby dépassé) : son robot échoue
+  # sans rien consommer, les 200 envois reviennent à cosmetiquealgerie. L'étape
+  # « priorite » ci-dessous vérifie maisonnumidia à chaque passage : s'il répond 200,
+  # ce robot-ci n'envoie rien et lui laisse le quota. Aucune intervention à prévoir
+  # quand il reviendra en ligne.
+  schedule:
+    # 10:00 UTC demandé ; GitHub le décale souvent de plusieurs heures.
+    - cron: "0 10 * * *"
   workflow_dispatch:
     # Manual trigger from GitHub UI
     inputs:
@@ -50,11 +46,19 @@ jobs:
           # Aligné sur .nvmrc et package.json. Node 20 est en fin de vie depuis avril 2026.
           node-version: "24"
 
+      - name: Priorite au site de parfum s'il est en ligne
+        id: priorite
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 https://maisonnumidia.store/ || echo 000)
+          echo "maisonnumidia.store repond $code"
+          if [ "$code" = "200" ]; then echo "ceder=oui" >> "$GITHUB_OUTPUT"; else echo "ceder=non" >> "$GITHUB_OUTPUT"; fi
+
       - name: Run Indexing API submitter
+        if: steps.priorite.outputs.ceder != 'oui'
         env:
           GOOGLE_INDEXING_CREDENTIALS_JSON: ${{ secrets.GOOGLE_INDEXING_CREDENTIALS_JSON }}
         run: |
-          LIMIT="${{ github.event.inputs.limit || '100' }}"
+          LIMIT="${{ github.event.inputs.limit || '200' }}"
           node scripts/google-indexing-api.mjs --limit=$LIMIT
 
       - name: Commit updated log
