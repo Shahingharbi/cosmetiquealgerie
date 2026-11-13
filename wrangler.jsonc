@@ -5,6 +5,7 @@
   "compatibility_date": "2026-11-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "kv_namespaces": [{ "binding": "NEXT_INC_CACHE_KV", "id": "bb32e3a5ede84319ab7a1ef5d357eb34" }],
   "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "cosmetiquealgerie" }],
   "vars": { "VERCEL_ENV": "production" },
   "observability": { "enabled": true }
