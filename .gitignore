@@ -73,3 +73,9 @@ public/produits-obf/
 # Verrou du robot d'indexation : il n'existe que pendant un run et empeche
 # deux instances de s'ecraser mutuellement le journal.
 data/*.lock
+
+.open-next
+.wrangler
+
+.vercel
+.env*
